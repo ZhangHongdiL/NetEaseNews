@@ -3,8 +3,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <!--一级界面的文字及margin大小-->
+    <!--字体大小-->
     <dimen name="main_radioButton_size">10sp</dimen>
+    <dimen name="middle_size">15sp</dimen>
+    <dimen name="big_size">20sp</dimen>
+    <!--一级界面margin大小-->
     <dimen name="main_radioButton_margin">5dp</dimen>
 
     <!--item的文字大小及margin-->

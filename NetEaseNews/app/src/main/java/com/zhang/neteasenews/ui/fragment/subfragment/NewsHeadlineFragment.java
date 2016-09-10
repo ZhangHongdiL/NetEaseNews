@@ -1,4 +1,4 @@
-package com.zhang.neteasenews.ui.fragment;
+package com.zhang.neteasenews.ui.fragment.subfragment;
 
 import android.content.Context;
 import android.widget.ListView;
@@ -6,6 +6,7 @@ import android.widget.ListView;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.HeadlineEntity;
 import com.zhang.neteasenews.ui.adapter.NewsHeadlineAdapter;
+import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;

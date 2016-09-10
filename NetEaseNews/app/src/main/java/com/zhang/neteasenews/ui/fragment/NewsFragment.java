@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
+import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 
 import java.util.ArrayList;
 import java.util.List;
