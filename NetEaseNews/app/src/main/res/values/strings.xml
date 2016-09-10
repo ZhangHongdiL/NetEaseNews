@@ -6,4 +6,13 @@
     <string name="topic_character">话题</string>
     <string name="live_character">直播</string>
     <string name="me_character">我</string>
+
+    <!--Me界面的文字-->
+    <string name="fragment_me_set">设置</string>
+    <string name="fragment_me_read">阅读</string>
+    <string name="fragment_me_collect">收藏</string>
+    <string name="fragment_me_reply">跟帖</string>
+    <string name="fragment_me_gold">金币</string>
+    <string name="fragment_me_login">立即登录</string>
+    <string name="fragment_me_action">赢积分 抢大礼!</string>
 </resources>

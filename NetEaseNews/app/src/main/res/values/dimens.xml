@@ -10,4 +10,7 @@
     <!--item的文字大小及margin-->
     <dimen name="fra_news_headline_size">20sp</dimen>
     <dimen name="fra_news_headline_margin">5dp</dimen>
+
+    <!--Me的button的padding-->
+    <dimen name="fragment_me_button_padding">10dp</dimen>
 </resources>

@@ -10,4 +10,8 @@
     <!--item字体颜色-->
     <color name="item_character_color">#f2000000</color>
 
+    <!--Me界面的背景颜色-->
+    <color name="fragment_me_button_color">#fff</color>
+    <color name="fragment_me_bg">#ed3326</color>
+    <color name="fragment_me_action">#ecbf0a</color>
 </resources>

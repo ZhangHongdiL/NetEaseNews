@@ -62,7 +62,7 @@
             android:layout_weight="1"
             android:button="@null"
             android:drawableTop="@drawable/me"
-            android:text="@string/topic_character"
+            android:text="@string/me_character"
             android:textColor="@drawable/color_character"
             android:textSize="@dimen/main_radioButton_size"
             android:gravity="center"
