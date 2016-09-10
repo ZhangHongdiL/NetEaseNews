@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#f00">
+        android:background="@color/fragment_me_bg">
         <ImageView
             android:id="@+id/fragment_news_logo"
             android:layout_width="wrap_content"
