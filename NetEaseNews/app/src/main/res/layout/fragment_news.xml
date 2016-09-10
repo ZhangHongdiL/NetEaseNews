@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8"
+        android:layout_weight="1"
         android:background="#f00">
         <ImageView
             android:id="@+id/fragment_news_logo"
@@ -36,7 +36,7 @@
         android:id="@+id/fragment_news_tl"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8"/>
+        android:layout_weight="1"/>
     <android.support.v4.view.ViewPager
         android:id="@+id/fragment_news_vp"
         android:layout_width="match_parent"
