@@ -11,6 +11,7 @@ import com.zhang.neteasenews.R;
 
 /**
  * Created by dllo on 16/9/10.
+ * Activity的基类
  */
 public abstract class AbsBaseActivity extends AppCompatActivity {
     @Override

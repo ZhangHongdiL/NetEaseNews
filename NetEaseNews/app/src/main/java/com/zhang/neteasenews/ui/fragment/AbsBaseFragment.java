@@ -14,6 +14,7 @@ import com.zhang.neteasenews.ui.activity.AbsBaseActivity;
 
 /**
  * Created by dllo on 16/9/10.
+ * Fragment的基类
  */
 public abstract class AbsBaseFragment extends Fragment {
     private Context context;

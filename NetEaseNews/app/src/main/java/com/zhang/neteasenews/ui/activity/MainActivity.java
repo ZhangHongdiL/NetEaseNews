@@ -10,7 +10,6 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.zhang.neteasenews.R;
-import com.zhang.neteasenews.ui.app.NetEaseNewsApp;
 import com.zhang.neteasenews.ui.fragment.LiveFragment;
 import com.zhang.neteasenews.ui.fragment.MeFragment;
 import com.zhang.neteasenews.ui.fragment.NewsFragment;
