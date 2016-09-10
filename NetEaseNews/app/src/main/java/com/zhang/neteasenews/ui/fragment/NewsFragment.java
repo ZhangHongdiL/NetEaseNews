@@ -1,5 +1,6 @@
 package com.zhang.neteasenews.ui.fragment;
 
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -35,13 +36,22 @@ public class NewsFragment extends AbsBaseFragment {
         liveImg = byView(R.id.fragment_news_img_live);
         tabLayout = byView(R.id.fragment_news_tl);
         viewPager = byView(R.id.fragment_news_vp);
+
         titles = new ArrayList<>();
         fragments = new ArrayList<>();
         newsFragmentAdapter = new NewsFragmentAdapter(getChildFragmentManager(), fragments);
 
-        for (int i = 0; i < 8; i++) {
-            fragments.add(new NewsHeadlineFragment());
-        }
+        fragments.add(new NewsHeadlineFragment());
+        fragments.add(new NewsHeadlineFragment());
+        fragments.add(new NewsHeadlineFragment());
+        fragments.add(new NewsHeadlineFragment());
+        fragments.add(new NewsHeadlineFragment());
+        fragments.add(new NewsHeadlineFragment());
+        fragments.add(new NewsHeadlineFragment());
+        fragments.add(new NewsHeadlineFragment());
+
+        tabLayout.setTabTextColors(Color.parseColor("#a9b7b7"), Color.parseColor("#eb4f38"));
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#eb4f38"));
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         viewPager.setAdapter(newsFragmentAdapter);
         tabLayout.setupWithViewPager(viewPager);

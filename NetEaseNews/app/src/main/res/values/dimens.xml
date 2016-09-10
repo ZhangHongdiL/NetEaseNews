@@ -6,4 +6,8 @@
     <!--一级界面的文字及margin大小-->
     <dimen name="main_radioButton_size">10sp</dimen>
     <dimen name="main_radioButton_margin">5dp</dimen>
+
+    <!--item的文字大小及margin-->
+    <dimen name="fra_news_headline_size">20sp</dimen>
+    <dimen name="fra_news_headline_margin">5dp</dimen>
 </resources>
