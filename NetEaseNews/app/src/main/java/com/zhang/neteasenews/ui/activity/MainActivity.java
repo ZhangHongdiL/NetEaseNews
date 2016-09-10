@@ -1,7 +1,9 @@
-package com.zhang.neteasenews;
+package com.zhang.neteasenews.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.zhang.neteasenews.R;
 
 public class MainActivity extends AppCompatActivity {
 
