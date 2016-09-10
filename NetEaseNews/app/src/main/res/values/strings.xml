@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">NetEaseNews</string>
+    <string name="app_name">网易新闻</string>
+
+    <!--一级界面的Button文字-->
+    <string name="news_character">新闻</string>
+    <string name="topic_character">话题</string>
+    <string name="live_character">直播</string>
+    <string name="me_character">我</string>
 </resources>

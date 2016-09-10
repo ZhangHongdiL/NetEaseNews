@@ -3,6 +3,7 @@
     package="com.zhang.neteasenews">
 
     <application
+        android:name="com.zhang.neteasenews.ui.app.NetEaseNewsApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
