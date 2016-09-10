@@ -4,9 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="问吧"
-        android:textSize="50dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/fragment_topic_ask_lv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"/>
 </LinearLayout>
