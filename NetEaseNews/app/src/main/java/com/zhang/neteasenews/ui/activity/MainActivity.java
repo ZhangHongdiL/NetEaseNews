@@ -42,6 +42,7 @@ public class MainActivity extends AbsBaseActivity {
         fragments.add(new LiveFragment());
         fragments.add(new TopicFragment());
         fragments.add(new MeFragment());
+
         // 为RadioGroup添加监听
         mainRg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -65,6 +66,7 @@ public class MainActivity extends AbsBaseActivity {
                 ft.commit();
             }
         });
+        mainRg.check(R.id.main_news_rb);
     }
 
 
