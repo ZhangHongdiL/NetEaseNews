@@ -43,16 +43,61 @@
                 android:textColor="@color/fragment_me_button_color"/>
         </LinearLayout>
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8">
+        <LinearLayout
+            android:id="@+id/up"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/fragment_me_bg"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/middle_margin"
+            android:layout_marginRight="@dimen/middle_margin">
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white_bg"
+                android:text="我关注的"
+                android:textColor="@color/gray_color"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white_bg"
+                android:text="我的粉丝"
+                android:textColor="@color/gray_color"/>
+        </LinearLayout>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/middle_margin"
+        android:layout_marginLeft="@dimen/middle_margin"
+        android:layout_marginRight="@dimen/middle_margin">
         <Button
             android:id="@+id/fragment_me_read"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:text="@string/fragment_me_read"
+            android:textColor="@color/gray_color"
             android:drawableTop="@mipmap/icon_read"
             android:background="@color/fragment_me_button_color"
             android:padding="@dimen/fragment_me_button_padding"/>
@@ -62,6 +107,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:text="@string/fragment_me_collect"
+            android:textColor="@color/gray_color"
             android:drawableTop="@mipmap/icon_collect"
             android:background="@color/fragment_me_button_color"
             android:padding="@dimen/fragment_me_button_padding"/>
@@ -71,6 +117,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:text="@string/fragment_me_reply"
+            android:textColor="@color/gray_color"
             android:drawableTop="@mipmap/icon_reply"
             android:background="@color/fragment_me_button_color"
             android:padding="@dimen/fragment_me_button_padding"/>
@@ -80,13 +127,45 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:text="@string/fragment_me_gold"
+            android:textColor="@color/gray_color"
             android:drawableTop="@mipmap/icon_gold"
             android:background="@color/fragment_me_button_color"
             android:padding="@dimen/fragment_me_button_padding"/>
     </LinearLayout>
-    <ListView
+    <ScrollView
         android:id="@+id/fragment_me_lv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"/>
+        android:layout_weight="4"
+        android:layout_marginTop="@dimen/middle_margin"
+        android:layout_marginLeft="@dimen/middle_margin"
+        android:layout_marginRight="@dimen/middle_margin">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/item_fra_me_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fragment_me_button_padding"
+                android:src="@mipmap/ic_launcher"/>
+            <TextView
+                android:id="@+id/item_fra_me_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的消息"
+                android:textSize="@dimen/big_size"
+                android:layout_toRightOf="@id/item_fra_me_img"
+                android:layout_centerVertical="true"/>
+            <ImageView
+                android:id="@+id/item_fra_me_enter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_enter"
+                android:layout_margin="@dimen/fragment_me_button_padding"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </ScrollView>
 </LinearLayout>
+
