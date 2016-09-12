@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.zhang.neteasenews.R;
@@ -17,7 +18,9 @@ import java.util.List;
  * Created by dllo on 16/9/10.
  */
 public class NewsFragment extends AbsBaseFragment {
+
     private ImageView searchImg, liveImg;
+    private ImageView downBtn;
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -35,6 +38,7 @@ public class NewsFragment extends AbsBaseFragment {
     protected void initViews() {
         searchImg = byView(R.id.fragment_news_img_search);
         liveImg = byView(R.id.fragment_news_img_live);
+        downBtn = byView(R.id.fragment_news_popup_img);
         tabLayout = byView(R.id.fragment_news_tl);
         viewPager = byView(R.id.fragment_news_vp);
 

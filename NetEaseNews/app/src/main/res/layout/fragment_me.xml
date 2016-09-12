@@ -9,163 +9,435 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:background="@color/fragment_me_bg">
+
         <TextView
             android:id="@+id/fragment_me_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:drawableTop="@mipmap/biz_news_common_avatar_default_icon"
             android:text="@string/fragment_me_login"
-            android:textColor="@color/fragment_me_button_color"
-            android:drawableTop="@mipmap/biz_news_common_avatar_default_icon" />
+            android:textColor="@color/fragment_me_button_color" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fragment_me_action"
-            android:textColor="@color/fragment_me_action"
             android:layout_below="@id/fragment_me_login"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:text="@string/fragment_me_action"
+            android:textColor="@color/fragment_me_action" />
+
         <LinearLayout
             android:id="@+id/fragment_me_set"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_margin="@dimen/middle_margin">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:src="@mipmap/set"/>
+                android:src="@mipmap/set" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:text="@string/fragment_me_set"
-                android:textColor="@color/fragment_me_button_color"/>
+                android:textColor="@color/fragment_me_button_color" />
         </LinearLayout>
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.8">
+
         <LinearLayout
             android:id="@+id/up"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@color/fragment_me_bg"/>
+                android:background="@color/fragment_me_bg" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:layout_marginLeft="@dimen/middle_margin"
-            android:layout_marginRight="@dimen/middle_margin">
+            android:layout_marginRight="@dimen/middle_margin"
+            android:orientation="horizontal">
+
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/white_bg"
                 android:text="我关注的"
-                android:textColor="@color/gray_color"/>
+                android:textColor="@color/gray_color" />
+
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/white_bg"
                 android:text="我的粉丝"
-                android:textColor="@color/gray_color"/>
+                android:textColor="@color/gray_color" />
         </LinearLayout>
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="@dimen/middle_margin"
         android:layout_marginLeft="@dimen/middle_margin"
-        android:layout_marginRight="@dimen/middle_margin">
+        android:layout_marginRight="@dimen/middle_margin"
+        android:layout_marginTop="@dimen/middle_margin"
+        android:layout_weight="1">
+
         <Button
             android:id="@+id/fragment_me_read"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/fragment_me_read"
-            android:textColor="@color/gray_color"
-            android:drawableTop="@mipmap/icon_read"
+            android:layout_weight="1"
             android:background="@color/fragment_me_button_color"
-            android:padding="@dimen/fragment_me_button_padding"/>
+            android:drawableTop="@mipmap/icon_read"
+            android:padding="@dimen/fragment_me_button_padding"
+            android:text="@string/fragment_me_read"
+            android:textColor="@color/gray_color" />
+
         <Button
             android:id="@+id/fragment_me_collect"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/fragment_me_collect"
-            android:textColor="@color/gray_color"
-            android:drawableTop="@mipmap/icon_collect"
+            android:layout_weight="1"
             android:background="@color/fragment_me_button_color"
-            android:padding="@dimen/fragment_me_button_padding"/>
+            android:drawableTop="@mipmap/icon_collect"
+            android:padding="@dimen/fragment_me_button_padding"
+            android:text="@string/fragment_me_collect"
+            android:textColor="@color/gray_color" />
+
         <Button
             android:id="@+id/fragment_me_reply"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/fragment_me_reply"
-            android:textColor="@color/gray_color"
-            android:drawableTop="@mipmap/icon_reply"
+            android:layout_weight="1"
             android:background="@color/fragment_me_button_color"
-            android:padding="@dimen/fragment_me_button_padding"/>
+            android:drawableTop="@mipmap/icon_reply"
+            android:padding="@dimen/fragment_me_button_padding"
+            android:text="@string/fragment_me_reply"
+            android:textColor="@color/gray_color" />
+
         <Button
             android:id="@+id/fragment_me_gold"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:text="@string/fragment_me_gold"
-            android:textColor="@color/gray_color"
-            android:drawableTop="@mipmap/icon_gold"
+            android:layout_weight="1"
             android:background="@color/fragment_me_button_color"
-            android:padding="@dimen/fragment_me_button_padding"/>
+            android:drawableTop="@mipmap/icon_gold"
+            android:padding="@dimen/fragment_me_button_padding"
+            android:text="@string/fragment_me_gold"
+            android:textColor="@color/gray_color" />
     </LinearLayout>
+
     <ScrollView
         android:id="@+id/fragment_me_lv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
-        android:layout_marginTop="@dimen/middle_margin"
         android:layout_marginLeft="@dimen/middle_margin"
-        android:layout_marginRight="@dimen/middle_margin">
-        <RelativeLayout
+        android:layout_marginRight="@dimen/middle_margin"
+        android:layout_marginBottom="@dimen/middle_margin"
+        android:layout_weight="4">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/item_fra_me_img"
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/middle_margin"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white_bg"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/item_fra_me_mymsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_fra_me_msg_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/item_fra_me_msg_img"
+                        android:text="我的消息"
+                        android:textSize="@dimen/big_size" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/icon_enter" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_size"
+                    android:background="@color/gray_color" />
+
+                <RelativeLayout
+                    android:id="@+id/item_fra_me_dynamic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_fra_me_dynamic_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/item_fra_me_dynamic_img"
+                        android:text="最新动态"
+                        android:textSize="@dimen/big_size" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/icon_enter" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/fragment_me_button_padding"
-                android:src="@mipmap/ic_launcher"/>
-            <TextView
-                android:id="@+id/item_fra_me_tv"
-                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white_bg"
+                android:layout_marginTop="@dimen/middle_margin">
+                <RelativeLayout
+                    android:id="@+id/item_fra_me_goldstore"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_fra_me_goldstore_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/item_fra_me_goldstore_img"
+                        android:text="金币商城"
+                        android:textSize="@dimen/big_size" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/icon_enter" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_size"
+                    android:background="@color/gray_color" />
+                <RelativeLayout
+                    android:id="@+id/item_fra_me_goldtask"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_fra_me_goldtask_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/item_fra_me_goldtask_img"
+                        android:text="金币任务"
+                        android:textSize="@dimen/big_size" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/icon_enter" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_size"
+                    android:background="@color/gray_color" />
+                <RelativeLayout
+                    android:id="@+id/item_fra_me_mypurse"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_fra_me_mypurse_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/item_fra_me_mypurse_img"
+                        android:text="我的钱包"
+                        android:textSize="@dimen/big_size" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/icon_enter" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="我的消息"
-                android:textSize="@dimen/big_size"
-                android:layout_toRightOf="@id/item_fra_me_img"
-                android:layout_centerVertical="true"/>
-            <ImageView
-                android:id="@+id/item_fra_me_enter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_enter"
-                android:layout_margin="@dimen/fragment_me_button_padding"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"/>
-        </RelativeLayout>
+                android:orientation="vertical"
+                android:background="@color/white_bg"
+                android:layout_marginTop="@dimen/middle_margin">
+                <RelativeLayout
+                    android:id="@+id/item_fra_me_off_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_fra_me_off_line_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/item_fra_me_off_line_img"
+                        android:text="离线阅读"
+                        android:textSize="@dimen/big_size" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/icon_enter" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_size"
+                    android:background="@color/gray_color" />
+                <RelativeLayout
+                    android:id="@+id/item_fra_me_square"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_fra_me_square_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/item_fra_me_square_img"
+                        android:text="活动广场"
+                        android:textSize="@dimen/big_size" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/icon_enter" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_size"
+                    android:background="@color/gray_color" />
+                <RelativeLayout
+                    android:id="@+id/item_fra_me_opinion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/item_fra_me_opinion_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/item_fra_me_opinion_img"
+                        android:text="意见反馈"
+                        android:textSize="@dimen/big_size" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/fragment_me_button_padding"
+                        android:src="@mipmap/icon_enter" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>
 

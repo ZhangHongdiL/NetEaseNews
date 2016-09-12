@@ -57,6 +57,7 @@ public class TopicFragment extends AbsBaseFragment {
         fragments.add(new ThemeFragment());
         fragments.add(new AttentionFragment());
         topicTl.setSelectedTabIndicatorColor(Color.WHITE);
+        topicTl.setTabTextColors(Color.GRAY, Color.WHITE);
         topicVp.setAdapter(topicTabLayoutAdapter);
         topicTl.setupWithViewPager(topicVp);
     }
