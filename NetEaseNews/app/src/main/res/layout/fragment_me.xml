@@ -181,7 +181,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/fragment_me_button_padding"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/me_mymsg" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -215,7 +215,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/fragment_me_button_padding"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/me_dynamic" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -250,7 +250,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/fragment_me_button_padding"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/me_goldstore" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -283,7 +283,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/fragment_me_button_padding"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/me_goldtask" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -316,7 +316,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/fragment_me_button_padding"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/me_mypurse" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -352,7 +352,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/fragment_me_button_padding"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/me_offline_read" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -385,7 +385,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/fragment_me_button_padding"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/me_square" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -418,7 +418,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/fragment_me_button_padding"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/me_opinion" />
 
                     <TextView
                         android:layout_width="wrap_content"
