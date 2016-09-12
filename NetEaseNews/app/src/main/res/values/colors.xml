@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#ec6ba9</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
@@ -19,5 +19,6 @@
     <color name="white_bg">#fff</color>
     <!--浅灰色-->
     <color name="gray_color">#9e9999</color>
-    <color name="c">#aca9a9</color>
+    <!--黑色-->
+    <color name="black_color">#2d2b2b</color>
 </resources>

@@ -15,4 +15,11 @@
     <string name="fragment_me_gold">金币</string>
     <string name="fragment_me_login">立即登录</string>
     <string name="fragment_me_action">赢积分 抢大礼!</string>
+
+    <!--登陆界面-->
+    <string name="login_login">登陆</string>
+    <string name="login_user">网易邮箱/手机号</string>
+    <string name="login_password">密码</string>
+    <string name="login_forget">忘记密码?</string>
+
 </resources>

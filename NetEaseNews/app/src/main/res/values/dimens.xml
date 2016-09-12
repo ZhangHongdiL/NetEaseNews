@@ -9,6 +9,7 @@
     <dimen name="main_radioButton_size">10sp</dimen>
     <dimen name="middle_size">15sp</dimen>
     <dimen name="big_size">20sp</dimen>
+    <dimen name="big_more_size">25sp</dimen>
     <!--一级界面margin大小-->
     <dimen name="main_radioButton_margin">5dp</dimen>
     <dimen name="middle_margin">10dp</dimen>

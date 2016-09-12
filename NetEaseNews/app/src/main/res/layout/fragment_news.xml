@@ -28,6 +28,7 @@
             android:id="@+id/fragment_news_img_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/big_margin"
             android:layout_toLeftOf="@id/fragment_news_img_live"
             android:src="@mipmap/icon_news_fragment_search"
             android:layout_centerVertical="true"/>

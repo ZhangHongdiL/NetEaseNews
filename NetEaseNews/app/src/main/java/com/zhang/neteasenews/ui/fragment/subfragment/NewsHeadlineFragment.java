@@ -1,6 +1,7 @@
 package com.zhang.neteasenews.ui.fragment.subfragment;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.widget.ListView;
 
 import com.zhang.neteasenews.R;
@@ -21,6 +22,14 @@ public class NewsHeadlineFragment extends AbsBaseFragment {
     private List<HeadlineEntity> datas;
     private ListView listView;
 
+    public static NewsHeadlineFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        NewsHeadlineFragment fragment = new NewsHeadlineFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
