@@ -2,6 +2,7 @@ package com.zhang.neteasenews.ui.fragment;
 
 import android.content.Context;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,7 +19,8 @@ import java.util.List;
 public class MeFragment extends AbsBaseFragment {
 
     private Context context;
-    private TextView loginTv, setTv;
+    private LinearLayout set;
+    private TextView loginTv;
     private Button readBtn, collectBtn, replyBtn, goldBtn;
     private List<MeListViewEntity> datas;
     private MeListViewAdapter meListViewAdapter;
@@ -38,7 +40,7 @@ public class MeFragment extends AbsBaseFragment {
     @Override
     protected void initViews() {
         loginTv = byView(R.id.fragment_me_login);
-        setTv = byView(R.id.fragment_me_set);
+        set = byView(R.id.fragment_me_set);
         readBtn = byView(R.id.fragment_me_read);
         collectBtn = byView(R.id.fragment_me_collect);
         replyBtn = byView(R.id.fragment_me_reply);
