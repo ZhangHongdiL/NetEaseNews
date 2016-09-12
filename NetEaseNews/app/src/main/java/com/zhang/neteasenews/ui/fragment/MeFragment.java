@@ -8,8 +8,6 @@ import android.widget.TextView;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.MeListViewEntity;
-import com.zhang.neteasenews.ui.adapter.MeListViewAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,9 +20,6 @@ public class MeFragment extends AbsBaseFragment {
     private LinearLayout set;
     private TextView loginTv;
     private Button readBtn, collectBtn, replyBtn, goldBtn;
-    private List<MeListViewEntity> datas;
-    private MeListViewAdapter meListViewAdapter;
-    private ListView listView;
 
     @Override
     public void onAttach(Context context) {
@@ -45,15 +40,6 @@ public class MeFragment extends AbsBaseFragment {
         collectBtn = byView(R.id.fragment_me_collect);
         replyBtn = byView(R.id.fragment_me_reply);
         goldBtn = byView(R.id.fragment_me_gold);
-
-        listView = byView(R.id.fragment_me_lv);
-        meListViewAdapter = new MeListViewAdapter(context);
-        datas = new ArrayList<>();
-        for (int i = 0; i < 9; i++) {
-            datas.add(new MeListViewEntity(R.mipmap.ic_launcher, "消息" + i));
-        }
-        meListViewAdapter.setDatas(datas);
-        listView.setAdapter(meListViewAdapter);
     }
 
     @Override
