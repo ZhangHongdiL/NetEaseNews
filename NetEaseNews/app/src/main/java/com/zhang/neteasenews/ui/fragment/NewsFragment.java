@@ -10,7 +10,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.zhang.neteasenews.R;
+import com.zhang.neteasenews.model.entity.HeadlineEntity;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
+import com.zhang.neteasenews.ui.adapter.NewsHeadlineAdapter;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 
 import java.util.ArrayList;
@@ -27,7 +29,6 @@ public class NewsFragment extends AbsBaseFragment {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private List<String> titles;
     private List<Fragment> fragments;
 
     private NewsFragmentAdapter newsFragmentAdapter;
@@ -60,36 +61,14 @@ public class NewsFragment extends AbsBaseFragment {
         tabLayout = byView(R.id.fragment_news_tl);
         viewPager = byView(R.id.fragment_news_vp);
 
-        titles = new ArrayList<>();
         fragments = new ArrayList<>();
-        newsFragmentAdapter = new NewsFragmentAdapter(getChildFragmentManager(), fragments);
-
+        newsFragmentAdapter = new NewsFragmentAdapter(getFragmentManager(), fragments);
         buildData();
-
         tabLayout.setTabTextColors(Color.parseColor("#a9b7b7"), Color.parseColor("#eb4f38"));
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#eb4f38"));
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         viewPager.setAdapter(newsFragmentAdapter);
         tabLayout.setupWithViewPager(viewPager);
-    }
-
-    private void buildData() {
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-
     }
 
     @Override
@@ -109,6 +88,25 @@ public class NewsFragment extends AbsBaseFragment {
         tabLayout.getTabAt(12).setText("轻松一刻");
         tabLayout.getTabAt(13).setText("军事");
         tabLayout.getTabAt(14).setText("历史");
+
+    }
+
+    private void buildData() {
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
     }
 
 }

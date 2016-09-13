@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zhang.neteasenews">
 
+    <!--网络权限-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name="com.zhang.neteasenews.ui.app.NetEaseNewsApp"
         android:allowBackup="true"
