@@ -4,7 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <!--间隔线的大小-->
-    <dimen name="line_size">0.5dp</dimen>
+    <dimen name="line_size">0.8dp</dimen>
     <!--字体大小-->
     <dimen name="main_radioButton_size">10sp</dimen>
     <dimen name="middle_size">15sp</dimen>

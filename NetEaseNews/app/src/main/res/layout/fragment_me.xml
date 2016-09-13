@@ -180,6 +180,7 @@
                         android:id="@+id/item_fra_me_msg_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_margin="@dimen/fragment_me_button_padding"
                         android:src="@mipmap/me_mymsg" />
 
@@ -214,6 +215,7 @@
                         android:id="@+id/item_fra_me_dynamic_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_margin="@dimen/fragment_me_button_padding"
                         android:src="@mipmap/me_dynamic" />
 
@@ -249,6 +251,7 @@
                         android:id="@+id/item_fra_me_goldstore_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_margin="@dimen/fragment_me_button_padding"
                         android:src="@mipmap/me_goldstore" />
 
@@ -282,6 +285,7 @@
                         android:id="@+id/item_fra_me_goldtask_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_margin="@dimen/fragment_me_button_padding"
                         android:src="@mipmap/me_goldtask" />
 
@@ -315,6 +319,7 @@
                         android:id="@+id/item_fra_me_mypurse_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_margin="@dimen/fragment_me_button_padding"
                         android:src="@mipmap/me_mypurse" />
 
@@ -351,6 +356,7 @@
                         android:id="@+id/item_fra_me_off_line_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_margin="@dimen/fragment_me_button_padding"
                         android:src="@mipmap/me_offline_read" />
 
@@ -384,6 +390,7 @@
                         android:id="@+id/item_fra_me_square_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_margin="@dimen/fragment_me_button_padding"
                         android:src="@mipmap/me_square" />
 
@@ -417,6 +424,7 @@
                         android:id="@+id/item_fra_me_opinion_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
                         android:layout_margin="@dimen/fragment_me_button_padding"
                         android:src="@mipmap/me_opinion" />
 
