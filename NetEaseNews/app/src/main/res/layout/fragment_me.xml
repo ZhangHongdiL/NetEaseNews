@@ -190,7 +190,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/item_fra_me_msg_img"
                         android:text="我的消息"
-                        android:textSize="@dimen/big_size" />
+                        android:textSize="@dimen/middle_size" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -225,7 +225,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/item_fra_me_dynamic_img"
                         android:text="最新动态"
-                        android:textSize="@dimen/big_size" />
+                        android:textSize="@dimen/middle_size" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -261,7 +261,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/item_fra_me_goldstore_img"
                         android:text="金币商城"
-                        android:textSize="@dimen/big_size" />
+                        android:textSize="@dimen/middle_size" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -295,7 +295,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/item_fra_me_goldtask_img"
                         android:text="金币任务"
-                        android:textSize="@dimen/big_size" />
+                        android:textSize="@dimen/middle_size" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -329,7 +329,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/item_fra_me_mypurse_img"
                         android:text="我的钱包"
-                        android:textSize="@dimen/big_size" />
+                        android:textSize="@dimen/middle_size" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -366,7 +366,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/item_fra_me_off_line_img"
                         android:text="离线阅读"
-                        android:textSize="@dimen/big_size" />
+                        android:textSize="@dimen/middle_size" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -400,7 +400,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/item_fra_me_square_img"
                         android:text="活动广场"
-                        android:textSize="@dimen/big_size" />
+                        android:textSize="@dimen/middle_size" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -434,7 +434,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/item_fra_me_opinion_img"
                         android:text="意见反馈"
-                        android:textSize="@dimen/big_size" />
+                        android:textSize="@dimen/middle_size" />
 
                     <ImageView
                         android:layout_width="wrap_content"

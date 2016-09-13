@@ -1,6 +1,7 @@
 package com.zhang.neteasenews.ui.fragment;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.widget.ListView;
 
 import com.zhang.neteasenews.R;
@@ -20,6 +21,14 @@ public class LiveFragment extends AbsBaseFragment {
     private List<LiveListViewEntity> datas;
     private LiveListViewAdapter liveListViewAdapter;
 
+    public static LiveFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        LiveFragment fragment = new LiveFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

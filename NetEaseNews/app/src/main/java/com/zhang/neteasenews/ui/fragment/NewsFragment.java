@@ -1,6 +1,8 @@
 package com.zhang.neteasenews.ui.fragment;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -19,6 +21,7 @@ import java.util.List;
  */
 public class NewsFragment extends AbsBaseFragment {
 
+    private Context context;
     private ImageView searchImg, liveImg;
     private ImageView downBtn;
 
@@ -28,6 +31,21 @@ public class NewsFragment extends AbsBaseFragment {
     private List<Fragment> fragments;
 
     private NewsFragmentAdapter newsFragmentAdapter;
+
+    public static NewsFragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        NewsFragment fragment = new NewsFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
+    }
 
     @Override
     protected int setLayout() {

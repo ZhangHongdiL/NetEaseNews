@@ -2,6 +2,7 @@ package com.zhang.neteasenews.ui.fragment;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -31,6 +32,14 @@ public class TopicFragment extends AbsBaseFragment {
     private List<String> titles;
     private List<Fragment> fragments;
 
+    public static TopicFragment newInstance() {
+        
+        Bundle args = new Bundle();
+        
+        TopicFragment fragment = new TopicFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
