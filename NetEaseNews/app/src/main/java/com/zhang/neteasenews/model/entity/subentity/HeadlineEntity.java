@@ -1,4 +1,4 @@
-package com.zhang.neteasenews.model.entity;
+package com.zhang.neteasenews.model.entity.subentity;
 
 import java.util.List;
 

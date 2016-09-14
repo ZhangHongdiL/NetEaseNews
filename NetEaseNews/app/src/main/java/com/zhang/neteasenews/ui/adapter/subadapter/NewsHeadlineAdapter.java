@@ -1,4 +1,4 @@
-package com.zhang.neteasenews.ui.adapter;
+package com.zhang.neteasenews.ui.adapter.subadapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
-import com.zhang.neteasenews.model.entity.HeadlineEntity;
+import com.zhang.neteasenews.model.entity.subentity.HeadlineEntity;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
 import java.util.List;

@@ -6,13 +6,10 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.zhang.neteasenews.R;
-import com.zhang.neteasenews.model.entity.HeadlineEntity;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
-import com.zhang.neteasenews.ui.adapter.NewsHeadlineAdapter;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 
 import java.util.ArrayList;
