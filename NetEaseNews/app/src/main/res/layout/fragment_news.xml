@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/fragment_me_bg">
+        <ImageView
+            android:id="@+id/fragment_news_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/netease_default"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/main_radioButton_size"/>
+        <ImageView
+            android:id="@+id/fragment_news_img_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/main_radioButton_size"
+            android:src="@mipmap/icon_news_fragment_img_live"/>
+        <ImageView
+            android:id="@+id/fragment_news_img_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/big_margin"
+            android:layout_toLeftOf="@id/fragment_news_img_live"
+            android:src="@mipmap/icon_news_fragment_search"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/fragment_news_tl"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/fragment_news_popup_img"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/downbtn"
+            android:padding="@dimen/middle_15_margin"/>
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fragment_news_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"/>
+
+</LinearLayout>

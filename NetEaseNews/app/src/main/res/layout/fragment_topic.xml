@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/fragment_me_bg">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/fragment_topic_tl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:id="@+id/fragment_topic_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/topic_person"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/big_margin"/>
+        <ImageView
+            android:id="@+id/fragment_topic_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/lq"
+            android:layout_toLeftOf="@id/fragment_topic_person"
+            android:layout_alignTop="@id/fragment_topic_person"
+            android:layout_marginRight="@dimen/big_margin"/>
+    </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fragment_topic_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"/>
+</LinearLayout>

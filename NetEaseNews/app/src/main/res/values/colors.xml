@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ec6ba9</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorNews">#a9b7b7</color>
+    <color name="colorNews_selected">#eb4f38</color>
+
+    <!--item字体颜色-->
+    <color name="item_character_color">#f2000000</color>
+
+    <!--Me界面的背景颜色-->
+    <color name="fragment_me_button_color">#fff</color>
+    <color name="fragment_me_bg">#d61306</color>
+    <color name="fragment_me_action">#ecbf0a</color>
+
+    <!--白色-->
+    <color name="white_bg">#fff</color>
+    <!--浅灰色-->
+    <color name="gray_color">#9e9999</color>
+    <!--黑色-->
+    <color name="black_color">#2d2b2b</color>
+    <!--红色-->
+    <color name="red_color">#f00</color>
+    <!--纯黑色-->
+    <color name="black_24K">#000</color>
+</resources>

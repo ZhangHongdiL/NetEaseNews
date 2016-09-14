@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">网易新闻</string>
+
+    <!--一级界面的Button文字-->
+    <string name="news_character">新闻</string>
+    <string name="topic_character">话题</string>
+    <string name="live_character">直播</string>
+    <string name="me_character">我</string>
+
+    <!--Me界面的文字-->
+    <string name="fragment_me_set">设置</string>
+    <string name="fragment_me_read">阅读</string>
+    <string name="fragment_me_collect">收藏</string>
+    <string name="fragment_me_reply">跟帖</string>
+    <string name="fragment_me_gold">金币</string>
+    <string name="fragment_me_login">立即登录</string>
+    <string name="fragment_me_action">赢积分 抢大礼!</string>
+
+    <!--登陆界面-->
+    <string name="login_login">登陆</string>
+    <string name="login_user">网易邮箱/手机号</string>
+    <string name="login_password">密码</string>
+    <string name="login_forget">忘记密码?</string>
+    <string name="login_selete_character">还可以选择一下方式登陆</string>
+    <string name="login_weixin">微信账号登陆</string>
+    <string name="login_sina">新浪微博登陆</string>
+    <string name="login_qq">QQ账号登陆</string>
+    <string name="login_user_no">没有账号?</string>
+    <string name="login_user_register">注册网易邮箱</string>
+
+</resources>
