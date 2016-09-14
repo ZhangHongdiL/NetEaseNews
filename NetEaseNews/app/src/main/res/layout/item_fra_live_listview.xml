@@ -17,7 +17,8 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:src="@mipmap/ic_launcher"
-        android:layout_margin="@dimen/middle_margin"/>
+        android:layout_margin="@dimen/middle_margin"
+        android:scaleType="fitXY"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

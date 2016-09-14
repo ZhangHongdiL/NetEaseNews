@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.LiveListViewEntity;
+import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
 import java.util.List;
 
@@ -52,6 +53,13 @@ public class LiveListViewAdapter extends BaseAdapter {
         LiveViewHolder liveViewHolder;
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_fra_live_listview, parent, false);
+
+            // 为每行设置高度
+            int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
+            ViewGroup.LayoutParams params = convertView.getLayoutParams();
+            params.height = height / 3;
+            convertView.setLayoutParams(params);
+
             liveViewHolder = new LiveViewHolder(convertView);
             convertView.setTag(liveViewHolder);
         } else {

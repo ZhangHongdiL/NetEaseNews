@@ -54,8 +54,8 @@ public class NewsHeadlineAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_fra_news_headline, parent, false);
 
-            int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
             // 为每行设置高度
+            int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
             ViewGroup.LayoutParams params = convertView.getLayoutParams();
             params.height = height / 6;
             convertView.setLayoutParams(params);
