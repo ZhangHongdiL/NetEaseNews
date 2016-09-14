@@ -28,4 +28,6 @@
     <string name="login_user_no">没有账号?</string>
     <string name="login_user_register">注册网易邮箱</string>
 
+    <!--直播界面-->
+    <string name="live_characters">网易原创</string>
 </resources>
