@@ -10,6 +10,9 @@ import com.zhang.neteasenews.ui.fragment.MeFragment;
 import com.zhang.neteasenews.ui.fragment.NewsFragment;
 import com.zhang.neteasenews.ui.fragment.TopicFragment;
 
+/**
+ * 主界面的Activity
+ */
 public class MainActivity extends AbsBaseActivity {
 
     private RadioGroup mainRg;

@@ -7,6 +7,7 @@ import com.zhang.neteasenews.R;
 
 /**
  * Created by dllo on 16/9/12.
+ * 登陆界面的Activity
  */
 public class LoginActivity extends AbsBaseActivity implements View.OnClickListener {
 

@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/10.
+ * 个人界面的Fragment
  */
 public class MeFragment extends AbsBaseFragment implements View.OnClickListener {
 

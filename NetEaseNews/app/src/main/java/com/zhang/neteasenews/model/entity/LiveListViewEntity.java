@@ -2,6 +2,7 @@ package com.zhang.neteasenews.model.entity;
 
 /**
  * Created by dllo on 16/9/10.
+ * 直播界面的实体类
  */
 public class LiveListViewEntity {
     private String liveTitle; // 直播标题

@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/10.
+ * 直播界面Fragment
  */
 public class LiveFragment extends AbsBaseFragment {
 

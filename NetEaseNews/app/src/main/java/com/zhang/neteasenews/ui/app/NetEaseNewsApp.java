@@ -5,6 +5,7 @@ import android.content.Context;
 
 /**
  * Created by dllo on 16/9/10.
+ * 应用程序类
  */
 public class NetEaseNewsApp extends Application {
     private static Context context;

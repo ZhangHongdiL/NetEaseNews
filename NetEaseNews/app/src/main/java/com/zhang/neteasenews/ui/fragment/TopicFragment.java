@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/10.
+ * 话题界面的Fragment
  */
 public class TopicFragment extends AbsBaseFragment {
 

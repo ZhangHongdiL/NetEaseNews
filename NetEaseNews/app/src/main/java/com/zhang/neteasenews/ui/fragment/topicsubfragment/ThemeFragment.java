@@ -5,6 +5,7 @@ import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 
 /**
  * Created by dllo on 16/9/10.
+ * 话题界面话题的Fragment
  */
 public class ThemeFragment extends AbsBaseFragment{
     @Override

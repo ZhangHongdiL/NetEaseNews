@@ -7,6 +7,7 @@ import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 
 /**
  * Created by dllo on 16/9/10.
+ * 话题界面问吧的Fragment
  */
 public class AskFragment extends AbsBaseFragment{
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/10.
+ * 新闻头条的实体类
  */
 public class HeadlineEntity {
 

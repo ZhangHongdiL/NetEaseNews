@@ -5,6 +5,7 @@ import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 
 /**
  * Created by dllo on 16/9/10.
+ * 话题界面关注的Fragment
  */
 public class AttentionFragment extends AbsBaseFragment{
     @Override

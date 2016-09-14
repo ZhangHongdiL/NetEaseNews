@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/10.
+ * 新闻头条的Fragment
  */
 public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResult {
 
@@ -67,11 +68,12 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
         HeadlineEntity headlineEntity = gson.fromJson(resultStr, HeadlineEntity.class);
         List<HeadlineEntity.T1348647909107Bean> datas = headlineEntity.getT1348647909107();
         newsHeadlineAdapter.setDatas(datas);
-        
+
     }
 
     @Override
     public void failure() {
+
 
     }
 }

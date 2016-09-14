@@ -2,6 +2,7 @@ package com.zhang.neteasenews.model.entity;
 
 /**
  * Created by dllo on 16/9/10.
+ * 个人界面的实体类
  */
 public class MeListViewEntity {
 

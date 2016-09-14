@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/10.
+ * 新闻头条界面的适配器
  */
 public class NewsHeadlineAdapter extends BaseAdapter {
 
@@ -56,7 +57,7 @@ public class NewsHeadlineAdapter extends BaseAdapter {
             int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
             // 为每行设置高度
             ViewGroup.LayoutParams params = convertView.getLayoutParams();
-            params.height = height / 5;
+            params.height = height / 6;
             convertView.setLayoutParams(params);
 
             viewHolder = new ViewHolder(convertView);
@@ -69,7 +70,7 @@ public class NewsHeadlineAdapter extends BaseAdapter {
             Picasso.with(context).load(headlineEntity.getImgsrc()).into(viewHolder.newsImg);
             viewHolder.newsTitle.setText(headlineEntity.getTitle());
             viewHolder.newsDate.setText(headlineEntity.getLmodify());
-            viewHolder.newsReply.setText(headlineEntity.getReplyCount() + "");
+            viewHolder.newsReply.setText(headlineEntity.getSource() + "");
         }
         return convertView;
     }
