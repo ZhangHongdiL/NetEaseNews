@@ -70,7 +70,7 @@ public class NewsHeadlineAdapter extends BaseAdapter {
             Picasso.with(context).load(headlineEntity.getImgsrc()).into(viewHolder.newsImg);
             viewHolder.newsTitle.setText(headlineEntity.getTitle());
             viewHolder.newsDate.setText(headlineEntity.getSource());
-            viewHolder.newsReply.setText(headlineEntity.getReplyCount() + "");
+            viewHolder.newsReply.setText(headlineEntity.getReplyCount() + "" + "跟帖");
         }
         return convertView;
     }

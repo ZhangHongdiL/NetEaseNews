@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.LiveListViewEntity;
 
@@ -20,13 +21,13 @@ import java.util.List;
 public class LiveListViewAdapter extends BaseAdapter {
 
     private Context context;
-    private List<LiveListViewEntity> datas;
+    private List<LiveListViewEntity.T1462958418713Bean> datas;
 
     public LiveListViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void setDatas(List<LiveListViewEntity> datas) {
+    public void setDatas(List<LiveListViewEntity.T1462958418713Bean> datas) {
         this.datas = datas;
         notifyDataSetChanged();
     }
@@ -56,10 +57,12 @@ public class LiveListViewAdapter extends BaseAdapter {
         } else {
             liveViewHolder = (LiveViewHolder) convertView.getTag();
         }
-        LiveListViewEntity liveListViewEntity = (LiveListViewEntity) getItem(position);
-        liveViewHolder.liveTitle.setText(liveListViewEntity.getLiveTitle());
-        liveViewHolder.liveImg.setImageResource(liveListViewEntity.getLiveImg());
-        liveViewHolder.liveJoin.setText(liveListViewEntity.getLiveJoin());
+        LiveListViewEntity.T1462958418713Bean liveListViewEntity = (LiveListViewEntity.T1462958418713Bean) getItem(position);
+        if (liveListViewEntity != null) {
+            liveViewHolder.liveTitle.setText(liveListViewEntity.getTitle());
+            Picasso.with(context).load(liveListViewEntity.getImgsrc()).into(liveViewHolder.liveImg);
+            liveViewHolder.liveJoin.setText(liveListViewEntity.getLive_info().getUser_count() + ""+ "参与");
+        }
         return convertView;
     }
 
