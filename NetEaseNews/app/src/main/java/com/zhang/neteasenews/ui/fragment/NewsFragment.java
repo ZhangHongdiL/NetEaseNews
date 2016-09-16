@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
@@ -13,6 +15,7 @@ import android.widget.RelativeLayout;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
+import com.zhang.neteasenews.ui.adapter.popupwindowadapter.NewsPwAdapter;
 import com.zhang.neteasenews.ui.fragment.subfragment.ChoicenessFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
@@ -36,6 +39,10 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private List<Fragment> fragments;
 
     private NewsFragmentAdapter newsFragmentAdapter;
+    // popupwindow的相关
+    private RecyclerView recyclerView;
+    private NewsPwAdapter newsPwAdapter;
+    private List<String> list;
 
     public static NewsFragment newInstance() {
 
@@ -65,6 +72,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         tabLayout = byView(R.id.fragment_news_tl);
         viewPager = byView(R.id.fragment_news_vp);
 
+        recyclerView = byView(R.id.popupwindow_rv);
     }
 
     @Override
@@ -80,6 +88,18 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         setData();
 
         downBtn.setOnClickListener(this);
+        // 设置适配器
+        newsPwAdapter = new NewsPwAdapter(context);
+        recyclerView.setAdapter(newsPwAdapter);
+        // 设置布局管理器
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 4);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        // 构造数据
+        list = new ArrayList<>();
+        for (int i = 0; i < 42; i++) {
+            list.add("测试" + i);
+        }
+        newsPwAdapter.setDatas(list);
     }
 
     private void setData() {
@@ -134,7 +154,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
         pw.setWidth(width);
         pw.setHeight(height);
-
+        pw.setContentView(getLayoutInflater().inflate(R.layout.fragment_news_popupwindow, null));
         pw.setFocusable(true);
         pw.showAsDropDown(frament_news);
     }
