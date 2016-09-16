@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
+import com.zhang.neteasenews.ui.fragment.subfragment.ChoicenessFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 
 import java.util.ArrayList;
@@ -91,7 +92,7 @@ public class NewsFragment extends AbsBaseFragment {
 
     private void buildData() {
         fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(ChoicenessFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
