@@ -154,7 +154,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
         pw.setWidth(width);
         pw.setHeight(height);
-        pw.setContentView(getLayoutInflater().inflate(R.layout.fragment_news_popupwindow, null));
+//        pw.setContentView(getLayoutInflater().inflate(R.layout.fragment_news_popupwindow, null));
         pw.setFocusable(true);
         pw.showAsDropDown(frament_news);
     }
