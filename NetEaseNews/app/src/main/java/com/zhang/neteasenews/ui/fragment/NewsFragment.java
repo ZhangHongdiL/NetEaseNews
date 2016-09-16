@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
 import com.zhang.neteasenews.ui.fragment.subfragment.ChoicenessFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
+import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +24,12 @@ import java.util.List;
  * Created by dllo on 16/9/10.
  * 新闻界面的Fragment
  */
-public class NewsFragment extends AbsBaseFragment {
+public class NewsFragment extends AbsBaseFragment implements View.OnClickListener {
 
     private Context context;
     private ImageView searchImg, liveImg;
     private ImageView downBtn;
+    private RelativeLayout frament_news;
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -60,6 +65,10 @@ public class NewsFragment extends AbsBaseFragment {
         tabLayout = byView(R.id.fragment_news_tl);
         viewPager = byView(R.id.fragment_news_vp);
 
+    }
+
+    @Override
+    protected void initDatas() {
         fragments = new ArrayList<>();
         newsFragmentAdapter = new NewsFragmentAdapter(getFragmentManager(), fragments);
         buildData();
@@ -68,10 +77,12 @@ public class NewsFragment extends AbsBaseFragment {
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         viewPager.setAdapter(newsFragmentAdapter);
         tabLayout.setupWithViewPager(viewPager);
+        setData();
+
+        downBtn.setOnClickListener(this);
     }
 
-    @Override
-    protected void initDatas() {
+    private void setData() {
         tabLayout.getTabAt(0).setText("头条");
         tabLayout.getTabAt(1).setText("精选");
         tabLayout.getTabAt(2).setText("娱乐");
@@ -87,7 +98,6 @@ public class NewsFragment extends AbsBaseFragment {
         tabLayout.getTabAt(12).setText("轻松一刻");
         tabLayout.getTabAt(13).setText("军事");
         tabLayout.getTabAt(14).setText("历史");
-
     }
 
     private void buildData() {
@@ -108,4 +118,24 @@ public class NewsFragment extends AbsBaseFragment {
         fragments.add(NewsHeadlineFragment.newInstance());
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.fragment_news_popup_img:
+                setPopupwindow(); // 设置popupWindow的方法
+                break;
+        }
+    }
+
+    private void setPopupwindow() {
+        PopupWindow pw = new PopupWindow(context);
+        // 获得屏幕的宽高
+        int width = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.WIDTH);
+        int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
+        pw.setWidth(width);
+        pw.setHeight(height);
+
+        pw.setFocusable(true);
+        pw.showAsDropDown(frament_news);
+    }
 }

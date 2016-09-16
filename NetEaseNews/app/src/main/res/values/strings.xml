@@ -30,4 +30,8 @@
 
     <!--直播界面-->
     <string name="live_characters">网易原创</string>
+
+    <!--popupwindow界面的文字-->
+    <string name="popup_change">切换栏目</string>
+    <string name="popup_delete">长按排序或删除</string>
 </resources>
