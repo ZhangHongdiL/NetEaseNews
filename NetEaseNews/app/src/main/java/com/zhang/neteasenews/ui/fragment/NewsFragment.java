@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
@@ -44,6 +45,8 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private NewsPwAdapter newsPwAdapter;
     private List<String> list;
 
+    private View view;
+
     public static NewsFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -71,8 +74,8 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         downBtn = byView(R.id.fragment_news_popup_img);
         tabLayout = byView(R.id.fragment_news_tl);
         viewPager = byView(R.id.fragment_news_vp);
+        frament_news = byView(R.id.fragment_news);
 
-        recyclerView = byView(R.id.popupwindow_rv);
     }
 
     @Override
@@ -88,18 +91,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         setData();
 
         downBtn.setOnClickListener(this);
-        // 设置适配器
-        newsPwAdapter = new NewsPwAdapter(context);
-        recyclerView.setAdapter(newsPwAdapter);
-        // 设置布局管理器
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 4);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        // 构造数据
-        list = new ArrayList<>();
-        for (int i = 0; i < 42; i++) {
-            list.add("测试" + i);
-        }
-        newsPwAdapter.setDatas(list);
+
     }
 
     private void setData() {
@@ -154,8 +146,23 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
         pw.setWidth(width);
         pw.setHeight(height);
-//        pw.setContentView(getLayoutInflater().inflate(R.layout.fragment_news_popupwindow, null));
+        view = LayoutInflater.from(context).inflate(R.layout.fragment_news_popupwindow,null);
+        recyclerView = (RecyclerView) view.findViewById(R.id.popupwindow_rv);
+        pw.setContentView(view);
         pw.setFocusable(true);
         pw.showAsDropDown(frament_news);
+
+        // 设置适配器
+        newsPwAdapter = new NewsPwAdapter(context);
+        recyclerView.setAdapter(newsPwAdapter);
+        // 设置布局管理器
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 4);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        // 构造数据
+        list = new ArrayList<>();
+        for (int i = 0; i < 15; i++) {
+            list.add("测试" + i);
+        }
+        newsPwAdapter.setDatas(list);
     }
 }
