@@ -15,6 +15,7 @@
     <dimen name="middle_margin">10dp</dimen>
     <dimen name="middle_15_margin">15dp</dimen>
     <dimen name="big_margin">20dp</dimen>
+    <dimen name="big_more_margin">30dp</dimen>
 
     <!--item的文字大小及margin-->
     <dimen name="fra_news_headline_size">20sp</dimen>

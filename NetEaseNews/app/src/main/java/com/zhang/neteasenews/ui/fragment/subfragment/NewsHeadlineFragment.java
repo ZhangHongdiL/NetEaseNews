@@ -22,7 +22,6 @@ import java.util.List;
  */
 public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResult {
 
-    private Context context;
     private NewsHeadlineAdapter newsHeadlineAdapter;
     private List<HeadlineEntity.T1348647909107Bean> datas;
     private ListView listView;
@@ -34,11 +33,6 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
         NewsHeadlineFragment fragment = new NewsHeadlineFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
     }
 
     @Override

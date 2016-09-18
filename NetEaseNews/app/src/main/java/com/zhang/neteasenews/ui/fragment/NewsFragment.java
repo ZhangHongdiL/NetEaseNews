@@ -19,6 +19,7 @@ import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
 import com.zhang.neteasenews.ui.adapter.popupwindowadapter.NewsPwAdapter;
 import com.zhang.neteasenews.ui.fragment.subfragment.AmusementFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.ChoicenessFragment;
+import com.zhang.neteasenews.ui.fragment.subfragment.CrossTalkFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
@@ -140,9 +141,9 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         tabLayout.getTabAt(10).setText("热帖");
         tabLayout.getTabAt(11).setText("房产");
         tabLayout.getTabAt(12).setText("轻松一刻");
-        tabLayout.getTabAt(12).setText("段子");
-        tabLayout.getTabAt(13).setText("军事");
-        tabLayout.getTabAt(14).setText("历史");
+        tabLayout.getTabAt(13).setText("段子");
+        tabLayout.getTabAt(14).setText("军事");
+        tabLayout.getTabAt(15).setText("历史");
     }
 
     private void buildData() {
@@ -159,7 +160,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(CrossTalkFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
     }
