@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">网易新闻</string>
 
+    <!--新闻的子标题-->
+    <string-array name="titles">
+        <item>头条</item>
+        <item>精选</item>
+        <item>娱乐</item>
+        <item>体育</item>
+        <item>视频</item>
+        <item>财经</item>
+        <item>科技</item>
+        <item>汽车</item>
+        <item>时尚</item>
+    </string-array>
+
     <!--一级界面的Button文字-->
     <string name="news_character">新闻</string>
     <string name="topic_character">话题</string>

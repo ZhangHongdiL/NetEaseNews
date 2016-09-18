@@ -153,6 +153,9 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         tabLayout.getTabAt(13).setText("段子");
         tabLayout.getTabAt(14).setText("军事");
         tabLayout.getTabAt(15).setText("历史");
+//        for (int i = 0; i < 16; i++) {
+//            tabLayout.getTabAt(i).setText();
+//        }
     }
 
     private void buildData() {
