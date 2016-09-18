@@ -64,7 +64,7 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
 //        Log.d("NewsHeadlineFragment", resultStr);
         Gson gson = new Gson();
         HeadlineEntity headlineEntity = gson.fromJson(resultStr, HeadlineEntity.class);
-        List<HeadlineEntity.T1348647909107Bean> datas = headlineEntity.getT1348647909107();
+        datas = headlineEntity.getT1348647909107();
         newsHeadlineAdapter.setDatas(datas);
 
     }

@@ -11,13 +11,13 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.AmusementEntity;
-import com.zhang.neteasenews.model.entity.subentity.ChoicenessEntity;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
 import java.util.List;
 
 /**
  * Created by dllo on 16/9/18.
+ * 娱乐的适配器
  */
 public class AmusementAdapter extends BaseAdapter{
     private Context context;
