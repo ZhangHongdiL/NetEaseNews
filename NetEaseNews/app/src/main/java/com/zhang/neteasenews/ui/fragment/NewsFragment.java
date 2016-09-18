@@ -48,6 +48,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private RecyclerView recyclerView;
     private NewsPwAdapter newsPwAdapter;
     private List<String> list;
+    private ImageView pwIv;
 
     private View view;
 
@@ -109,8 +110,10 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         pw.setHeight(height);
         view = LayoutInflater.from(context).inflate(R.layout.fragment_news_popupwindow,null);
         recyclerView = (RecyclerView) view.findViewById(R.id.popupwindow_rv);
+        pwIv = (ImageView) view.findViewById(R.id.fragment_news_pw_iv);
         pw.setContentView(view);
         pw.setFocusable(true);
+        pw.setOutsideTouchable(true);
         pw.showAsDropDown(frament_news);
 
         // 设置适配器
@@ -125,6 +128,12 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
             list.add("测试" + i);
         }
         newsPwAdapter.setDatas(list);
+        pwIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private void setData() {
