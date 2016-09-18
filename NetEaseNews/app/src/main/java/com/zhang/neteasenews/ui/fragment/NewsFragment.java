@@ -140,6 +140,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         tabLayout.getTabAt(10).setText("热帖");
         tabLayout.getTabAt(11).setText("房产");
         tabLayout.getTabAt(12).setText("轻松一刻");
+        tabLayout.getTabAt(12).setText("段子");
         tabLayout.getTabAt(13).setText("军事");
         tabLayout.getTabAt(14).setText("历史");
     }
@@ -148,6 +149,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(ChoicenessFragment.newInstance());
         fragments.add(AmusementFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());

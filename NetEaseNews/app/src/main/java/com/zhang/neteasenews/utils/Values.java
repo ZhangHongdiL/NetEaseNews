@@ -75,6 +75,11 @@ public class Values {
     public static final String FUNTIMEURL = "http://c.m.163.com/nc/article/list/T1350383429665/0-20.html";
 
     /**
+     * 新闻段子的接口
+     */
+    public static final String CROSSTALKURL = "http://c.3g.163.com/recommend/getChanListNews?channel=T1419316284722&size=20&offset=0&fn=1&passport=&devId=44t6%2B5mG3ACAOlQOCLuIHg%3D%3D&lat=&lon=&version=14.2&net=wifi&ts=1474185043&sign=ocJU3mnUGTFYMwf1ZFDf6g9HzhmncxoPCfvGbKSf4f548ErR02zJ6%2FKXOnxX046I&encryption=1&canal=wandoujia_news&mac=3Fg2bhJMR1xtVeOmVPRkSIe1A3IUPLLdoCiqBVf2Go0%3D";
+    
+    /**
      * 新闻军事的接口
      */
     public static final String WARURL = "http://c.m.163.com/nc/article/list/T1348648141035/0-20.html";
