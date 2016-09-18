@@ -73,8 +73,14 @@ public class CrossTalkFragment extends AbsBaseFragment implements VolleyResult {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.item_fra_news_ct_zan_rb:
+                        int zanCount = Integer.valueOf(zanTv.getText().toString());
+                        zanCount = zanCount + 1;
+                        zanTv.setText(zanCount + "");
                         break;
                     case R.id.item_fra_news_ct_nozan_rb:
+                        int noZanCount = Integer.valueOf(noZanTv.getText().toString());
+                        noZanCount = noZanCount + 1;
+                        noZanTv.setText(noZanCount + "");
                         break;
                 }
             }
