@@ -7,9 +7,11 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.ChoicenessEntity;
+import com.zhang.neteasenews.model.entity.subentity.HeadlineEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.adapter.subadapter.ChoicenessAdapter;
+import com.zhang.neteasenews.ui.adapter.subadapter.NewsHeadlineAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
 
@@ -64,7 +66,7 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
     public void success(String resultStr) {
         Gson gson = new Gson();
         ChoicenessEntity choicenessEntity = gson.fromJson(resultStr, ChoicenessEntity.class);
-        List<ChoicenessEntity.T1467284926140Bean> datas = choicenessEntity.getT1467284926140();
+        datas = choicenessEntity.getT1467284926140();
         choicenessAdapter.setDatas(datas);
     }
 
