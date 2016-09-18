@@ -52,7 +52,6 @@ public class CrossTalkFragment extends AbsBaseFragment implements VolleyResult {
     @Override
     protected void initViews() {
         listView = byView(R.id.fragment_news_crosstalk_lv);
-        radioGroup = byView(R.id.item_fra_news_ct_rg);
     }
 
     @Override
@@ -62,9 +61,10 @@ public class CrossTalkFragment extends AbsBaseFragment implements VolleyResult {
         crossTalkAdapter = new CrossTalkAdapter(context);
         listView.setAdapter(crossTalkAdapter);
 
-//        View view = LayoutInflater.from(context).inflate(R.layout.item_fra_news_ct_lv, null);
-//        zanTv = (TextView) view.findViewById(R.id.item_fra_news_ct_zan_tv);
-//        noZanTv = (TextView)view.findViewById(R.id.item_fra_news_ct_nozan_tv);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_fra_news_ct_lv, null);
+        zanTv = (TextView) view.findViewById(R.id.item_fra_news_ct_zan_tv);
+        noZanTv = (TextView)view.findViewById(R.id.item_fra_news_ct_nozan_tv);
+        radioGroup = (RadioGroup) view.findViewById(R.id.item_fra_news_ct_rg);
         /**
          * 点赞的
          */
