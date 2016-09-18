@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
 import com.zhang.neteasenews.ui.adapter.popupwindowadapter.NewsPwAdapter;
+import com.zhang.neteasenews.ui.fragment.subfragment.AmusementFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.ChoicenessFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
@@ -151,7 +152,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private void buildData() {
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(ChoicenessFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(AmusementFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(NewsHeadlineFragment.newInstance());
