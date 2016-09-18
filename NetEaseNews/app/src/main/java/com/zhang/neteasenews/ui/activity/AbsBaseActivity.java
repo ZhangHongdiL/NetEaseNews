@@ -18,12 +18,12 @@ public abstract class AbsBaseActivity extends AppCompatActivity {
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 订制流程
-        setContentView(setLayout());
-        // 初始化组件
-        initViews();
-        // 初始化数据
-        initDatas();
+
+        setContentView(setLayout()); // 订制流程
+
+        initViews(); // 初始化组件
+
+        initDatas(); // 初始化数据
     }
 
     /**

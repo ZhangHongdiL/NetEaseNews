@@ -94,42 +94,6 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
 
     }
 
-    private void setData() {
-        tabLayout.getTabAt(0).setText("头条");
-        tabLayout.getTabAt(1).setText("精选");
-        tabLayout.getTabAt(2).setText("娱乐");
-        tabLayout.getTabAt(3).setText("体育");
-        tabLayout.getTabAt(4).setText("视频");
-        tabLayout.getTabAt(5).setText("财经");
-        tabLayout.getTabAt(6).setText("科技");
-        tabLayout.getTabAt(7).setText("汽车");
-        tabLayout.getTabAt(8).setText("时尚");
-        tabLayout.getTabAt(9).setText("图片");
-        tabLayout.getTabAt(10).setText("热帖");
-        tabLayout.getTabAt(11).setText("房产");
-        tabLayout.getTabAt(12).setText("轻松一刻");
-        tabLayout.getTabAt(13).setText("军事");
-        tabLayout.getTabAt(14).setText("历史");
-    }
-
-    private void buildData() {
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(ChoicenessFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -164,5 +128,41 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
             list.add("测试" + i);
         }
         newsPwAdapter.setDatas(list);
+    }
+
+    private void setData() {
+        tabLayout.getTabAt(0).setText("头条");
+        tabLayout.getTabAt(1).setText("精选");
+        tabLayout.getTabAt(2).setText("娱乐");
+        tabLayout.getTabAt(3).setText("体育");
+        tabLayout.getTabAt(4).setText("视频");
+        tabLayout.getTabAt(5).setText("财经");
+        tabLayout.getTabAt(6).setText("科技");
+        tabLayout.getTabAt(7).setText("汽车");
+        tabLayout.getTabAt(8).setText("时尚");
+        tabLayout.getTabAt(9).setText("图片");
+        tabLayout.getTabAt(10).setText("热帖");
+        tabLayout.getTabAt(11).setText("房产");
+        tabLayout.getTabAt(12).setText("轻松一刻");
+        tabLayout.getTabAt(13).setText("军事");
+        tabLayout.getTabAt(14).setText("历史");
+    }
+
+    private void buildData() {
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(ChoicenessFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance());
     }
 }

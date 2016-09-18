@@ -49,7 +49,9 @@ public abstract class AbsBaseFragment extends Fragment {
 
     protected abstract void initDatas();
 
-    // 简化findViewById
+    /**
+     * 简化findViewById
+     */
     protected <T extends View> T byView(int resId) {
         return (T) getView().findViewById(resId);
     }
