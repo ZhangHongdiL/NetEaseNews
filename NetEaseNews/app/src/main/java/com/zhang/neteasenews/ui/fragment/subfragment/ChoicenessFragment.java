@@ -36,7 +36,7 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
         fragment.setArguments(args);
         return fragment;
     }
-    
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_news_headline;

@@ -40,7 +40,10 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private List<Fragment> fragments;
 
     private NewsFragmentAdapter newsFragmentAdapter;
-    // popupwindow的相关
+
+    /**
+     * popupwindow的相关
+     */
     private RecyclerView recyclerView;
     private NewsPwAdapter newsPwAdapter;
     private List<String> list;
@@ -69,7 +72,6 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         tabLayout = byView(R.id.fragment_news_tl);
         viewPager = byView(R.id.fragment_news_vp);
         frament_news = byView(R.id.fragment_news);
-
     }
 
     @Override
