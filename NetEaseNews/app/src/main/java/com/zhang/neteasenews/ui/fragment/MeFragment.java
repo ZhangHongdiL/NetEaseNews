@@ -21,7 +21,6 @@ import java.util.List;
  */
 public class MeFragment extends AbsBaseFragment implements View.OnClickListener {
 
-    private Context context;
     private LinearLayout set;
     private TextView loginTv;
     private Button readBtn, collectBtn, replyBtn, goldBtn;
@@ -33,11 +32,6 @@ public class MeFragment extends AbsBaseFragment implements View.OnClickListener 
         MeFragment fragment = new MeFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
     }
 
     @Override

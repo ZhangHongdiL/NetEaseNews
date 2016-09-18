@@ -21,7 +21,6 @@ import java.util.List;
  */
 public class LiveFragment extends AbsBaseFragment implements VolleyResult {
 
-    private Context context;
     private ListView listView;
     private List<LiveListViewEntity.T1462958418713Bean> datas;
     private LiveListViewAdapter liveListViewAdapter;
@@ -33,11 +32,6 @@ public class LiveFragment extends AbsBaseFragment implements VolleyResult {
         LiveFragment fragment = new LiveFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
     }
 
     @Override

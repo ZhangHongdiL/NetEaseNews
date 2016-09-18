@@ -22,7 +22,6 @@ import java.util.List;
  */
 public class AmusementFragment extends AbsBaseFragment implements VolleyResult {
 
-    private Context context;
     private ListView listView;
     private List<AmusementEntity.T1348648517839Bean> datas;
     private AmusementAdapter amusementAdapter;
@@ -34,12 +33,6 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult {
         AmusementFragment fragment = new AmusementFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
     }
 
     @Override

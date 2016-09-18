@@ -31,7 +31,6 @@ import java.util.List;
  */
 public class NewsFragment extends AbsBaseFragment implements View.OnClickListener {
 
-    private Context context;
     private ImageView searchImg, liveImg;
     private ImageView downBtn;
     private RelativeLayout frament_news;
@@ -55,12 +54,6 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         NewsFragment fragment = new NewsFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
     }
 
     @Override

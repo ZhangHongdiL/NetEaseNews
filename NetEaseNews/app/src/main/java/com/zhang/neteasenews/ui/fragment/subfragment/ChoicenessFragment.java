@@ -24,7 +24,6 @@ import java.util.List;
  */
 public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult {
 
-    private Context context;
     private ListView listView;
     private List<ChoicenessEntity.T1467284926140Bean> datas;
     private ChoicenessAdapter choicenessAdapter;
@@ -37,13 +36,7 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
         fragment.setArguments(args);
         return fragment;
     }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
-    }
-
+    
     @Override
     protected int setLayout() {
         return R.layout.fragment_news_headline;

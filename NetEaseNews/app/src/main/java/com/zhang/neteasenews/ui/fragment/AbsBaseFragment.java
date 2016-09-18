@@ -17,7 +17,7 @@ import com.zhang.neteasenews.ui.activity.AbsBaseActivity;
  * Fragment的基类
  */
 public abstract class AbsBaseFragment extends Fragment {
-    private Context context;
+    protected Context context;
 
     @Override
     public void onAttach(Context context) {

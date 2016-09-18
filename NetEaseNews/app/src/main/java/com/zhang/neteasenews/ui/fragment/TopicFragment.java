@@ -24,7 +24,6 @@ import java.util.List;
  */
 public class TopicFragment extends AbsBaseFragment {
 
-    private Context context;
     private ImageView topicPerson, topicSearch;
     private TabLayout topicTl;
     private ViewPager topicVp;
@@ -40,11 +39,6 @@ public class TopicFragment extends AbsBaseFragment {
         TopicFragment fragment = new TopicFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.context = context;
     }
 
     @Override
