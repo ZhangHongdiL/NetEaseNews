@@ -1,17 +1,14 @@
 package com.zhang.neteasenews.ui.fragment.subfragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
-import com.zhang.neteasenews.model.entity.subentity.HeadlineEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.adapter.subadapter.NewsHeadlineAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
-import com.zhang.neteasenews.utils.Values;
 
 import java.util.ArrayList;
 import java.util.List;

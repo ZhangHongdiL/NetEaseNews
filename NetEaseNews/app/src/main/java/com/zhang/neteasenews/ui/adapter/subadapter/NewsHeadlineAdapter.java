@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
-import com.zhang.neteasenews.model.entity.subentity.HeadlineEntity;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
 import java.util.List;
