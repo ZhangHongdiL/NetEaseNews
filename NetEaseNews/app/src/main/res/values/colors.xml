@@ -25,4 +25,6 @@
     <color name="red_color">#f00</color>
     <!--纯黑色-->
     <color name="black_24K">#000</color>
+    <!--浅蓝色-->
+    <color name="small_blue_color">#005eff</color>
 </resources>
