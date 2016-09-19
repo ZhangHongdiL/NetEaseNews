@@ -94,4 +94,9 @@ public class Values {
      */
     public static final String LIVEURL = "http://c.m.163.com/nc/live/list/5YWo5Zu9/0-20.html";
 
+    /**
+     * 轮播图时间常量
+     */
+    public static final int TIME = 3000;
+
 }
