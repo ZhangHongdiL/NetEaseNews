@@ -1,6 +1,5 @@
 package com.zhang.neteasenews.ui.fragment;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -17,11 +16,10 @@ import android.widget.RelativeLayout;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
 import com.zhang.neteasenews.ui.adapter.popupwindowadapter.NewsPwAdapter;
-import com.zhang.neteasenews.ui.fragment.subfragment.AmusementFragment;
-import com.zhang.neteasenews.ui.fragment.subfragment.ChoicenessFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.CrossTalkFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
+import com.zhang.neteasenews.utils.Values;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +106,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
         pw.setWidth(width);
         pw.setHeight(height);
-        view = LayoutInflater.from(context).inflate(R.layout.fragment_news_popupwindow,null);
+        view = LayoutInflater.from(context).inflate(R.layout.fragment_news_popupwindow, null);
         recyclerView = (RecyclerView) view.findViewById(R.id.popupwindow_rv);
         pwIv = (ImageView) view.findViewById(R.id.fragment_news_pw_iv);
         pw.setContentView(view);
@@ -159,21 +157,23 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     }
 
     private void buildData() {
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(ChoicenessFragment.newInstance());
-        fragments.add(AmusementFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.CHOICENESSURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.AMUSEMENTURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.PHYSICALURL));
         fragments.add(CrossTalkFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance());
+//        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance(Values.FINANCEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.TECHNOLOGYURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.CARURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.FINANCEURL));
+        fragments.add(CrossTalkFragment.newInstance());
+//        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HOTURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HOUSEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.FUNTIMEURL));
+        fragments.add(CrossTalkFragment.newInstance());
+        fragments.add(NewsHeadlineFragment.newInstance(Values.WARURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HISTORYURL));
     }
 }

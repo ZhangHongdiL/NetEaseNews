@@ -26,10 +26,10 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
     private List<HeadlineEntity.T1348647909107Bean> datas;
     private ListView listView;
 
-    public static NewsHeadlineFragment newInstance() {
+    public static NewsHeadlineFragment newInstance(String url) {
         
         Bundle args = new Bundle();
-        
+        args.putString("url",url);
         NewsHeadlineFragment fragment = new NewsHeadlineFragment();
         fragment.setArguments(args);
         return fragment;
@@ -47,10 +47,12 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
 
     @Override
     protected void initDatas() {
-        VolleyInstance.getInstance().startRequest(Values.HEADLINEURL, this);
         datas = new ArrayList<>();
         newsHeadlineAdapter = new NewsHeadlineAdapter(context);
         listView.setAdapter(newsHeadlineAdapter);
+        Bundle bundle = getArguments();
+        String allUrl = bundle.getString("url");
+        VolleyInstance.getInstance().startRequest(allUrl, this);
     }
 
     @Override
