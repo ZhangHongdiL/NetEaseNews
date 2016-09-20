@@ -1,5 +1,6 @@
 package com.zhang.neteasenews.ui.fragment.topicsubfragment;
 
+import android.util.Log;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -44,9 +45,13 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
 
     @Override
     public void success(String resultStr) {
+        Log.d("AskFragment", resultStr);
         Gson gson = new Gson();
-        AskEntity.DataBean dataBean = gson.fromJson(resultStr, AskEntity.DataBean.class);
+        AskEntity askEntity = gson.fromJson(resultStr, AskEntity.class);
+        AskEntity.DataBean dataBean = askEntity.getData();
+        Log.d("AskFragment", "dataBean:" + dataBean);
         datas = dataBean.getExpertList();
+        Log.d("AskFragment", "datas:" + datas);
         askAdapter.setDatas(datas);
     }
 

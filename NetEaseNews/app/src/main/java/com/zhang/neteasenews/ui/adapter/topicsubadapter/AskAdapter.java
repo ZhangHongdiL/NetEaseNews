@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.topicsubentity.AskEntity;
+import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
 import java.util.List;
 
@@ -64,7 +65,7 @@ public class AskAdapter extends BaseAdapter {
             Picasso.with(context).load(expertListBean.getPicurl()).into(askViewHolder.titleImg);
             Picasso.with(context).load(expertListBean.getHeadpicurl()).into(askViewHolder.personImg);
             askViewHolder.contentTv.setText(expertListBean.getAlias());
-            askViewHolder.personTv.setText(expertListBean.getName());
+            askViewHolder.personTv.setText(expertListBean.getName() + "/");
             askViewHolder.titleTv.setText(expertListBean.getTitle());
             askViewHolder.sourceTv.setText(expertListBean.getClassification());
             askViewHolder.attentionTv.setText(expertListBean.getConcernCount() + "关注");

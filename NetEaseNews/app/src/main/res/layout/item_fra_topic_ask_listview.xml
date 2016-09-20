@@ -18,7 +18,8 @@
             <ImageView
                 android:id="@+id/ask_title_img"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
                 android:layout_gravity="bottom"
                 android:src="@mipmap/ic_launcher"/>
             <LinearLayout
@@ -29,12 +30,13 @@
                     android:id="@+id/ask_person_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:civ_border_color="@color/white_bg"
+                    app:civ_border_width="2dp"
                     android:background="@mipmap/ic_launcher"/>
                 <TextView
                     android:id="@+id/ask_person_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="123"
                     android:layout_marginLeft="@dimen/middle_margin"
                     android:textSize="@dimen/middle_size"
                     android:textColor="@color/black_24K"/>
@@ -48,7 +50,11 @@
             android:id="@+id/ask_content_tv"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textSize="@dimen/big_size"
+            android:textColor="@color/black_24K"
+            android:layout_marginLeft="@dimen/middle_margin"
+            android:layout_marginRight="@dimen/middle_margin" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
