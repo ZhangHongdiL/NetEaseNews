@@ -95,6 +95,15 @@ public class Values {
     public static final String LIVEURL = "http://c.m.163.com/nc/live/list/5YWo5Zu9/0-20.html";
 
     /**
+     * 话题界面问吧的借口
+     */
+    public static final String ASKURL = "http://c.3g.163.com/newstopic/list/expert/YWxs/0-10.html";
+
+    public static final String FICATIONURL = "http://c.3g.163.com/newstopic/list/classification.html";
+
+
+
+    /**
      * 轮播图时间常量
      */
     public static final int TIME = 3000;

@@ -16,6 +16,7 @@
             android:layout_height="0dp"
             android:layout_weight="2">
             <ImageView
+                android:id="@+id/ask_title_img"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -25,10 +26,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/middle_margin">
                 <ImageView
+                    android:id="@+id/ask_person_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/ic_launcher"/>
                 <TextView
+                    android:id="@+id/ask_person_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="123"
@@ -51,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true">
                 <TextView
+                    android:id="@+id/ask_source_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/small_blue_color"
@@ -61,6 +65,7 @@
                     android:background="@color/gray_color"
                     android:layout_margin="3dp"/>
                 <TextView
+                    android:id="@+id/ask_attention_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="关注"/>
@@ -70,6 +75,7 @@
                     android:background="@color/gray_color"
                     android:layout_margin="3dp"/>
                 <TextView
+                    android:id="@+id/ask_ask_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="提问"/>
@@ -78,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_launcher"/>
+                android:background="@mipmap/ask_attention" />
         </RelativeLayout>
 
     </LinearLayout>
