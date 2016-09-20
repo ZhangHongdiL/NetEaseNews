@@ -45,13 +45,13 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
 
     @Override
     public void success(String resultStr) {
-        Log.d("AskFragment", resultStr);
+//        Log.d("AskFragment", resultStr);
         Gson gson = new Gson();
         AskEntity askEntity = gson.fromJson(resultStr, AskEntity.class);
         AskEntity.DataBean dataBean = askEntity.getData();
-        Log.d("AskFragment", "dataBean:" + dataBean);
+//        Log.d("AskFragment", "dataBean:" + dataBean);
         datas = dataBean.getExpertList();
-        Log.d("AskFragment", "datas:" + datas);
+//        Log.d("AskFragment", "datas:" + datas);
         askAdapter.setDatas(datas);
     }
 
