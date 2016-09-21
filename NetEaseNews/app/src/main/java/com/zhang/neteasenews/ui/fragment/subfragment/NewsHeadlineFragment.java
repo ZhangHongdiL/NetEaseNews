@@ -47,12 +47,12 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
     private View head;
 
 
-    public static NewsHeadlineFragment newInstance(String url) {
+    public static NewsHeadlineFragment newInstance() {
         /**
          * 在Fragment复用时在方法里添加url
          */
         Bundle args = new Bundle();
-        args.putString("url",url);
+//        args.putString("url",url);
         NewsHeadlineFragment fragment = new NewsHeadlineFragment();
         fragment.setArguments(args);
         return fragment;
@@ -79,8 +79,8 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
         listView.setAdapter(newsHeadlineAdapter);
         //=========
         listView.addHeaderView(head);
-        Bundle bundle = getArguments();
-        String allUrl = bundle.getString("url");
+//        Bundle bundle = getArguments();
+//        String allUrl = bundle.getString("url");
         VolleyInstance.getInstance().startRequest(Values.HEADLINEURL, this);
     }
 

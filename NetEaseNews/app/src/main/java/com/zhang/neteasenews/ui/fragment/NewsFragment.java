@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
 import com.zhang.neteasenews.ui.adapter.popupwindowadapter.NewsPwAdapter;
+import com.zhang.neteasenews.ui.fragment.subfragment.ChoicenessFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.CrossTalkFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
@@ -81,7 +82,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         buildData();
         tabLayout.setTabTextColors(Color.parseColor("#a9b7b7"), Color.parseColor("#eb4f38"));
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#eb4f38"));
-        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+//        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         viewPager.setAdapter(newsFragmentAdapter);
         tabLayout.setupWithViewPager(viewPager);
         setData();
@@ -137,41 +138,12 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private void setData() {
         tabLayout.getTabAt(0).setText("头条");
         tabLayout.getTabAt(1).setText("精选");
-        tabLayout.getTabAt(2).setText("娱乐");
-        tabLayout.getTabAt(3).setText("体育");
-        tabLayout.getTabAt(4).setText("视频");
-        tabLayout.getTabAt(5).setText("财经");
-        tabLayout.getTabAt(6).setText("科技");
-        tabLayout.getTabAt(7).setText("汽车");
-        tabLayout.getTabAt(8).setText("时尚");
-        tabLayout.getTabAt(9).setText("图片");
-        tabLayout.getTabAt(10).setText("热帖");
-        tabLayout.getTabAt(11).setText("房产");
-        tabLayout.getTabAt(12).setText("轻松一刻");
-        tabLayout.getTabAt(13).setText("段子");
-        tabLayout.getTabAt(14).setText("军事");
-        tabLayout.getTabAt(15).setText("历史");
-//        for (int i = 0; i < 16; i++) {
-//            tabLayout.getTabAt(i).setText();
-//        }
+        tabLayout.getTabAt(2).setText("段子");
     }
 
     private void buildData() {
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
+        fragments.add(NewsHeadlineFragment.newInstance());
+        fragments.add(ChoicenessFragment.newInstance());
         fragments.add(CrossTalkFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(CrossTalkFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(CrossTalkFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
     }
 }

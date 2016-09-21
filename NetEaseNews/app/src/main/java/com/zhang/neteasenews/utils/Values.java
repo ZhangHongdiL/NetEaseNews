@@ -113,6 +113,14 @@ public class Values {
     public static final int TIME = 3000;
 
     /**
+     * 新闻界面精选的常量类
+     */
+    public static final int CH_TYPE_ROTATE = 0;
+    public static final int CH_TYPE_NORMAL = 1;
+    public static final int CH_TYPE_ONEIMG = 2;
+    public static final int CH_TYPE_THREEIMG = 3;
+
+    /**
      * 话题界面话题的常量
      */
     public static final int THEME_TWO = 0;

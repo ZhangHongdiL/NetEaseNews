@@ -69,7 +69,7 @@ public class NewsHeadlineAdapter extends BaseAdapter {
         if (headlineEntity != null) {
             Picasso.with(context).load(headlineEntity.getImgsrc()).into(viewHolder.newsImg);
             viewHolder.newsTitle.setText(headlineEntity.getTitle());
-            viewHolder.newsDate.setText(headlineEntity.getSource());
+            viewHolder.newsSource.setText(headlineEntity.getSource());
             viewHolder.newsReply.setText(headlineEntity.getReplyCount() + "" + "跟帖");
         }
         return convertView;
@@ -77,12 +77,12 @@ public class NewsHeadlineAdapter extends BaseAdapter {
 
     class ViewHolder {
         ImageView newsImg;
-        TextView newsTitle, newsDate, newsReply;
+        TextView newsTitle, newsSource, newsReply;
 
         public ViewHolder(View view) {
             newsImg = (ImageView) view.findViewById(R.id.item_fra_news_headline_img);
             newsTitle = (TextView) view.findViewById(R.id.item_fra_news_headline_title);
-            newsDate = (TextView) view.findViewById(R.id.item_fra_news_headline_date);
+            newsSource = (TextView) view.findViewById(R.id.item_fra_news_headline_source);
             newsReply = (TextView) view.findViewById(R.id.item_fra_news_headline_reply);
         }
     }

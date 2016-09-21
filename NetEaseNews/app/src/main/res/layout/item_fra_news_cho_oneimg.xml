@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/item_fra_news_ch_one_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="哈哈"
+        android:layout_margin="@dimen/middle_margin"
+        android:textSize="@dimen/big_size"
+        android:textColor="@color/black_24K"/>
+    <ImageView
+        android:id="@+id/item_fra_news_ch_one_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/middle_margin"
+        android:layout_marginRight="@dimen/middle_margin"
+        android:src="@mipmap/ic_launcher"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/middle_margin">
+        <TextView
+            android:id="@+id/item_fra_news_ch_one_source_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="新闻来源"/>
+        <TextView
+            android:id="@+id/item_fra_news_ch_one_reply_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="跟帖数"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -25,19 +25,19 @@
             android:layout_margin="@dimen/fra_news_headline_margin"
             android:textSize="@dimen/fra_news_headline_size"/>
         <TextView
-            android:id="@+id/item_fra_news_headline_date"
+            android:id="@+id/item_fra_news_headline_source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@id/item_fra_news_headline_title"
             android:layout_marginBottom="@dimen/fra_news_headline_margin"
-            android:text="新闻时间" />
+            android:text="新闻来源" />
         <TextView
             android:id="@+id/item_fra_news_headline_reply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="跟帖数"
-            android:layout_alignTop="@id/item_fra_news_headline_date"
+            android:layout_alignTop="@id/item_fra_news_headline_source"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="@dimen/fra_news_headline_margin"
             android:layout_marginRight="@dimen/fra_news_headline_margin"/>
