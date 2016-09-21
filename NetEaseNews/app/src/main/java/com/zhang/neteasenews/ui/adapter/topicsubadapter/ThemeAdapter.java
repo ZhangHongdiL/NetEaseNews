@@ -1,6 +1,7 @@
 package com.zhang.neteasenews.ui.adapter.topicsubadapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.topicsubentity.ThemeEntity;
@@ -96,24 +98,27 @@ public class ThemeAdapter extends BaseAdapter {
             }
         }
         ThemeEntity.DataBean.SubjectListBean slBean = (ThemeEntity.DataBean.SubjectListBean) getItem(position);
-        ThemeEntity.DataBean.SubjectListBean.TalkContentBean tcb = (ThemeEntity.DataBean.SubjectListBean.TalkContentBean) getItem(position);
         if (slBean != null) {
             switch (type) {
                 case Values.THEME_TWO:
                     twoViewHolder.twoTitleTv.setText("#" + slBean.getName() + "#");
-                    twoViewHolder.upTv.setText("\"" + tcb.getContent() + "\"");
-                    twoViewHolder.downTv.setText("\"" + tcb.getContent() + "\"");
-                    Picasso.with(context).load(tcb.getUserHeadPicUrl()).into(twoViewHolder.upCiv);
-                    Picasso.with(context).load(tcb.getUserHeadPicUrl()).into(twoViewHolder.downCiv);
+                    twoViewHolder.upTv.setText("\"" + slBean.getTalkContent().get(0).getContent() + "\"");
+                    twoViewHolder.downTv.setText("\"" + slBean.getTalkContent().get(1).getContent() + "\"");
+//                    Log.d("sadada", slBean.getTalkContent().get(0).getContent());
+//                    Log.d("sadada", slBean.getTalkContent().get(1).getContent());
+//                    Log.d("sadada", slBean.getTalkContent().get(0).getUserHeadPicUrl());
+//                    Log.d("sadada", slBean.getTalkContent().get(1).getUserHeadPicUrl());
+                    Glide.with(context).load(slBean.getTalkContent().get(0).getUserHeadPicUrl().toString()).into(twoViewHolder.upCiv);
+                    Glide.with(context).load(slBean.getTalkContent().get(1).getUserHeadPicUrl().toString()).into(twoViewHolder.downCiv);
                     twoViewHolder.twoSourceTv.setText(slBean.getClassification());
                     twoViewHolder.twoAttentionTv.setText(slBean.getConcernCount() + "关注");
                     twoViewHolder.twoAskTv.setText(slBean.getTalkCount() + "讨论");
                     break;
                 case Values.THEME_THREE:
                     threeViewHolder.threeTitleTv.setText("#" + slBean.getName() + "#");
-                    Picasso.with(context).load("http://mobilepics.nosdn.127.net/netease_subject/866288027258932/1474360697378203893").into(threeViewHolder.leftImg);
-//                    Picasso.with(context).load(slBean.getTalkPicture().get(1).toString()).into(threeViewHolder.middleImg);
-//                    Picasso.with(context).load(slBean.getTalkPicture().get(2).toString()).into(threeViewHolder.rightImg);
+                    Glide.with(context).load(slBean.getTalkPicture().get(0).toString()).into(threeViewHolder.leftImg);
+                    Glide.with(context).load(slBean.getTalkPicture().get(1).toString()).into(threeViewHolder.middleImg);
+                    Glide.with(context).load(slBean.getTalkPicture().get(2).toString()).into(threeViewHolder.rightImg);
                     threeViewHolder.threeSourceTv.setText(slBean.getClassification());
                     threeViewHolder.threeAttentionTv.setText(slBean.getConcernCount() + "关注");
                     threeViewHolder.threeAskTv.setText(slBean.getTalkCount() + "讨论");
