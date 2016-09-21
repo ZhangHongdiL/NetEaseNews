@@ -19,7 +19,7 @@
         android:layout_gravity="bottom|left"
         android:layout_marginBottom="@dimen/middle_15_margin"
         android:textSize="@dimen/big_size"
-        android:textColor="@color/gray_color"
+        android:textColor="@color/white_bg"
         android:layout_marginLeft="@dimen/middle_15_margin"
         android:textStyle="bold"
         />

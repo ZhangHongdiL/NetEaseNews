@@ -158,20 +158,20 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
 
     private void buildData() {
         fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.CHOICENESSURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.AMUSEMENTURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.PHYSICALURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
         fragments.add(CrossTalkFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance(Values.FINANCEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.TECHNOLOGYURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.CARURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.FINANCEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
         fragments.add(CrossTalkFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HOTURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HOUSEURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.FUNTIMEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
         fragments.add(CrossTalkFragment.newInstance());
-        fragments.add(NewsHeadlineFragment.newInstance(Values.WARURL));
-        fragments.add(NewsHeadlineFragment.newInstance(Values.HISTORYURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
+        fragments.add(NewsHeadlineFragment.newInstance(Values.HEADLINEURL));
     }
 }

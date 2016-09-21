@@ -44,10 +44,13 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
     private Handler handler;
     private boolean isRotate = false;
     private Runnable rotateRunnable;
+    private View head;
 
 
     public static NewsHeadlineFragment newInstance(String url) {
-        
+        /**
+         * 在Fragment复用时在方法里添加url
+         */
         Bundle args = new Bundle();
         args.putString("url",url);
         NewsHeadlineFragment fragment = new NewsHeadlineFragment();
@@ -63,22 +66,22 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
     @Override
     protected void initViews() {
         listView = byView(R.id.fragment_news_headline_lv);
-
-        viewPager = byView(R.id.rotate_vp);
-        pointLl = byView(R.id.rotate_point_container);
+        head = LayoutInflater.from(context).inflate(R.layout.fragment_news_rotate,null);
+        viewPager = (ViewPager) head.findViewById(R.id.rotate_vp);
+        pointLl = (LinearLayout) head.findViewById(R.id.rotate_point_container);
     }
 
     @Override
     protected void initDatas() {
         datas = new ArrayList<>();
+        adsBeen = new ArrayList<>();
         newsHeadlineAdapter = new NewsHeadlineAdapter(context);
         listView.setAdapter(newsHeadlineAdapter);
-        View view= LayoutInflater.from(context).inflate(R.layout.fragment_news_rotate,null);
-
-        listView.addHeaderView(view);
+        //=========
+        listView.addHeaderView(head);
         Bundle bundle = getArguments();
         String allUrl = bundle.getString("url");
-        VolleyInstance.getInstance().startRequest(allUrl, this);
+        VolleyInstance.getInstance().startRequest(Values.HEADLINEURL, this);
     }
 
     @Override
@@ -86,25 +89,31 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
 //        Log.d("NewsHeadlineFragment", resultStr);
         Gson gson = new Gson();
         HeadlineEntity headlineEntity = gson.fromJson(resultStr, HeadlineEntity.class);
+        List<HeadlineEntity.T1348647909107Bean> tb = headlineEntity.getT1348647909107();
+        adsBeen =tb.get(0).getAds();
+//        Log.d("zzz", "tb:---------" + tb);
         datas = headlineEntity.getT1348647909107();
-
-//        HeadlineEntity.T1348647909107Bean adsBeans = gson.fromJson(resultStr, HeadlineEntity.T1348647909107Bean.class);
-//        adsBeen = adsBeans.getAds();
-//        rotateAdapter = new RotateAdapter(adsBeen, context);
-//        viewPager.setAdapter(rotateAdapter);
-//        // ViewPager的页数为int最大值,设置当前页多一些,可以上来就向前滑动
-//        // 为了保证第一页始终为数据的第0条 取余要为0,因此设置数据集合大小的倍数
-//        viewPager.setCurrentItem(adsBeen.size() * 100);
-//
-//        // 开始轮播
-//        handler = new Handler();
-//        startRotate();
-//        // 添加轮播小点
-//        addPoints();
-//        // 随着轮播改变小点
-//        changePoints();
-
         newsHeadlineAdapter.setDatas(datas);
+        //=====================
+//        HeadlineEntity.T1348647909107Bean tb = gson.fromJson(resultStr, HeadlineEntity.T1348647909107Bean.class);
+//
+
+//        Log.d("zzz", "adsBeen>>>>>>>>:" + adsBeen);
+        rotateAdapter = new RotateAdapter(adsBeen, context);
+        viewPager.setAdapter(rotateAdapter);
+        // ViewPager的页数为int最大值,设置当前页多一些,可以上来就向前滑动
+        // 为了保证第一页始终为数据的第0条 取余要为0,因此设置数据集合大小的倍数
+        viewPager.setCurrentItem(adsBeen.size() * 100);
+
+        // 开始轮播
+        handler = new Handler();
+        startRotate();
+        // 添加轮播小点
+        addPoints();
+        // 随着轮播改变小点
+        changePoints();
+
+
     }
     private void changePoints() {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
