@@ -57,7 +57,7 @@ public class LiveListViewAdapter extends BaseAdapter {
             // 为每行设置高度
             int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
             ViewGroup.LayoutParams params = convertView.getLayoutParams();
-            params.height = height / 3;
+            params.height = height / 2;
             convertView.setLayoutParams(params);
 
             liveViewHolder = new LiveViewHolder(convertView);
