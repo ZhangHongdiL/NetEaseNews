@@ -8,7 +8,7 @@
         android:id="@+id/item_fra_news_headline_img"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:src="@mipmap/ic_launcher"
         android:layout_margin="@dimen/fra_news_headline_margin"/>
     <RelativeLayout

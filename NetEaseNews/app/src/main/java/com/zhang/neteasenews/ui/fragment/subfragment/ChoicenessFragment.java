@@ -1,9 +1,14 @@
 package com.zhang.neteasenews.ui.fragment.subfragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.ChoicenessEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
@@ -24,6 +29,7 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
     private ListView listView;
     private ChoicenessAdapter choicenessAdapter;
     private List<ChoicenessEntity.T1467284926140Bean> datas;
+//    private View headView;
 
     public static ChoicenessFragment newInstance() {
 
@@ -41,6 +47,9 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
     @Override
     protected void initViews() {
         listView = byView(R.id.fragment_news_headline_lv);
+//        headView = LayoutInflater.from(context).inflate(R.layout.item_fra_news_ch_head, null);
+//        ImageView headImg = (ImageView) headView.findViewById(R.id.item_fra_news_ch_head_img);
+//        TextView headTv = (TextView) headView.findViewById(R.id.item_fra_news_ch_head_tv);
     }
 
     @Override
@@ -48,6 +57,7 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
         datas = new ArrayList<>();
         choicenessAdapter = new ChoicenessAdapter(context);
         listView.setAdapter(choicenessAdapter);
+//        listView.addHeaderView(headView);
         VolleyInstance.getInstance().startRequest(Values.CHOICENESSURL, this);
     }
 
@@ -57,6 +67,7 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
         ChoicenessEntity choicenessEntity = gson.fromJson(resultStr, ChoicenessEntity.class);
         datas = choicenessEntity.getT1467284926140();
         choicenessAdapter.setDatas(datas);
+
     }
 
     @Override

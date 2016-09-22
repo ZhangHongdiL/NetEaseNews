@@ -102,7 +102,7 @@ public class Values {
     public static final String FICATIONURL = "http://c.3g.163.com/newstopic/list/classification.html";
 
     /**
-     * 话题界面问吧的接口
+     * 话题界面话题的接口
      */
     public static final String THEMEURL = "http://topic.comment.163.com/topic/list/subject/0-10.html";
 

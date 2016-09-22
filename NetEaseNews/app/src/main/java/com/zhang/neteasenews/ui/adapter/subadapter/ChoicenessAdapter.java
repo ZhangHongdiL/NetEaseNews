@@ -1,6 +1,7 @@
 package com.zhang.neteasenews.ui.adapter.subadapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.ChoicenessEntity;
+import com.zhang.neteasenews.utils.ScreenSizeUtils;
 import com.zhang.neteasenews.utils.Values;
 
 import java.util.List;
@@ -25,7 +27,7 @@ public class ChoicenessAdapter extends BaseAdapter {
     private Context context;
     private List<ChoicenessEntity.T1467284926140Bean> datas;
     private LayoutInflater inflater;
-    private int type;
+    private int height;
 
     public ChoicenessAdapter(Context context) {
         this.context = context;
@@ -61,7 +63,7 @@ public class ChoicenessAdapter extends BaseAdapter {
     public int getItemViewType(int position) {
         if (datas.get(position).getOrder() == 1) {
             return Values.CH_TYPE_ROTATE; // 轮播图
-        } else if (!datas.get(position).getImgextra().isEmpty() && datas.get(position).getDigest().isEmpty()) {
+        } else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
             return Values.CH_TYPE_THREEIMG; // 三张图片的行布局
         } else if (datas.get(position).getImgType() == 1) {
             return Values.CH_TYPE_ONEIMG; // 一张图片的行布局
@@ -72,13 +74,30 @@ public class ChoicenessAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        HeadViewHolder headViewHolder = null;
         NormalViewHolder normalViewHolder = null;
         OneViewHolder oneViewHolder = null;
         ThreeViewHolder threeViewHolder = null;
+        int type = getItemViewType(position);
+        Log.d("ChoicenessAdapter", "type:" + type);
         if (convertView == null) {
+
             switch (type) {
+                case Values.CH_TYPE_ROTATE:
+                    convertView = inflater.inflate(R.layout.item_fra_news_ch_head, parent, false);
+                    headViewHolder = new HeadViewHolder(convertView);
+                    convertView.setTag(headViewHolder);
+                    break;
                 case Values.CH_TYPE_NORMAL:
+                    Log.d("ChoicenessAdapter", ">>>>>>>>");
                     convertView = inflater.inflate(R.layout.item_fra_news_headline, parent, false);
+
+                    // 为每行设置高度
+                    height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
+                    ViewGroup.LayoutParams params1 = convertView.getLayoutParams();
+                    params1.height = height / 6;
+                    convertView.setLayoutParams(params1);
+
                     normalViewHolder = new NormalViewHolder(convertView);
                     convertView.setTag(normalViewHolder);
                     break;
@@ -95,6 +114,9 @@ public class ChoicenessAdapter extends BaseAdapter {
             }
         } else {
             switch (type) {
+                case Values.CH_TYPE_ROTATE:
+                    headViewHolder = (HeadViewHolder) convertView.getTag();
+                    break;
                 case Values.CH_TYPE_NORMAL:
                     normalViewHolder = (NormalViewHolder) convertView.getTag();
                     break;
@@ -109,29 +131,42 @@ public class ChoicenessAdapter extends BaseAdapter {
         ChoicenessEntity.T1467284926140Bean entity = (ChoicenessEntity.T1467284926140Bean) getItem(position);
         if (entity != null) {
             switch (type) {
+                case Values.CH_TYPE_ROTATE:
+                    headViewHolder.headTv.setText(entity.getTitle());
+                    Glide.with(context).load(entity.getImgsrc()).into(headViewHolder.headImg);
+                    break;
                 case Values.CH_TYPE_NORMAL:
                     normalViewHolder.newsTitle.setText(entity.getTitle());
                     normalViewHolder.newsSource.setText(entity.getSource());
                     normalViewHolder.newsReply.setText(entity.getReplyCount() + "跟帖");
-                    Glide.with(context).load(datas.get(position).getImgsrc()).into(normalViewHolder.newsImg);
+                    Glide.with(context).load(entity.getImgsrc()).into(normalViewHolder.newsImg);
                     break;
                 case Values.CH_TYPE_ONEIMG:
                     oneViewHolder.titleTv.setText(entity.getTitle());
                     oneViewHolder.sourceTv.setText(entity.getSource());
                     oneViewHolder.replyTv.setText(entity.getReplyCount() + "跟帖");
-                    Glide.with(context).load(datas.get(position).getImgsrc()).into(oneViewHolder.oneImg);
+                    Glide.with(context).load(entity.getImgsrc()).into(oneViewHolder.oneImg);
                     break;
                 case Values.CH_TYPE_THREEIMG:
                     threeViewHolder.titleTv.setText(entity.getTitle());
                     threeViewHolder.sourceTv.setText(entity.getSource());
                     threeViewHolder.replyTv.setText(entity.getReplyCount() + "跟帖");
-                    Glide.with(context).load(datas.get(position).getImgsrc()).into(threeViewHolder.leftImg);
-                    Glide.with(context).load(datas.get(position).getImgextra().get(0).getImgsrc()).into(threeViewHolder.middleImg);
-                    Glide.with(context).load(datas.get(position).getImgextra().get(1).getImgsrc()).into(threeViewHolder.rightImg);
+                    Glide.with(context).load(entity.getImgsrc()).into(threeViewHolder.leftImg);
+                    Glide.with(context).load(entity.getImgextra().get(0).getImgsrc()).into(threeViewHolder.middleImg);
+                    Glide.with(context).load(entity.getImgextra().get(1).getImgsrc()).into(threeViewHolder.rightImg);
                     break;
             }
         }
         return convertView;
+    }
+
+    class HeadViewHolder {
+        ImageView headImg;
+        TextView headTv;
+        public HeadViewHolder(View view) {
+            headImg = (ImageView) view.findViewById(R.id.item_fra_news_ch_head_img);
+            headTv = (TextView) view.findViewById(R.id.item_fra_news_ch_head_tv);
+        }
     }
 
     class NormalViewHolder {
