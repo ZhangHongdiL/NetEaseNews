@@ -1,83 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="@dimen/middle_margin">
+    android:layout_margin="@dimen/middle_margin"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/item_fra_news_ct_content"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/big_size"
-        android:layout_margin="@dimen/main_radioButton_margin"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/line_size"
-        android:background="@color/gray_color"
-        android:layout_margin="@dimen/middle_margin"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
+        android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/middle_margin"
         android:layout_marginRight="@dimen/middle_margin"
-        android:layout_marginBottom="@dimen/middle_margin">
-        <RadioGroup
-            android:id="@+id/item_fra_news_ct_rg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_centerVertical="true">
-            <RadioButton
-                android:id="@+id/item_fra_news_ct_zan_rb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@mipmap/zan" />
+        android:layout_marginTop="@dimen/middle_margin"
+        app:cardCornerRadius="@dimen/middle_margin"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <TextView
-                android:id="@+id/item_fra_news_ct_zan_tv"
-                android:layout_width="wrap_content"
+                android:id="@+id/item_fra_news_ct_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="123"
-                android:textColor="@drawable/color_character"
-                android:textSize="@dimen/big_size"/>
-            <RadioButton
-                android:id="@+id/item_fra_news_ct_nozan_rb"
-                android:layout_width="wrap_content"
+                android:layout_margin="@dimen/main_radioButton_margin"
+                android:textSize="@dimen/big_size" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_size"
+                android:layout_margin="@dimen/middle_margin"
+                android:background="@color/gray_color" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/middle_15_margin"
-                android:button="@mipmap/no_zan"/>
-            <TextView
-                android:id="@+id/item_fra_news_ct_nozan_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="123"
-                android:textColor="@drawable/color_character"
-                android:textSize="@dimen/big_size"/>
-        </RadioGroup>
-        <ImageView
-            android:id="@+id/item_fra_news_ct_share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:background="@mipmap/a_m"/>
-        <TextView
-            android:id="@+id/item_fra_news_ct_reply_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/item_fra_news_ct_share"
-            android:layout_marginRight="@dimen/big_more_margin"
-            android:textSize="@dimen/big_size"
-            android:text="123"/>
-        <ImageView
-            android:id="@+id/item_fra_news_ct_discuss"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/item_fra_news_ct_reply_tv"
-            android:background="@mipmap/crosstalk_discuss"
-            />
-    </RelativeLayout>
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="@dimen/middle_margin"
+                android:layout_marginLeft="@dimen/middle_margin"
+                android:layout_marginRight="@dimen/middle_margin">
+
+                <RadioGroup
+                    android:id="@+id/item_fra_news_ct_rg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/item_fra_news_ct_zan_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@mipmap/zan" />
+
+                    <TextView
+                        android:id="@+id/item_fra_news_ct_zan_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="123"
+                        android:textColor="@drawable/color_character"
+                        android:textSize="@dimen/big_size" />
+
+                    <RadioButton
+                        android:id="@+id/item_fra_news_ct_nozan_rb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/middle_15_margin"
+                        android:button="@mipmap/no_zan" />
+
+                    <TextView
+                        android:id="@+id/item_fra_news_ct_nozan_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="123"
+                        android:textColor="@drawable/color_character"
+                        android:textSize="@dimen/big_size" />
+                </RadioGroup>
+
+                <ImageView
+                    android:id="@+id/item_fra_news_ct_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/a_m" />
+
+                <TextView
+                    android:id="@+id/item_fra_news_ct_reply_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/big_more_margin"
+                    android:layout_toLeftOf="@id/item_fra_news_ct_share"
+                    android:text="123"
+                    android:textSize="@dimen/big_size" />
+
+                <ImageView
+                    android:id="@+id/item_fra_news_ct_discuss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/item_fra_news_ct_reply_tv"
+                    android:background="@mipmap/crosstalk_discuss" />
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

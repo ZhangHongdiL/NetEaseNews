@@ -57,7 +57,7 @@ public class Values {
     /**
      * 新闻图片的接口
      */
-    public static final String PICTRUEURL = "http://c.m.163.com/photo/api/list/0096/4GJ60096.json";
+    public static final String PICTUREURL = "http://c.m.163.com/photo/api/list/0096/4GJ60096.json";
 
     /**
      * 新闻热帖的接口
@@ -119,6 +119,12 @@ public class Values {
     public static final int CH_TYPE_NORMAL = 1;
     public static final int CH_TYPE_ONEIMG = 2;
     public static final int CH_TYPE_THREEIMG = 3;
+
+    /**
+     * 新闻界面图片的常量
+     */
+    public static final int PICTURE_TYPE_ONE = 0;
+    public static final int PICTURE_TYPE_THREE = 1;
 
     /**
      * 话题界面话题的常量

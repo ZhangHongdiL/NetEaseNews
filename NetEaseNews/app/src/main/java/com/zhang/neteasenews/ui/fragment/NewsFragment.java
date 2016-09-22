@@ -20,6 +20,7 @@ import com.zhang.neteasenews.ui.fragment.subfragment.AmusementFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.ChoicenessFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.CrossTalkFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
+import com.zhang.neteasenews.ui.fragment.subfragment.PictureFragment;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
 import com.zhang.neteasenews.utils.Values;
 
@@ -141,6 +142,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         tabLayout.getTabAt(1).setText("精选");
         tabLayout.getTabAt(2).setText("娱乐");
         tabLayout.getTabAt(3).setText("段子");
+        tabLayout.getTabAt(4).setText("图片");
     }
 
     private void buildData() {
@@ -148,5 +150,6 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         fragments.add(ChoicenessFragment.newInstance());
         fragments.add(AmusementFragment.newInstance());
         fragments.add(CrossTalkFragment.newInstance());
+        fragments.add(PictureFragment.newInstance());
     }
 }

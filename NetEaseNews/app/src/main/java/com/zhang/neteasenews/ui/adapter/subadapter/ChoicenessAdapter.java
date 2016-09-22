@@ -79,7 +79,7 @@ public class ChoicenessAdapter extends BaseAdapter {
         OneViewHolder oneViewHolder = null;
         ThreeViewHolder threeViewHolder = null;
         int type = getItemViewType(position);
-        Log.d("ChoicenessAdapter", "type:" + type);
+//        Log.d("ChoicenessAdapter", "type:" + type);
         if (convertView == null) {
 
             switch (type) {

@@ -7,7 +7,5 @@
     <ListView
         android:id="@+id/fragment_news_headline_lv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@color/colorNews"
-        android:dividerHeight="1dp"/>
+        android:layout_height="wrap_content" />
 </LinearLayout>
