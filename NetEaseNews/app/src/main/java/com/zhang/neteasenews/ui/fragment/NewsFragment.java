@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
 import com.zhang.neteasenews.ui.adapter.popupwindowadapter.NewsPwAdapter;
+import com.zhang.neteasenews.ui.fragment.subfragment.AmusementFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.ChoicenessFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.CrossTalkFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
@@ -138,12 +139,14 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     private void setData() {
         tabLayout.getTabAt(0).setText("头条");
         tabLayout.getTabAt(1).setText("精选");
-        tabLayout.getTabAt(2).setText("段子");
+        tabLayout.getTabAt(2).setText("娱乐");
+        tabLayout.getTabAt(3).setText("段子");
     }
 
     private void buildData() {
         fragments.add(NewsHeadlineFragment.newInstance());
         fragments.add(ChoicenessFragment.newInstance());
+        fragments.add(AmusementFragment.newInstance());
         fragments.add(CrossTalkFragment.newInstance());
     }
 }
