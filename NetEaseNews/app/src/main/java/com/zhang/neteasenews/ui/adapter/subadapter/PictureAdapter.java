@@ -116,15 +116,15 @@ public class PictureAdapter extends BaseAdapter{
                     onePicHolder.titleTv.setText(entity.getSetname());
                     onePicHolder.replyTv.setText(entity.getReplynum() + "跟帖");
                     onePicHolder.picsTv.setText(entity.getImgsum() + "pics");
-                    Glide.with(context).load(entity.getPics().get(0)).into(onePicHolder.oneImg);
+                    Glide.with(context).load(entity.getPics().get(0)).error(R.mipmap.netease_big).into(onePicHolder.oneImg);
                     break;
                 case Values.PICTURE_TYPE_THREE:
                     threePicHolder.titleTv.setText(entity.getSetname());
                     threePicHolder.replyTv.setText(entity.getReplynum() + "跟帖");
                     threePicHolder.picsTv.setText(entity.getImgsum() + "pics");
-                    Glide.with(context).load(entity.getPics().get(0)).into(threePicHolder.bigImg);
-                    Glide.with(context).load(entity.getPics().get(1)).into(threePicHolder.upImg);
-                    Glide.with(context).load(entity.getPics().get(2)).into(threePicHolder.downImg);
+                    Glide.with(context).load(entity.getPics().get(0)).error(R.mipmap.netease_big).into(threePicHolder.bigImg);
+                    Glide.with(context).load(entity.getPics().get(1)).error(R.mipmap.netease_big).into(threePicHolder.upImg);
+                    Glide.with(context).load(entity.getPics().get(2)).error(R.mipmap.netease_big).into(threePicHolder.downImg);
                     break;
             }
         }

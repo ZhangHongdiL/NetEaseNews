@@ -58,7 +58,7 @@ public class RotateAdapter extends PagerAdapter {
         ImageView imageView = (ImageView) convertView.findViewById(R.id.item_fragment_news_rotate_iv);
         TextView textView = (TextView) convertView.findViewById(R.id.item_fragment_news_rotate_tv);
         textView.setText(datas.get(newPosition).getTitle());
-        Picasso.with(context).load(datas.get(newPosition).getImgsrc()).into(imageView);
+        Picasso.with(context).load(datas.get(newPosition).getImgsrc()).error(R.mipmap.netease_big).into(imageView);
         container.addView(convertView);
         return convertView;
     }

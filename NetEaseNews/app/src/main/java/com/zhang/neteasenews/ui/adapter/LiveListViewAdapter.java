@@ -68,7 +68,7 @@ public class LiveListViewAdapter extends BaseAdapter {
         LiveListViewEntity.T1462958418713Bean liveListViewEntity = (LiveListViewEntity.T1462958418713Bean) getItem(position);
         if (liveListViewEntity != null) {
             liveViewHolder.liveTitle.setText(liveListViewEntity.getTitle());
-            Picasso.with(context).load(liveListViewEntity.getImgsrc()).into(liveViewHolder.liveImg);
+            Picasso.with(context).load(liveListViewEntity.getImgsrc()).error(R.mipmap.netease_big).into(liveViewHolder.liveImg);
             liveViewHolder.liveJoin.setText(liveListViewEntity.getLive_info().getUser_count() + ""+ "参与");
         }
         return convertView;

@@ -74,8 +74,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
             holder.lengthTv.setText(finalLength + "/");
         }
 
-        Glide.with(context).load(datas.get(position).getCover()).into(holder.videoImg);
-        Glide.with(context).load(datas.get(position).getTopicImg()).into(holder.topicnameImg);
+        Glide.with(context).load(datas.get(position).getCover()).error(R.mipmap.netease_big).into(holder.videoImg);
+        Glide.with(context).load(datas.get(position).getTopicImg()).error(R.mipmap.netease_small).into(holder.topicnameImg);
     }
 
     @Override

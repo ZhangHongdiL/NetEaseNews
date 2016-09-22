@@ -62,8 +62,8 @@ public class AskAdapter extends BaseAdapter {
         }
         AskEntity.DataBean.ExpertListBean expertListBean = (AskEntity.DataBean.ExpertListBean) getItem(position);
         if (expertListBean != null) {
-            Picasso.with(context).load(expertListBean.getPicurl()).into(askViewHolder.titleImg);
-            Picasso.with(context).load(expertListBean.getHeadpicurl()).into(askViewHolder.personImg);
+            Picasso.with(context).load(expertListBean.getPicurl()).error(R.mipmap.netease_big).into(askViewHolder.titleImg);
+            Picasso.with(context).load(expertListBean.getHeadpicurl()).error(R.mipmap.netease_small).into(askViewHolder.personImg);
             askViewHolder.contentTv.setText(expertListBean.getAlias());
             askViewHolder.personTv.setText(expertListBean.getName() + "/");
             askViewHolder.titleTv.setText(expertListBean.getTitle());

@@ -108,17 +108,17 @@ public class ThemeAdapter extends BaseAdapter {
 //                    Log.d("sadada", slBean.getTalkContent().get(1).getContent());
 //                    Log.d("sadada", slBean.getTalkContent().get(0).getUserHeadPicUrl());
 //                    Log.d("sadada", slBean.getTalkContent().get(1).getUserHeadPicUrl());
-                    Glide.with(context).load(slBean.getTalkContent().get(0).getUserHeadPicUrl().toString()).into(twoViewHolder.upCiv);
-                    Glide.with(context).load(slBean.getTalkContent().get(1).getUserHeadPicUrl().toString()).into(twoViewHolder.downCiv);
+                    Glide.with(context).load(slBean.getTalkContent().get(0).getUserHeadPicUrl().toString()).error(R.mipmap.netease_small).into(twoViewHolder.upCiv);
+                    Glide.with(context).load(slBean.getTalkContent().get(1).getUserHeadPicUrl().toString()).error(R.mipmap.netease_small).into(twoViewHolder.downCiv);
                     twoViewHolder.twoSourceTv.setText(slBean.getClassification());
                     twoViewHolder.twoAttentionTv.setText(slBean.getConcernCount() + "关注");
                     twoViewHolder.twoAskTv.setText(slBean.getTalkCount() + "讨论");
                     break;
                 case Values.THEME_THREE:
                     threeViewHolder.threeTitleTv.setText("#" + slBean.getName() + "#");
-                    Glide.with(context).load(slBean.getTalkPicture().get(0).toString()).into(threeViewHolder.leftImg);
-                    Glide.with(context).load(slBean.getTalkPicture().get(1).toString()).into(threeViewHolder.middleImg);
-                    Glide.with(context).load(slBean.getTalkPicture().get(2).toString()).into(threeViewHolder.rightImg);
+                    Glide.with(context).load(slBean.getTalkPicture().get(0).toString()).error(R.mipmap.netease_big).into(threeViewHolder.leftImg);
+                    Glide.with(context).load(slBean.getTalkPicture().get(1).toString()).error(R.mipmap.netease_big).into(threeViewHolder.middleImg);
+                    Glide.with(context).load(slBean.getTalkPicture().get(2).toString()).error(R.mipmap.netease_big).into(threeViewHolder.rightImg);
                     threeViewHolder.threeSourceTv.setText(slBean.getClassification());
                     threeViewHolder.threeAttentionTv.setText(slBean.getConcernCount() + "关注");
                     threeViewHolder.threeAskTv.setText(slBean.getTalkCount() + "讨论");

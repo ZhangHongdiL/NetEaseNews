@@ -133,27 +133,27 @@ public class ChoicenessAdapter extends BaseAdapter {
             switch (type) {
                 case Values.CH_TYPE_ROTATE:
                     headViewHolder.headTv.setText(entity.getTitle());
-                    Glide.with(context).load(entity.getImgsrc()).into(headViewHolder.headImg);
+                    Glide.with(context).load(entity.getImgsrc()).error(R.mipmap.netease_big).into(headViewHolder.headImg);
                     break;
                 case Values.CH_TYPE_NORMAL:
                     normalViewHolder.newsTitle.setText(entity.getTitle());
                     normalViewHolder.newsSource.setText(entity.getSource());
                     normalViewHolder.newsReply.setText(entity.getReplyCount() + "跟帖");
-                    Glide.with(context).load(entity.getImgsrc()).into(normalViewHolder.newsImg);
+                    Glide.with(context).load(entity.getImgsrc()).error(R.mipmap.netease_big).into(normalViewHolder.newsImg);
                     break;
                 case Values.CH_TYPE_ONEIMG:
                     oneViewHolder.titleTv.setText(entity.getTitle());
                     oneViewHolder.sourceTv.setText(entity.getSource());
                     oneViewHolder.replyTv.setText(entity.getReplyCount() + "跟帖");
-                    Glide.with(context).load(entity.getImgsrc()).into(oneViewHolder.oneImg);
+                    Glide.with(context).load(entity.getImgsrc()).error(R.mipmap.netease_big).into(oneViewHolder.oneImg);
                     break;
                 case Values.CH_TYPE_THREEIMG:
                     threeViewHolder.titleTv.setText(entity.getTitle());
                     threeViewHolder.sourceTv.setText(entity.getSource());
                     threeViewHolder.replyTv.setText(entity.getReplyCount() + "跟帖");
-                    Glide.with(context).load(entity.getImgsrc()).into(threeViewHolder.leftImg);
-                    Glide.with(context).load(entity.getImgextra().get(0).getImgsrc()).into(threeViewHolder.middleImg);
-                    Glide.with(context).load(entity.getImgextra().get(1).getImgsrc()).into(threeViewHolder.rightImg);
+                    Glide.with(context).load(entity.getImgsrc()).error(R.mipmap.netease_big).into(threeViewHolder.leftImg);
+                    Glide.with(context).load(entity.getImgextra().get(0).getImgsrc()).error(R.mipmap.netease_big).into(threeViewHolder.middleImg);
+                    Glide.with(context).load(entity.getImgextra().get(1).getImgsrc()).error(R.mipmap.netease_big).into(threeViewHolder.rightImg);
                     break;
             }
         }

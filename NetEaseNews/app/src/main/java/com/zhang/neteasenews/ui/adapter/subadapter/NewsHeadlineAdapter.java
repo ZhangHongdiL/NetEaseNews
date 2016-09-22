@@ -67,7 +67,7 @@ public class NewsHeadlineAdapter extends BaseAdapter {
         }
         HeadlineEntity.T1348647909107Bean headlineEntity = (HeadlineEntity.T1348647909107Bean) getItem(position);
         if (headlineEntity != null) {
-            Picasso.with(context).load(headlineEntity.getImgsrc()).into(viewHolder.newsImg);
+            Picasso.with(context).load(headlineEntity.getImgsrc()).error(R.mipmap.netease_big).into(viewHolder.newsImg);
             viewHolder.newsTitle.setText(headlineEntity.getTitle());
             viewHolder.newsSource.setText(headlineEntity.getSource());
             viewHolder.newsReply.setText(headlineEntity.getReplyCount() + "" + "跟帖");
