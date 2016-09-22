@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.ChoicenessEntity;
@@ -60,7 +61,7 @@ public class ChoicenessAdapter extends BaseAdapter {
     public int getItemViewType(int position) {
         if (datas.get(position).getOrder() == 1) {
             return Values.CH_TYPE_ROTATE; // 轮播图
-        } else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
+        } else if (!datas.get(position).getImgextra().isEmpty() && datas.get(position).getDigest().isEmpty()) {
             return Values.CH_TYPE_THREEIMG; // 三张图片的行布局
         } else if (datas.get(position).getImgType() == 1) {
             return Values.CH_TYPE_ONEIMG; // 一张图片的行布局
@@ -112,21 +113,21 @@ public class ChoicenessAdapter extends BaseAdapter {
                     normalViewHolder.newsTitle.setText(entity.getTitle());
                     normalViewHolder.newsSource.setText(entity.getSource());
                     normalViewHolder.newsReply.setText(entity.getReplyCount() + "跟帖");
-                    Picasso.with(context).load(datas.get(position).getImgsrc()).into(normalViewHolder.newsImg);
+                    Glide.with(context).load(datas.get(position).getImgsrc()).into(normalViewHolder.newsImg);
                     break;
                 case Values.CH_TYPE_ONEIMG:
                     oneViewHolder.titleTv.setText(entity.getTitle());
                     oneViewHolder.sourceTv.setText(entity.getSource());
                     oneViewHolder.replyTv.setText(entity.getReplyCount() + "跟帖");
-                    Picasso.with(context).load(datas.get(position).getImgsrc()).into(oneViewHolder.oneImg);
+                    Glide.with(context).load(datas.get(position).getImgsrc()).into(oneViewHolder.oneImg);
                     break;
                 case Values.CH_TYPE_THREEIMG:
                     threeViewHolder.titleTv.setText(entity.getTitle());
                     threeViewHolder.sourceTv.setText(entity.getSource());
                     threeViewHolder.replyTv.setText(entity.getReplyCount() + "跟帖");
-                    Picasso.with(context).load(datas.get(position).getImgsrc()).into(threeViewHolder.leftImg);
-                    Picasso.with(context).load(datas.get(position).getImgextra().get(0).getImgsrc()).into(threeViewHolder.middleImg);
-                    Picasso.with(context).load(datas.get(position).getImgextra().get(1).getImgsrc()).into(threeViewHolder.rightImg);
+                    Glide.with(context).load(datas.get(position).getImgsrc()).into(threeViewHolder.leftImg);
+                    Glide.with(context).load(datas.get(position).getImgextra().get(0).getImgsrc()).into(threeViewHolder.middleImg);
+                    Glide.with(context).load(datas.get(position).getImgextra().get(1).getImgsrc()).into(threeViewHolder.rightImg);
                     break;
             }
         }

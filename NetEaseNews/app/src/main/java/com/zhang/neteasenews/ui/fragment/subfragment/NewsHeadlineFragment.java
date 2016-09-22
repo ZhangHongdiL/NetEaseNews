@@ -52,7 +52,6 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
          * 在Fragment复用时在方法里添加url
          */
         Bundle args = new Bundle();
-//        args.putString("url",url);
         NewsHeadlineFragment fragment = new NewsHeadlineFragment();
         fragment.setArguments(args);
         return fragment;
@@ -79,8 +78,6 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
         listView.setAdapter(newsHeadlineAdapter);
         //=========
         listView.addHeaderView(head);
-//        Bundle bundle = getArguments();
-//        String allUrl = bundle.getString("url");
         VolleyInstance.getInstance().startRequest(Values.HEADLINEURL, this);
     }
 
@@ -91,14 +88,9 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
         HeadlineEntity headlineEntity = gson.fromJson(resultStr, HeadlineEntity.class);
         List<HeadlineEntity.T1348647909107Bean> tb = headlineEntity.getT1348647909107();
         adsBeen =tb.get(0).getAds();
-//        Log.d("zzz", "tb:---------" + tb);
         datas = headlineEntity.getT1348647909107();
         newsHeadlineAdapter.setDatas(datas);
         //=====================
-//        HeadlineEntity.T1348647909107Bean tb = gson.fromJson(resultStr, HeadlineEntity.T1348647909107Bean.class);
-//
-
-//        Log.d("zzz", "adsBeen>>>>>>>>:" + adsBeen);
         rotateAdapter = new RotateAdapter(adsBeen, context);
         viewPager.setAdapter(rotateAdapter);
         // ViewPager的页数为int最大值,设置当前页多一些,可以上来就向前滑动
