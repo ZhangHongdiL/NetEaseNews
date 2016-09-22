@@ -21,6 +21,7 @@ import com.zhang.neteasenews.ui.fragment.subfragment.ChoicenessFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.CrossTalkFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.PictureFragment;
+import com.zhang.neteasenews.ui.fragment.subfragment.VideoFragment;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
 import com.zhang.neteasenews.utils.Values;
 
@@ -84,7 +85,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         buildData();
         tabLayout.setTabTextColors(Color.parseColor("#a9b7b7"), Color.parseColor("#eb4f38"));
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#eb4f38"));
-//        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         viewPager.setAdapter(newsFragmentAdapter);
         tabLayout.setupWithViewPager(viewPager);
         setData();
@@ -143,6 +144,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         tabLayout.getTabAt(2).setText("娱乐");
         tabLayout.getTabAt(3).setText("段子");
         tabLayout.getTabAt(4).setText("图片");
+        tabLayout.getTabAt(5).setText("视频");
     }
 
     private void buildData() {
@@ -151,5 +153,6 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         fragments.add(AmusementFragment.newInstance());
         fragments.add(CrossTalkFragment.newInstance());
         fragments.add(PictureFragment.newInstance());
+        fragments.add(VideoFragment.newInstance());
     }
 }
