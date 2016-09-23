@@ -20,7 +20,7 @@ import java.util.List;
  * 话题界面话题的Fragment
  */
 public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
-    private List<ThemeEntity.DataBean.SubjectListBean> datas;
+    private List<ThemeEntity.DataBean> datas;
     private ListView listView;
     private ThemeAdapter themeAdapter;
     @Override
@@ -43,12 +43,13 @@ public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
 
     @Override
     public void success(String resultStr) {
-        Log.d("ThemeFragment", resultStr);
+//        Log.d("ThemeFragment", );
         Gson gson = new Gson();
         ThemeEntity themeEntity = gson.fromJson(resultStr, ThemeEntity.class);
-        ThemeEntity.DataBean dataBeen = themeEntity.getData();
-        datas = dataBeen.getSubjectList();
-        themeAdapter.setDatas(datas);
+        ThemeEntity.DataBean dataBean = themeEntity.getData();
+
+
+        themeAdapter.setDatas(dataBean);
     }
 
     @Override

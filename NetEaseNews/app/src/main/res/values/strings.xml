@@ -47,4 +47,8 @@
     <!--popupwindow界面的文字-->
     <string name="popup_change">切换栏目</string>
     <string name="popup_delete">长按排序或删除</string>
+
+    <!--话题界面的话题-->
+    <string name="theme_position_4">精选问吧推荐</string>
+    <string name="theme_position_more">更多</string>
 </resources>

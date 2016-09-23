@@ -131,4 +131,5 @@ public class Values {
      */
     public static final int THEME_TWO = 0;
     public static final int THEME_THREE = 1;
+    public static final int THEME_POSITION = 2;
 }
