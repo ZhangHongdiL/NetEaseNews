@@ -6,13 +6,13 @@
         <item>头条</item>
         <item>精选</item>
         <item>娱乐</item>
-        <item>体育</item>
+        <item>段子</item>
+        <item>图片</item>
         <item>视频</item>
-        <item>财经</item>
-        <item>科技</item>
-        <item>汽车</item>
-        <item>时尚</item>
     </string-array>
+
+    <!--抽取的文字-->
+    <string name="join">参加</string>
 
     <!--一级界面的Button文字-->
     <string name="news_character">新闻</string>

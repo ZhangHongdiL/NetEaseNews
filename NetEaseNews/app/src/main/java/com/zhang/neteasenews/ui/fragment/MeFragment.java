@@ -52,12 +52,16 @@ public class MeFragment extends AbsBaseFragment implements View.OnClickListener 
     @Override
     protected void initDatas() {
         loginTv.setOnClickListener(this);
+        collectBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.fragment_me_login:
+                goTo(LoginActivity.class); // 登陆的点击事件
+                break;
+            case R.id.fragment_me_collect: // 收藏的点击事件
                 goTo(LoginActivity.class);
                 break;
         }
