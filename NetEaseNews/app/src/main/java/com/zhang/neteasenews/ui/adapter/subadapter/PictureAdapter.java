@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.PictureEntity;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
@@ -20,7 +21,7 @@ import java.util.List;
  * Created by dllo on 16/9/22.
  * 新闻界面图片的适配器
  */
-public class PictureAdapter extends BaseAdapter{
+public class PictureAdapter extends BaseAdapter {
 
     private Context context;
     private List<PictureEntity> datas;
@@ -116,7 +117,11 @@ public class PictureAdapter extends BaseAdapter{
                     onePicHolder.titleTv.setText(entity.getSetname());
                     onePicHolder.replyTv.setText(entity.getReplynum() + "跟帖");
                     onePicHolder.picsTv.setText(entity.getImgsum() + "pics");
-                    Glide.with(context).load(entity.getPics().get(0)).error(R.mipmap.netease_big).into(onePicHolder.oneImg);
+                    if (!entity.getPics().isEmpty()) {
+                        Glide.with(context).load(entity.getPics().get(0)).error(R.mipmap.netease_big).into(onePicHolder.oneImg);
+                    } else {
+                        Glide.with(context).load(entity.getCover()).error(R.mipmap.netease_big).into(onePicHolder.oneImg);
+                    }
                     break;
                 case Values.PICTURE_TYPE_THREE:
                     threePicHolder.titleTv.setText(entity.getSetname());
@@ -134,6 +139,7 @@ public class PictureAdapter extends BaseAdapter{
     class OnePicHolder {
         ImageView oneImg;
         TextView titleTv, replyTv, picsTv;
+
         public OnePicHolder(View v) {
             titleTv = (TextView) v.findViewById(R.id.item_picture_one_title_tv);
             replyTv = (TextView) v.findViewById(R.id.item_picture_one_reply_tv);
@@ -141,14 +147,16 @@ public class PictureAdapter extends BaseAdapter{
             oneImg = (ImageView) v.findViewById(R.id.item_picture_one_img);
         }
     }
+
     class ThreePicHolder {
         ImageView bigImg, upImg, downImg;
         TextView titleTv, replyTv, picsTv;
+
         public ThreePicHolder(View v) {
             bigImg = (ImageView) v.findViewById(R.id.item_picture_three_big_img);
             upImg = (ImageView) v.findViewById(R.id.item_picture_three_up_img);
             downImg = (ImageView) v.findViewById(R.id.item_picture_three_down_img);
-            titleTv = (TextView)v.findViewById(R.id.item_picture_three_title_tv);
+            titleTv = (TextView) v.findViewById(R.id.item_picture_three_title_tv);
             replyTv = (TextView) v.findViewById(R.id.item_picture_three_reply_tv);
             picsTv = (TextView) v.findViewById(R.id.item_picture_three_pics_tv);
         }
