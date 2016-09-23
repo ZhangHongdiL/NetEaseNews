@@ -34,7 +34,7 @@
                     android:layout_centerVertical="true"
                     android:text="@string/theme_position_4"
                     android:textColor="@color/black_24K"
-                    android:textSize="@dimen/middle_margin"/>
+                    android:textSize="@dimen/middle_size"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
