@@ -1,5 +1,6 @@
 package com.zhang.neteasenews.ui.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -91,6 +92,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         setData();
 
         downBtn.setOnClickListener(this);
+        liveImg.setOnClickListener(this);
 
     }
 
@@ -99,6 +101,9 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         switch (v.getId()) {
             case R.id.fragment_news_popup_img:
                 setPopupwindow(); // 设置popupWindow的方法
+                break;
+            case R.id.fragment_news_img_live:
+//                Intent intent = new Intent(NewsFragment.this, LiveFragment.class);
                 break;
         }
     }

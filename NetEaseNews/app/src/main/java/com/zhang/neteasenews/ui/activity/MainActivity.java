@@ -1,8 +1,11 @@
 package com.zhang.neteasenews.ui.activity;
 
+import android.os.Process;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.fragment.LiveFragment;
@@ -16,6 +19,7 @@ import com.zhang.neteasenews.ui.fragment.TopicFragment;
 public class MainActivity extends AbsBaseActivity {
 
     private RadioGroup mainRg;
+    private long exitTime = 0; // 定义退出时长
 
     @Override
     protected int setLayout() {
@@ -55,5 +59,23 @@ public class MainActivity extends AbsBaseActivity {
         mainRg.check(R.id.main_news_rb);
     }
 
+    /**
+     * 点击两次返回键退出应用
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
 
+            if ((System.currentTimeMillis() - exitTime) > 2000)  //System.currentTimeMillis()无论何时调用，肯定大于2000
+            {
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
