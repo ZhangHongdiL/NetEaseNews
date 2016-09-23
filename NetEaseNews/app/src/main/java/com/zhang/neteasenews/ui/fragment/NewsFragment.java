@@ -144,16 +144,18 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
     }
 
     private void setData() {
-        tabLayout.getTabAt(0).setText("头条");
-        tabLayout.getTabAt(1).setText("精选");
-        tabLayout.getTabAt(2).setText("娱乐");
-        tabLayout.getTabAt(3).setText("段子");
-        tabLayout.getTabAt(4).setText("图片");
-        tabLayout.getTabAt(5).setText("视频");
-
-//        for (int i = 0; i < fragments.size(); i++) {
-//            tabLayout.getTabAt(i).setText(getResources().getStringArray(R.array.titles) + "");
-//        }
+//        tabLayout.getTabAt(0).setText("头条");
+//        tabLayout.getTabAt(1).setText("精选");
+//        tabLayout.getTabAt(2).setText("娱乐");
+//        tabLayout.getTabAt(3).setText("段子");
+//        tabLayout.getTabAt(4).setText("图片");
+//        tabLayout.getTabAt(5).setText("视频");
+        /**
+         * get到的是array数组!!!!!
+         */
+        for (int i = 0; i < fragments.size(); i++) {
+            tabLayout.getTabAt(i).setText((getResources().getStringArray(R.array.titles))[i] + "");
+        }
     }
 
     private void buildData() {
