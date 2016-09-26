@@ -57,4 +57,29 @@
     <string name="helpandfb_feedback">意见反馈</string>
     <string name="helpandfb_net">网络诊断</string>
     <string name="helpandfb_question">常见问题</string>
+    
+    
+    <!--设置界面-->
+    <string name="set_title">设置</string>
+    <string name="set_user">账号设置</string>
+    <string name="set_person">个人设置</string>
+    <string name="set_bind">绑定其他平台</string>
+    <string name="set_system">系统设置</string>
+    <string name="set_programa">栏目插件设置</string>
+    <string name="set_character">字体设置</string>
+    <string name="set_default">默认字体</string>
+    <string name="set_read">阅读偏好</string>
+    <string name="set_content_charsize">正文字号</string>
+    <string name="set_middle_size">中号字</string>
+    <string name="set_news_push">要闻推送</string>
+    <string name="set_reply">回复我的跟贴</string>
+    <string name="set_WiFi">Wi-Fi自动离线</string>
+    <string name="set_notWifi">非Wifi网络不下载图片</string>
+    <string name="set_clean">手动清理缓存</string>
+    <string name="set_other">其他设置</string>
+    <string name="set_check">检查更新</string>
+    <string name="set_recommend">应用推荐</string>
+    <string name="set_grade">为网易新闻评分</string>
+    <string name="set_story">封面故事</string>
+    <string name="set_about">关于</string>
 </resources>

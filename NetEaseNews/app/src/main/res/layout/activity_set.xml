@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/fragment_me_bg">
+        <ImageView
+            android:id="@+id/act_help_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/login_back"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/middle_margin"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/set_title"
+            android:textColor="@color/white_bg"
+            android:textSize="@dimen/big_size"
+            android:layout_marginLeft="@dimen/middle_margin"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/middle_margin"
+                    android:text="@string/set_user" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/big_margin"
+                    android:layout_marginRight="@dimen/big_margin"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/set_person"
+                        android:textColor="@color/black_24K"
+                        android:textSize="@dimen/big_size" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/middle_margin"
+                        android:text="@string/set_bind"
+                        android:textColor="@color/black_24K"
+                        android:textSize="@dimen/big_size" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_size"
+                        android:layout_marginTop="@dimen/middle_margin"
+                        android:background="@color/gray_color" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/middle_margin"
+                    android:text="@string/set_system" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/big_margin"
+                    android:layout_marginRight="@dimen/big_margin"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/set_programa"
+                        android:textColor="@color/black_24K"
+                        android:textSize="@dimen/big_size" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/big_margin"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="@string/set_character"
+                            android:textColor="@color/black_24K"
+                            android:textSize="@dimen/big_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/set_default_enter_img"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@mipmap/icon_enter" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/set_default"
+                                android:textColor="@color/black_24K"
+                                android:textSize="@dimen/big_size"
+                                android:layout_toLeftOf="@id/set_default_enter_img"/>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/big_margin">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/set_read"
+                            android:textColor="@color/black_24K"
+                            android:textSize="@dimen/big_size" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/icon_enter" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/big_margin"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="@string/set_content_charsize"
+                            android:textColor="@color/black_24K"
+                            android:textSize="@dimen/big_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/set_content_enter_img"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@mipmap/icon_enter" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/set_middle_size"
+                                android:textColor="@color/black_24K"
+                                android:textSize="@dimen/big_size"
+                                android:layout_toLeftOf="@id/set_content_enter_img"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/big_margin">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:text="@string/set_news_push"
+                            android:textColor="@color/black_24K"
+                            android:textSize="@dimen/big_size"/>
+                        <Switch
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/big_margin"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/big_margin">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:text="@string/set_reply"
+                            android:textColor="@color/black_24K"
+                            android:textSize="@dimen/big_size"/>
+                        <Switch
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/big_margin"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/big_margin">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:text="@string/set_WiFi"
+                            android:textColor="@color/black_24K"
+                            android:textSize="@dimen/big_size"/>
+                        <Switch
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/big_margin"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/big_margin">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:text="@string/set_notWifi"
+                            android:textColor="@color/black_24K"
+                            android:textSize="@dimen/big_size"/>
+                        <Switch
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/big_margin"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/big_margin">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:text="@string/set_clean"
+                            android:textColor="@color/black_24K"
+                            android:textSize="@dimen/big_size"/>
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/set_clean_enter_img"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@mipmap/icon_enter" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="31.90M"
+                                android:textColor="@color/black_24K"
+                                android:textSize="@dimen/big_size"
+                                android:layout_toLeftOf="@id/set_clean_enter_img"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/middle_margin"
+                    android:text="@string/set_other" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/big_margin"
+                    android:layout_marginRight="@dimen/big_margin"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/middle_margin"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="@string/set_character"
+                            android:textColor="@color/black_24K"
+                            android:textSize="@dimen/big_size" />
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:id="@+id/set_check_enter_img"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@mipmap/icon_enter" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="V15.0"
+                                android:textColor="@color/black_24K"
+                                android:textSize="@dimen/big_size"
+                                android:layout_toLeftOf="@id/set_check_enter_img"/>
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/big_margin"
+                        android:text="@string/set_recommend"
+                        android:textColor="@color/black_24K"
+                        android:textSize="@dimen/big_size" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/big_margin"
+                        android:text="@string/set_grade"
+                        android:textColor="@color/black_24K"
+                        android:textSize="@dimen/big_size" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/big_margin"
+                        android:text="@string/set_story"
+                        android:textColor="@color/black_24K"
+                        android:textSize="@dimen/big_size" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/big_margin"
+                        android:text="@string/set_about"
+                        android:textColor="@color/black_24K"
+                        android:textSize="@dimen/big_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>
