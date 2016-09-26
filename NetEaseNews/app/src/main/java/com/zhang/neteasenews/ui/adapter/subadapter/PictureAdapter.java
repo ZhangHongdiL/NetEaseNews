@@ -26,7 +26,7 @@ public class PictureAdapter extends BaseAdapter {
     private Context context;
     private List<PictureEntity> datas;
     private LayoutInflater inflater;
-    private int a, b, type; // a 为获取到数据"setid" 余 2 的值; b 为获取数据时每条数据的图片个数
+    private int a, b, c, type; // a 为获取到数据"setid" 余 2 的值; b 为获取数据时每条数据的图片个数; c为获取到pics的个数
     private int height;
 
     public PictureAdapter(Context context) {
@@ -58,7 +58,8 @@ public class PictureAdapter extends BaseAdapter {
     public int getItemViewType(int position) {
         a = Integer.valueOf(datas.get(position).getSetid()) % 2;
         b = Integer.valueOf(datas.get(position).getImgsum());
-        if (a == 0 || b < 3) {
+        c = datas.get(position).getPics().size();
+        if (c == 0 || a == 0) {
             return Values.PICTURE_TYPE_ONE;
         } else {
             return Values.PICTURE_TYPE_THREE;
@@ -117,11 +118,7 @@ public class PictureAdapter extends BaseAdapter {
                     onePicHolder.titleTv.setText(entity.getSetname());
                     onePicHolder.replyTv.setText(entity.getReplynum() + "跟帖");
                     onePicHolder.picsTv.setText(entity.getImgsum() + "pics");
-                    if (!entity.getPics().isEmpty()) {
-                        Glide.with(context).load(entity.getPics().get(0)).error(R.mipmap.netease_big).into(onePicHolder.oneImg);
-                    } else {
-                        Glide.with(context).load(entity.getCover()).error(R.mipmap.netease_big).into(onePicHolder.oneImg);
-                    }
+                    Glide.with(context).load(entity.getCover()).error(R.mipmap.netease_big).into(onePicHolder.oneImg);
                     break;
                 case Values.PICTURE_TYPE_THREE:
                     threePicHolder.titleTv.setText(entity.getSetname());
