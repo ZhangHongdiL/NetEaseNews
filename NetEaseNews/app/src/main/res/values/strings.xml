@@ -51,4 +51,10 @@
     <!--话题界面的话题-->
     <string name="theme_position_4">精选问吧推荐</string>
     <string name="theme_position_more">更多</string>
+
+    <!--帮助与反馈界面-->
+    <string name="helpandfb_title">帮助与反馈</string>
+    <string name="helpandfb_feedback">意见反馈</string>
+    <string name="helpandfb_net">网络诊断</string>
+    <string name="helpandfb_question">常见问题</string>
 </resources>

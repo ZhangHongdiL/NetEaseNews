@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.MeListViewEntity;
+import com.zhang.neteasenews.ui.activity.HelpAndFBActivity;
 import com.zhang.neteasenews.ui.activity.LoginActivity;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class MeFragment extends AbsBaseFragment implements View.OnClickListener 
     private LinearLayout set;
     private TextView loginTv;
     private Button readBtn, collectBtn, replyBtn, goldBtn;
+    private RelativeLayout opinionRl;
 
     public static MeFragment newInstance() {
 
@@ -47,12 +50,16 @@ public class MeFragment extends AbsBaseFragment implements View.OnClickListener 
         collectBtn = byView(R.id.fragment_me_collect);
         replyBtn = byView(R.id.fragment_me_reply);
         goldBtn = byView(R.id.fragment_me_gold);
+
+        opinionRl = byView(R.id.item_fra_me_opinion);
     }
 
     @Override
     protected void initDatas() {
         loginTv.setOnClickListener(this);
         collectBtn.setOnClickListener(this);
+
+        opinionRl.setOnClickListener(this);
     }
 
     @Override
@@ -63,6 +70,9 @@ public class MeFragment extends AbsBaseFragment implements View.OnClickListener 
                 break;
             case R.id.fragment_me_collect: // 收藏的点击事件
                 goTo(LoginActivity.class);
+                break;
+            case R.id.item_fra_me_opinion: // 意见反馈行的跳转
+                goTo(HelpAndFBActivity.class);
                 break;
         }
     }

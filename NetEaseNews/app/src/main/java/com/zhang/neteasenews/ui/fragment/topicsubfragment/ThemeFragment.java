@@ -48,7 +48,6 @@ public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
         ThemeEntity themeEntity = gson.fromJson(resultStr, ThemeEntity.class);
         ThemeEntity.DataBean dataBean = themeEntity.getData();
 
-
         themeAdapter.setDatas(dataBean);
     }
 
