@@ -1,5 +1,6 @@
 package com.zhang.neteasenews.ui.fragment.subfragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -13,6 +14,7 @@ import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.adapter.subadapter.PictureAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
+import com.zhang.neteasenews.view.PullDownListView;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ import java.util.List;
  */
 public class PictureFragment extends AbsBaseFragment implements VolleyResult {
 
-    private ListView listView;
+    private PullDownListView listView;
     private PictureAdapter pictureAdapter;
     private List<PictureEntity> datas;
 
@@ -67,6 +69,28 @@ public class PictureFragment extends AbsBaseFragment implements VolleyResult {
 //            Log.d("zzz", pictureEntities.get(i).getSetname());
 //        }
         pictureAdapter.setDatas(datas);
+
+        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new AsyncTask<Void, Void, Void>() {
+                    protected Void doInBackground(Void... params) {
+                        try {
+                            Thread.sleep(2000);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        pictureAdapter.notifyDataSetChanged();
+                        listView.onRefreshComplete();
+                    }
+                }.execute(null, null, null);
+            }
+        });
     }
 
     @Override

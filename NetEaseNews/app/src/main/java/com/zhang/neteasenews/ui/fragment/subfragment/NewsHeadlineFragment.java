@@ -1,5 +1,6 @@
 package com.zhang.neteasenews.ui.fragment.subfragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
@@ -31,7 +32,7 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
 
     private NewsHeadlineAdapter newsHeadlineAdapter;
     private List<HeadlineEntity.T1348647909107Bean> datas;
-    private ListView listView;
+    private PullDownListView listView;
 
     /**
      * 头布局轮播图
@@ -45,12 +46,6 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
     private boolean isRotate = false;
     private Runnable rotateRunnable;
     private View head;
-
-    /**
-     * 下拉刷新
-     */
-    private List<String> list;
-    private PullDownListView lv;
 
     public static NewsHeadlineFragment newInstance() {
         /**
@@ -110,7 +105,27 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
         // 随着轮播改变小点
         changePoints();
 
+        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new AsyncTask<Void, Void, Void>() {
+                    protected Void doInBackground(Void... params) {
+                        try {
+                            Thread.sleep(2000);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
 
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        newsHeadlineAdapter.notifyDataSetChanged();
+                        listView.onRefreshComplete();
+                    }
+                }.execute(null, null, null);
+            }
+        });
     }
     private void changePoints() {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

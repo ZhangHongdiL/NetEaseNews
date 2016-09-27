@@ -56,8 +56,6 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
         amusementAdapter = new AmusementAdapter(context);
         lv.setAdapter(amusementAdapter);
         VolleyInstance.getInstance().startRequest(Values.AMUSEMENTURL, this);
-
-        lv.setonRefreshListener(this);
     }
 
     @Override
@@ -66,7 +64,7 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
         AmusementEntity amusementEntity = gson.fromJson(resultStr, AmusementEntity.class);
         datas = amusementEntity.getT1348648517839();
         amusementAdapter.setDatas(datas);
-
+        lv.setonRefreshListener(this);
     }
 
     @Override
@@ -80,7 +78,7 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
         new AsyncTask<Void, Void, Void>() {
             protected Void doInBackground(Void... params) {
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(2000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -1,5 +1,6 @@
 package com.zhang.neteasenews.ui.fragment.subfragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.adapter.subadapter.ChoicenessAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
+import com.zhang.neteasenews.view.PullDownListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ import java.util.List;
  */
 public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult {
 
-    private ListView listView;
+    private PullDownListView listView;
     private ChoicenessAdapter choicenessAdapter;
     private List<ChoicenessEntity.T1467284926140Bean> datas;
 //    private View headView;
@@ -67,7 +69,27 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
         ChoicenessEntity choicenessEntity = gson.fromJson(resultStr, ChoicenessEntity.class);
         datas = choicenessEntity.getT1467284926140();
         choicenessAdapter.setDatas(datas);
+        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new AsyncTask<Void, Void, Void>() {
+                    protected Void doInBackground(Void... params) {
+                        try {
+                            Thread.sleep(2000);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
 
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        choicenessAdapter.notifyDataSetChanged();
+                        listView.onRefreshComplete();
+                    }
+                }.execute(null, null, null);
+            }
+        });
     }
 
     @Override
