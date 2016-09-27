@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ListView
+    <com.zhang.neteasenews.view.PullDownListView
         android:id="@+id/fragment_news_headline_lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

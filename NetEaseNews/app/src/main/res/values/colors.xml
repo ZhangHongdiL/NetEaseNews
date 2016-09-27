@@ -27,4 +27,7 @@
     <color name="black_24K">#000</color>
     <!--浅蓝色-->
     <color name="small_blue_color">#005eff</color>
+
+    <!--下拉刷新的颜色-->
+    <color name="gold">#f49108</color>
 </resources>

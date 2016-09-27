@@ -15,10 +15,12 @@ import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.HeadlineEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
+import com.zhang.neteasenews.ui.adapter.PLLvAdapter;
 import com.zhang.neteasenews.ui.adapter.subadapter.NewsHeadlineAdapter;
 import com.zhang.neteasenews.ui.adapter.subadapter.RotateAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
+import com.zhang.neteasenews.view.PullDownListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +48,12 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
     private Runnable rotateRunnable;
     private View head;
 
+    /**
+     * 下拉刷新
+     */
+    private List<String> list;
+    private PullDownListView lv;
+    private PLLvAdapter plLvAdapter;
 
     public static NewsHeadlineFragment newInstance() {
         /**
