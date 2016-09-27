@@ -76,6 +76,20 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
                     protected Void doInBackground(Void... params) {
                         try {
                             Thread.sleep(2000);
+                            VolleyInstance.getInstance().startRequest(Values.CHOICENESSURL, new VolleyResult() {
+                                @Override
+                                public void success(String resultStr) {
+                                    Gson gson = new Gson();
+                                    ChoicenessEntity choicenessEntity = gson.fromJson(resultStr, ChoicenessEntity.class);
+                                    datas = choicenessEntity.getT1467284926140();
+                                    choicenessAdapter.setDatas(datas);
+                                }
+
+                                @Override
+                                public void failure() {
+
+                                }
+                            });
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

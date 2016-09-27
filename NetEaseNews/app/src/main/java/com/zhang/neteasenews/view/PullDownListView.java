@@ -74,19 +74,15 @@ public class PullDownListView extends ListView implements OnScrollListener {
         //setCacheColorHint(context.getResources().getColor(R.color.transparent));
         inflater = LayoutInflater.from(context);
         headerView = (LinearLayout) inflater.inflate(R.layout.lv_header, null);
-        lvHeaderTipsTv = (TextView) headerView
-                .findViewById(R.id.lvHeaderTipsTv);
-        lvHeaderLastUpdatedTv = (TextView) headerView
-                .findViewById(R.id.lvHeaderLastUpdatedTv);
+        lvHeaderTipsTv = (TextView) headerView.findViewById(R.id.lvHeaderTipsTv);
+        lvHeaderLastUpdatedTv = (TextView) headerView.findViewById(R.id.lvHeaderLastUpdatedTv);
 
-        lvHeaderArrowIv = (ImageView) headerView
-                .findViewById(R.id.lvHeaderArrowIv);
+        lvHeaderArrowIv = (ImageView) headerView.findViewById(R.id.lvHeaderArrowIv);
         // 设置下拉刷新图标的最小高度和宽度
         lvHeaderArrowIv.setMinimumWidth(70);
         lvHeaderArrowIv.setMinimumHeight(50);
 
-        lvHeaderProgressBar = (ProgressBar) headerView
-                .findViewById(R.id.lvHeaderProgressBar);
+        lvHeaderProgressBar = (ProgressBar) headerView.findViewById(R.id.lvHeaderProgressBar);
         measureView(headerView);
         headerContentHeight = headerView.getMeasuredHeight();
         // 设置内边距，正好距离顶部为一个负的整个布局的高度，正好把头部隐藏
@@ -99,16 +95,14 @@ public class PullDownListView extends ListView implements OnScrollListener {
         setOnScrollListener(this);
 
         // 设置旋转动画事件
-        animation = new RotateAnimation(0, -180,
-                RotateAnimation.RELATIVE_TO_SELF, 0.5f,
+        animation = new RotateAnimation(0, -180, RotateAnimation.RELATIVE_TO_SELF, 0.5f,
                 RotateAnimation.RELATIVE_TO_SELF, 0.5f);
         animation.setInterpolator(new LinearInterpolator());
         animation.setDuration(250);
         animation.setFillAfter(true);
 
         reverseAnimation = new RotateAnimation(-180, 0,
-                RotateAnimation.RELATIVE_TO_SELF, 0.5f,
-                RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+                RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
         reverseAnimation.setInterpolator(new LinearInterpolator());
         reverseAnimation.setDuration(200);
         reverseAnimation.setFillAfter(true);
@@ -125,8 +119,7 @@ public class PullDownListView extends ListView implements OnScrollListener {
     }
 
     @Override
-    public void onScroll(AbsListView view, int firstVisibleItem,
-                         int visibleItemCount, int totalItemCount) {
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         if (firstVisibleItem == 0) {
             isRefreshable = true;
         } else {
@@ -158,7 +151,6 @@ public class PullDownListView extends ListView implements OnScrollListener {
                     }
                     isRecored = false;
                     isBack = false;
-
                     break;
 
                 case MotionEvent.ACTION_MOVE:
@@ -208,16 +200,12 @@ public class PullDownListView extends ListView implements OnScrollListener {
                         }
                         // 更新headView的size
                         if (state == PULL_To_REFRESH) {
-                            headerView.setPadding(0, -1 * headerContentHeight
-                                    + (tempY - startY) / RATIO, 0, 0);
-
+                            headerView.setPadding(0, -1 * headerContentHeight + (tempY - startY) / RATIO, 0, 0);
                         }
                         // 更新headView的paddingTop
                         if (state == RELEASE_To_REFRESH) {
-                            headerView.setPadding(0, (tempY - startY) / RATIO
-                                    - headerContentHeight, 0, 0);
+                            headerView.setPadding(0, (tempY - startY) / RATIO - headerContentHeight, 0, 0);
                         }
-
                     }
                     break;
 
@@ -287,19 +275,15 @@ public class PullDownListView extends ListView implements OnScrollListener {
         ViewGroup.LayoutParams params = child.getLayoutParams();
         if (params == null) {
             params = new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.FILL_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT);
+                    ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
-        int childWidthSpec = ViewGroup.getChildMeasureSpec(0, 0 + 0,
-                params.width);
+        int childWidthSpec = ViewGroup.getChildMeasureSpec(0, 0 + 0, params.width);
         int lpHeight = params.height;
         int childHeightSpec;
         if (lpHeight > 0) {
-            childHeightSpec = MeasureSpec.makeMeasureSpec(lpHeight,
-                    MeasureSpec.EXACTLY);
+            childHeightSpec = MeasureSpec.makeMeasureSpec(lpHeight, MeasureSpec.EXACTLY);
         } else {
-            childHeightSpec = MeasureSpec.makeMeasureSpec(0,
-                    MeasureSpec.UNSPECIFIED);
+            childHeightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
         }
         child.measure(childWidthSpec, childHeightSpec);
     }

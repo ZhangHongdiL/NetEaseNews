@@ -77,6 +77,20 @@ public class PictureFragment extends AbsBaseFragment implements VolleyResult {
                     protected Void doInBackground(Void... params) {
                         try {
                             Thread.sleep(2000);
+                            VolleyInstance.getInstance().startRequest(Values.PICTUREURL, new VolleyResult() {
+                                @Override
+                                public void success(String resultStr) {
+                                    Gson gson = new Gson();
+                                    Type type = new TypeToken<List<PictureEntity>>(){}.getType();
+                                    datas = gson.fromJson(resultStr, type);
+                                    pictureAdapter.setDatas(datas);
+                                }
+
+                                @Override
+                                public void failure() {
+
+                                }
+                            });
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

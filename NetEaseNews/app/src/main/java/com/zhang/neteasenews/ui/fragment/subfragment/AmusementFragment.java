@@ -77,6 +77,20 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
 //        Toast.makeText(context, "aaa", Toast.LENGTH_SHORT).show();
         new AsyncTask<Void, Void, Void>() {
             protected Void doInBackground(Void... params) {
+                VolleyInstance.getInstance().startRequest(Values.AMUSEMENTURL, new VolleyResult() {
+                    @Override
+                    public void success(String resultStr) {
+                        Gson gson = new Gson();
+                        AmusementEntity amusementEntity = gson.fromJson(resultStr, AmusementEntity.class);
+                        datas = amusementEntity.getT1348648517839();
+                        amusementAdapter.setDatas(datas);
+                    }
+
+                    @Override
+                    public void failure() {
+
+                    }
+                });
                 try {
                     Thread.sleep(2000);
                 } catch (Exception e) {

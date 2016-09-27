@@ -1,16 +1,19 @@
 package com.zhang.neteasenews.ui.fragment;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.LiveListViewEntity;
+import com.zhang.neteasenews.model.entity.subentity.AmusementEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.adapter.LiveListViewAdapter;
 import com.zhang.neteasenews.utils.Values;
+import com.zhang.neteasenews.view.PullDownListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +24,7 @@ import java.util.List;
  */
 public class LiveFragment extends AbsBaseFragment implements VolleyResult {
 
-    private ListView listView;
+    private PullDownListView listView;
     private List<LiveListViewEntity.T1462958418713Bean> datas;
     private LiveListViewAdapter liveListViewAdapter;
 
@@ -58,6 +61,41 @@ public class LiveFragment extends AbsBaseFragment implements VolleyResult {
         LiveListViewEntity liveListViewEntity = gson.fromJson(resultStr, LiveListViewEntity.class);
         List<LiveListViewEntity.T1462958418713Bean> datas = liveListViewEntity.getT1462958418713();
         liveListViewAdapter.setDatas(datas);
+        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new AsyncTask<Void, Void, Void>() {
+                    protected Void doInBackground(Void... params) {
+                        try {
+                            Thread.sleep(2000);
+                            VolleyInstance.getInstance().startRequest(Values.LIVEURL, new VolleyResult() {
+                                @Override
+                                public void success(String resultStr) {
+                                    Gson gson = new Gson();
+                                    LiveListViewEntity liveListViewEntity = gson.fromJson(resultStr, LiveListViewEntity.class);
+                                    List<LiveListViewEntity.T1462958418713Bean> datas = liveListViewEntity.getT1462958418713();
+                                    liveListViewAdapter.setDatas(datas);
+                                }
+
+                                @Override
+                                public void failure() {
+
+                                }
+                            });
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        liveListViewAdapter.notifyDataSetChanged();
+                        listView.onRefreshComplete();
+                    }
+                }.execute(null, null, null);
+            }
+        });
     }
 
     @Override

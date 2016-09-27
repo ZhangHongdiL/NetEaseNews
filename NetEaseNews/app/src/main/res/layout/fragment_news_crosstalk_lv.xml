@@ -5,7 +5,7 @@
     android:layout_margin="@dimen/middle_margin"
     android:orientation="vertical">
 
-    <ListView
+    <com.zhang.neteasenews.view.PullDownListView
         android:id="@+id/fragment_news_crosstalk_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

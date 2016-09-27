@@ -1,5 +1,6 @@
 package com.zhang.neteasenews.ui.fragment.topicsubfragment;
 
+import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ListView;
 
@@ -11,6 +12,7 @@ import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.adapter.topicsubadapter.AskAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
+import com.zhang.neteasenews.view.PullDownListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ import java.util.List;
  */
 public class AskFragment extends AbsBaseFragment implements VolleyResult {
 
-    private ListView askLv;
+    private PullDownListView askLv;
     private List<AskEntity.DataBean.ExpertListBean> datas;
     private AskAdapter askAdapter;
 
@@ -49,10 +51,45 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
         Gson gson = new Gson();
         AskEntity askEntity = gson.fromJson(resultStr, AskEntity.class);
         AskEntity.DataBean dataBean = askEntity.getData();
-//        Log.d("AskFragment", "dataBean:" + dataBean);
         datas = dataBean.getExpertList();
-//        Log.d("AskFragment", "datas:" + datas);
         askAdapter.setDatas(datas);
+        askLv.setonRefreshListener(new PullDownListView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new AsyncTask<Void, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(Void... params) {
+                        try {
+                            Thread.sleep(2000);
+                            VolleyInstance.getInstance().startRequest(Values.ASKURL, new VolleyResult() {
+                                @Override
+                                public void success(String resultStr) {
+                                    Gson gson = new Gson();
+                                    AskEntity askEntity = gson.fromJson(resultStr, AskEntity.class);
+                                    AskEntity.DataBean dataBean = askEntity.getData();
+                                    datas = dataBean.getExpertList();
+                                    askAdapter.setDatas(datas);
+                                }
+
+                                @Override
+                                public void failure() {
+
+                                }
+                            });
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        askAdapter.notifyDataSetChanged();
+                        askLv.onRefreshComplete();
+                    }
+                }.execute(null, null, null);
+            }
+        });
     }
 
     @Override

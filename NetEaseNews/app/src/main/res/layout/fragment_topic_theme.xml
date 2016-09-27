@@ -34,7 +34,7 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </HorizontalScrollView>
-    <ListView
+    <com.zhang.neteasenews.view.PullDownListView
         android:id="@+id/fragment_topic_theme_lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

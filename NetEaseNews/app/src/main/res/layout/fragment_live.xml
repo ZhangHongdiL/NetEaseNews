@@ -18,7 +18,7 @@
             android:gravity="center_vertical"
             android:layout_marginLeft="@dimen/middle_margin"/>
     </LinearLayout>
-    <ListView
+    <com.zhang.neteasenews.view.PullDownListView
         android:id="@+id/fragment_live_lv"
         android:layout_width="match_parent"
         android:layout_height="0dp"

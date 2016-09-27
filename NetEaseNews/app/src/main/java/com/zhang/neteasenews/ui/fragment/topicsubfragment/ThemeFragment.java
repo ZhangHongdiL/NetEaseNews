@@ -1,5 +1,6 @@
 package com.zhang.neteasenews.ui.fragment.topicsubfragment;
 
+import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ListView;
 
@@ -11,6 +12,7 @@ import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.adapter.topicsubadapter.ThemeAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
+import com.zhang.neteasenews.view.PullDownListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ import java.util.List;
  */
 public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
     private List<ThemeEntity.DataBean> datas;
-    private ListView listView;
+    private PullDownListView listView;
     private ThemeAdapter themeAdapter;
     @Override
     protected int setLayout() {
@@ -47,8 +49,43 @@ public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
         Gson gson = new Gson();
         ThemeEntity themeEntity = gson.fromJson(resultStr, ThemeEntity.class);
         ThemeEntity.DataBean dataBean = themeEntity.getData();
-
         themeAdapter.setDatas(dataBean);
+        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new AsyncTask<Void, Void, Void>() {
+                    @Override
+                    protected Void doInBackground(Void... params) {
+                        try {
+                            Thread.sleep(2000);
+                            VolleyInstance.getInstance().startRequest(Values.THEMEURL, new VolleyResult() {
+                                @Override
+                                public void success(String resultStr) {
+                                    Gson gson = new Gson();
+                                    ThemeEntity themeEntity = gson.fromJson(resultStr, ThemeEntity.class);
+                                    ThemeEntity.DataBean dataBean = themeEntity.getData();
+                                    themeAdapter.setDatas(dataBean);
+                                }
+
+                                @Override
+                                public void failure() {
+
+                                }
+                            });
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        themeAdapter.notifyDataSetChanged();
+                        listView.onRefreshComplete();
+                    }
+                }.execute(null, null, null);
+            }
+        });
     }
 
     @Override

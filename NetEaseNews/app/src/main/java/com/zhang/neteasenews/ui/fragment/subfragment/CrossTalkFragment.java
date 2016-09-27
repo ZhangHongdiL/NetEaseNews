@@ -1,6 +1,7 @@
 package com.zhang.neteasenews.ui.fragment.subfragment;
 
 import android.graphics.Paint;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
@@ -28,7 +30,7 @@ import java.util.List;
  */
 public class CrossTalkFragment extends AbsBaseFragment implements VolleyResult {
 
-    private ListView listView;
+    private PullDownListView listView;
     private List<CrossTalkEntity.段子Bean> datas;
     private CrossTalkAdapter crossTalkAdapter;
 
@@ -94,6 +96,42 @@ public class CrossTalkFragment extends AbsBaseFragment implements VolleyResult {
         crossTalkEntity = gson.fromJson(resultStr, CrossTalkEntity.class);
         datas = crossTalkEntity.get段子();
         crossTalkAdapter.setDatas(datas);
+        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new AsyncTask<Void, Void, Void>() {
+                    protected Void doInBackground(Void... params) {
+                        try {
+                            Thread.sleep(2000);
+                            VolleyInstance.getInstance().startRequest(Values.CROSSTALKURL, new VolleyResult() {
+                                @Override
+                                public void success(String resultStr) {
+                                    Gson gson = new Gson();
+                                    crossTalkEntity = gson.fromJson(resultStr, CrossTalkEntity.class);
+                                    datas = crossTalkEntity.get段子();
+                                    crossTalkAdapter.setDatas(datas);
+                                }
+
+                                @Override
+                                public void failure() {
+                                    Toast.makeText(context, "网络不给力", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        return null;
+                    }
+
+                    @Override
+                    protected void onPostExecute(Void result) {
+
+                        crossTalkAdapter.notifyDataSetChanged();
+                        listView.onRefreshComplete();
+                    }
+                }.execute(null, null, null);
+            }
+        });
     }
 
     @Override

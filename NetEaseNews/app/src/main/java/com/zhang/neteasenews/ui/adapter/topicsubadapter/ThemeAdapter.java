@@ -73,7 +73,7 @@ public class ThemeAdapter extends BaseAdapter {
     public int getItemViewType(int position) {
         if (position == 0) {
             return Values.THEME_POSITION;// 四个人
-        } else if (datas.get(position).getType() == 1) {
+        } else if (dataBean.getSubjectList().get(position).getType() == 1) {
             return Values.THEME_THREE;
         } else {
             return Values.THEME_TWO;

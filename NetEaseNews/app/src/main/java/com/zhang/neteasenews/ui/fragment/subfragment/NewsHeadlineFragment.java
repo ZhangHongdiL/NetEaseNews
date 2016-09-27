@@ -112,6 +112,22 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
                     protected Void doInBackground(Void... params) {
                         try {
                             Thread.sleep(2000);
+                            VolleyInstance.getInstance().startRequest(Values.HEADLINEURL, new VolleyResult() {
+                                @Override
+                                public void success(String resultStr) {
+                                    Gson gson = new Gson();
+                                    HeadlineEntity headlineEntity = gson.fromJson(resultStr, HeadlineEntity.class);
+                                    List<HeadlineEntity.T1348647909107Bean> tb = headlineEntity.getT1348647909107();
+                                    adsBeen =tb.get(0).getAds();
+                                    datas = headlineEntity.getT1348647909107();
+                                    newsHeadlineAdapter.setDatas(datas);
+                                }
+
+                                @Override
+                                public void failure() {
+
+                                }
+                            });
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
