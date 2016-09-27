@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.adapter.subadapter.AmusementAdapter;
+import com.zhang.neteasenews.utils.Values;
 
 import java.util.Date;
 
@@ -26,14 +27,6 @@ import java.util.Date;
  */
 public class PullDownListView extends ListView implements OnScrollListener {
 
-    private final static int RELEASE_To_REFRESH = 0;// 下拉过程的状态值
-    private final static int PULL_To_REFRESH = 1; // 从下拉返回到不刷新的状态值
-    private final static int REFRESHING = 2;// 正在刷新的状态值
-    private final static int DONE = 3;
-    private final static int LOADING = 4;
-
-    // 实际的padding的距离与界面上偏移距离的比例
-    private final static int RATIO = 3;
     private LayoutInflater inflater;
 
     // ListView头部下拉刷新的布局
@@ -108,7 +101,7 @@ public class PullDownListView extends ListView implements OnScrollListener {
         reverseAnimation.setFillAfter(true);
 
         // 一开始的状态就是下拉刷新完的状态，所以为DONE
-        state = DONE;
+        state = Values.DONE;
         // 是否正在刷新
         isRefreshable = false;
     }
@@ -138,13 +131,13 @@ public class PullDownListView extends ListView implements OnScrollListener {
                     }
                     break;
                 case MotionEvent.ACTION_UP:
-                    if (state != REFRESHING && state != LOADING) {
-                        if (state == PULL_To_REFRESH) {
-                            state = DONE;
+                    if (state != Values.REFRESHING && state != Values.LOADING) {
+                        if (state == Values.PULL_TO_REFRESH) {
+                            state = Values.DONE;
                             changeHeaderViewByState();
                         }
-                        if (state == RELEASE_To_REFRESH) {
-                            state = REFRESHING;
+                        if (state == Values.RELEASE_TO_REFRESH) {
+                            state = Values.REFRESHING;
                             changeHeaderViewByState();
                             onLvRefresh();
                         }
@@ -159,52 +152,52 @@ public class PullDownListView extends ListView implements OnScrollListener {
                         isRecored = true;
                         startY = tempY;
                     }
-                    if (state != REFRESHING && isRecored && state != LOADING) {
+                    if (state != Values.REFRESHING && isRecored && state != Values.LOADING) {
                         // 保证在设置padding的过程中，当前的位置一直是在head，否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
                         // 可以松手去刷新了
-                        if (state == RELEASE_To_REFRESH) {
+                        if (state == Values.RELEASE_TO_REFRESH) {
                             setSelection(0);
                             // 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
-                            if (((tempY - startY) / RATIO < headerContentHeight)// 由松开刷新状态转变到下拉刷新状态
+                            if (((tempY - startY) / Values.RATIO < headerContentHeight)// 由松开刷新状态转变到下拉刷新状态
                                     && (tempY - startY) > 0) {
-                                state = PULL_To_REFRESH;
+                                state = Values.PULL_TO_REFRESH;
                                 changeHeaderViewByState();
                             }
                             // 一下子推到顶了
                             else if (tempY - startY <= 0) {// 由松开刷新状态转变到done状态
-                                state = DONE;
+                                state = Values.DONE;
                                 changeHeaderViewByState();
                             }
                         }
                         // 还没有到达显示松开刷新的时候,DONE或者是PULL_To_REFRESH状态
-                        if (state == PULL_To_REFRESH) {
+                        if (state == Values.PULL_TO_REFRESH) {
                             setSelection(0);
                             // 下拉到可以进入RELEASE_TO_REFRESH的状态
-                            if ((tempY - startY) / RATIO >= headerContentHeight) {// 由done或者下拉刷新状态转变到松开刷新
-                                state = RELEASE_To_REFRESH;
+                            if ((tempY - startY) / Values.RATIO >= headerContentHeight) {// 由done或者下拉刷新状态转变到松开刷新
+                                state = Values.RELEASE_TO_REFRESH;
                                 isBack = true;
                                 changeHeaderViewByState();
                             }
                             // 上推到顶了
                             else if (tempY - startY <= 0) {// 由DOne或者下拉刷新状态转变到done状态
-                                state = DONE;
+                                state = Values.DONE;
                                 changeHeaderViewByState();
                             }
                         }
                         // done状态下
-                        if (state == DONE) {
+                        if (state == Values.DONE) {
                             if (tempY - startY > 0) {
-                                state = PULL_To_REFRESH;
+                                state = Values.PULL_TO_REFRESH;
                                 changeHeaderViewByState();
                             }
                         }
                         // 更新headView的size
-                        if (state == PULL_To_REFRESH) {
-                            headerView.setPadding(0, -1 * headerContentHeight + (tempY - startY) / RATIO, 0, 0);
+                        if (state == Values.PULL_TO_REFRESH) {
+                            headerView.setPadding(0, -1 * headerContentHeight + (tempY - startY) / Values.RATIO, 0, 0);
                         }
                         // 更新headView的paddingTop
-                        if (state == RELEASE_To_REFRESH) {
-                            headerView.setPadding(0, (tempY - startY) / RATIO - headerContentHeight, 0, 0);
+                        if (state == Values.RELEASE_TO_REFRESH) {
+                            headerView.setPadding(0, (tempY - startY) / Values.RATIO - headerContentHeight, 0, 0);
                         }
                     }
                     break;
@@ -219,7 +212,7 @@ public class PullDownListView extends ListView implements OnScrollListener {
     // 当状态改变时候，调用该方法，以更新界面
     private void changeHeaderViewByState() {
         switch (state) {
-            case RELEASE_To_REFRESH:
+            case Values.RELEASE_TO_REFRESH:
                 lvHeaderArrowIv.setVisibility(View.VISIBLE);
                 lvHeaderProgressBar.setVisibility(View.GONE);
                 lvHeaderTipsTv.setVisibility(View.VISIBLE);
@@ -230,7 +223,7 @@ public class PullDownListView extends ListView implements OnScrollListener {
 
                 lvHeaderTipsTv.setText("松开刷新");
                 break;
-            case PULL_To_REFRESH:
+            case Values.PULL_TO_REFRESH:
                 lvHeaderProgressBar.setVisibility(View.GONE);
                 lvHeaderTipsTv.setVisibility(View.VISIBLE);
                 lvHeaderLastUpdatedTv.setVisibility(View.VISIBLE);
@@ -248,7 +241,7 @@ public class PullDownListView extends ListView implements OnScrollListener {
                 }
                 break;
 
-            case REFRESHING:
+            case Values.REFRESHING:
 
                 headerView.setPadding(0, 0, 0, 0);
 
@@ -258,7 +251,7 @@ public class PullDownListView extends ListView implements OnScrollListener {
                 lvHeaderTipsTv.setText("正在刷新...");
                 lvHeaderLastUpdatedTv.setVisibility(View.VISIBLE);
                 break;
-            case DONE:
+            case Values.DONE:
                 headerView.setPadding(0, -1 * headerContentHeight, 0, 0);
 
                 lvHeaderProgressBar.setVisibility(View.GONE);
@@ -298,7 +291,7 @@ public class PullDownListView extends ListView implements OnScrollListener {
     }
 
     public void onRefreshComplete() {
-        state = DONE;
+        state = Values.DONE;
         lvHeaderLastUpdatedTv.setText("最近更新:" + new Date().toLocaleString());
         changeHeaderViewByState();
     }
