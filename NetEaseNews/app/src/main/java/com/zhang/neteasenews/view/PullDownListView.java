@@ -1,7 +1,6 @@
 package com.zhang.neteasenews.view;
 
 import android.content.Context;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -18,9 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.zhang.neteasenews.R;
-import com.zhang.neteasenews.ui.adapter.PLLvAdapter;
 import com.zhang.neteasenews.ui.adapter.subadapter.AmusementAdapter;
-import com.zhang.neteasenews.utils.Values;
 
 import java.util.Date;
 

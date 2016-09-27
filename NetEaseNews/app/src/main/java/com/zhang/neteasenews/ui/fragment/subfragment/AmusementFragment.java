@@ -2,18 +2,12 @@ package com.zhang.neteasenews.ui.fragment.subfragment;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.AmusementEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
-import com.zhang.neteasenews.ui.adapter.PLLvAdapter;
 import com.zhang.neteasenews.ui.adapter.subadapter.AmusementAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
