@@ -3,6 +3,7 @@ package com.zhang.neteasenews.ui.fragment.topicsubfragment;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
@@ -73,7 +74,7 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
 
                                 @Override
                                 public void failure() {
-
+                                    Toast.makeText(context, "网络不给力", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } catch (InterruptedException e) {

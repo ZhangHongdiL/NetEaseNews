@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
@@ -125,7 +126,7 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
 
                                 @Override
                                 public void failure() {
-
+                                    Toast.makeText(context, "网络不给力", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } catch (Exception e) {

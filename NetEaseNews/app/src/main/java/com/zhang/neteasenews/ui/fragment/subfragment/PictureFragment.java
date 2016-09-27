@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -88,7 +89,7 @@ public class PictureFragment extends AbsBaseFragment implements VolleyResult {
 
                                 @Override
                                 public void failure() {
-
+                                    Toast.makeText(context, "网络不给力", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } catch (Exception e) {

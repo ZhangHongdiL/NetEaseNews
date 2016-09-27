@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
@@ -87,7 +88,7 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
 
                                 @Override
                                 public void failure() {
-
+                                    Toast.makeText(context, "网络不给力", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } catch (Exception e) {
