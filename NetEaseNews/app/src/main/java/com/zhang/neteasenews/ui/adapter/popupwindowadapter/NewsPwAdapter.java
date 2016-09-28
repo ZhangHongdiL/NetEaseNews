@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.zhang.neteasenews.R;
-import com.zhang.neteasenews.utils.PopupRecyclerItemClick;
-import com.zhang.neteasenews.utils.PopupRecyclerItemLongClick;
 
 import java.util.List;
 

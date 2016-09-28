@@ -28,6 +28,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     private int s;
     private String finalLength;
 
+
     public VideoAdapter(Context context) {
         this.context = context;
     }
