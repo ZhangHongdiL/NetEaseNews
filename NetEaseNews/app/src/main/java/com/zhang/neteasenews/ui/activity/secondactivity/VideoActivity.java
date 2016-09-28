@@ -6,13 +6,15 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.activity.AbsBaseActivity;
 
 public class VideoActivity extends AbsBaseActivity {
 
-    private WebView webView;
+    private VideoView videoView;
 
     @Override
     protected int setLayout() {
@@ -21,36 +23,19 @@ public class VideoActivity extends AbsBaseActivity {
 
     @Override
     protected void initViews() {
-        webView = byView(R.id.video_wv);
+        videoView = byView(R.id.video_vv);
     }
 
     @Override
     protected void initDatas() {
-        /**
-         * 设置WebView在当前Activity显示, 不跳转浏览器
-         */
-        webView.setWebViewClient(new WebViewClient(){
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                if (url.endsWith(".mp4")) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(Uri.parse(url), "video/*");
-                    view.getContext().startActivity(intent);
-
-                    return true;
-                } else {
-                    return super.shouldOverrideUrlLoading(view, url);
-                }
-            }
-
-            @Override
-            public boolean shouldOverrideKeyEvent(WebView view, KeyEvent event) {
-                return false;
-            }
-        });
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
-        Log.d("vvv", url);
-        webView.loadUrl(url);
+        Log.d("www", url);
+        MediaController controller = new MediaController(this);
+        videoView.setMediaController(controller);
+        Uri uri = Uri.parse(url);
+        videoView.setVideoURI(uri);
+        videoView.requestFocus();
+        videoView.start();
     }
 }
