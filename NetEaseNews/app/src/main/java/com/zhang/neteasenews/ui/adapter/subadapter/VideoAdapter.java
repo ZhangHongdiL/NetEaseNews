@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.VideoEntity;
+import com.zhang.neteasenews.utils.RecyclerViewItemClick;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
 import java.util.List;
@@ -28,6 +29,11 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     private int s;
     private String finalLength;
 
+    private RecyclerViewItemClick<VideoEntity.视频Bean> itemClick;
+
+    public void setItemClick(RecyclerViewItemClick<VideoEntity.视频Bean> itemClick) {
+        this.itemClick = itemClick;
+    }
 
     public VideoAdapter(Context context) {
         this.context = context;
@@ -51,7 +57,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     }
 
     @Override
-    public void onBindViewHolder(VideoViewHolder holder, int position) {
+    public void onBindViewHolder(final VideoViewHolder holder, int position) {
         holder.topicnameTv.setText(datas.get(position).getTopicName());
         holder.titleTv.setText(datas.get(position).getTitle());
         holder.countTv.setText(datas.get(position).getPlayCount() + "播放");
@@ -77,6 +83,17 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
         Glide.with(context).load(datas.get(position).getCover()).error(R.mipmap.netease_big).into(holder.videoImg);
         Glide.with(context).load(datas.get(position).getTopicImg()).error(R.mipmap.netease_small).into(holder.topicnameImg);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (itemClick != null) {
+                    int position = holder.getLayoutPosition();
+                    VideoEntity.视频Bean bean = datas.get(position);
+                    itemClick.onRvItemClickListener(position, bean);
+                }
+            }
+        });
     }
 
     @Override

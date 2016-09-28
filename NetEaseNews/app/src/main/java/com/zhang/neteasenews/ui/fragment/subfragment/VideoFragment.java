@@ -1,5 +1,6 @@
 package com.zhang.neteasenews.ui.fragment.subfragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +10,10 @@ import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.VideoEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
+import com.zhang.neteasenews.ui.activity.secondactivity.VideoActivity;
 import com.zhang.neteasenews.ui.adapter.subadapter.VideoAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
+import com.zhang.neteasenews.utils.RecyclerViewItemClick;
 import com.zhang.neteasenews.utils.Values;
 
 import java.util.ArrayList;
@@ -61,6 +64,16 @@ public class VideoFragment extends AbsBaseFragment implements VolleyResult {
         VideoEntity entity = gson.fromJson(resultStr, VideoEntity.class);
         datas = entity.get视频();
         videoAdapter.setDatas(datas);
+
+        videoAdapter.setItemClick(new RecyclerViewItemClick<VideoEntity.视频Bean>() {
+            @Override
+            public void onRvItemClickListener(int position, VideoEntity.视频Bean 视频Bean) {
+//                goTo(VideoActivity.class);
+                Intent intent = new Intent(context, VideoActivity.class);
+                intent.putExtra("url", datas.get(position).getMp4_url());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

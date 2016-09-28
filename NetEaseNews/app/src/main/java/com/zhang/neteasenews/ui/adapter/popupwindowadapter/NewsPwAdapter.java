@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.zhang.neteasenews.R;
+import com.zhang.neteasenews.utils.RecyclerViewItemClick;
+import com.zhang.neteasenews.utils.RecyclerViewItemLongClick;
 
 import java.util.List;
 
@@ -19,15 +21,15 @@ public class NewsPwAdapter extends RecyclerView.Adapter<NewsPwAdapter.NewsPwHold
     private Context context;
     private List<String> datas;
     // 点击
-    private PopupRecyclerItemClick popupRecyclerItemClick;
+    private RecyclerViewItemClick popupRecyclerItemClick;
     // 长按点击
-    private PopupRecyclerItemLongClick popupRecyclerItemLongClick;
+    private RecyclerViewItemLongClick popupRecyclerItemLongClick;
 
-    public void setPopupRecyclerItemClick(PopupRecyclerItemClick popupRecyclerItemClick) {
+    public void setPopupRecyclerItemClick(RecyclerViewItemClick popupRecyclerItemClick) {
         this.popupRecyclerItemClick = popupRecyclerItemClick;
     }
 
-    public void setPopupRecyclerItemLongClick(PopupRecyclerItemLongClick popupRecyclerItemLongClick) {
+    public void setPopupRecyclerItemLongClick(RecyclerViewItemLongClick popupRecyclerItemLongClick) {
         this.popupRecyclerItemLongClick = popupRecyclerItemLongClick;
     }
 
