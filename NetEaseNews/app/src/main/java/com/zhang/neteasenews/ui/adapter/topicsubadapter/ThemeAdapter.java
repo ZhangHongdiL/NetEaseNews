@@ -61,7 +61,7 @@ public class ThemeAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return position;
+        return position + 1;
     }
 
     @Override

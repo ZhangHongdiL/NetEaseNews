@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,6 +16,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 import com.zhang.neteasenews.R;
+import com.zhang.neteasenews.ui.activity.secondactivity.SearchHotActivity;
 import com.zhang.neteasenews.ui.adapter.NewsFragmentAdapter;
 import com.zhang.neteasenews.ui.adapter.popupwindowadapter.NewsPwAdapter;
 import com.zhang.neteasenews.ui.fragment.subfragment.AmusementFragment;
@@ -23,6 +25,7 @@ import com.zhang.neteasenews.ui.fragment.subfragment.CrossTalkFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.NewsHeadlineFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.PictureFragment;
 import com.zhang.neteasenews.ui.fragment.subfragment.VideoFragment;
+import com.zhang.neteasenews.utils.RecyclerViewItemClick;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
 import com.zhang.neteasenews.utils.Values;
 
@@ -93,8 +96,11 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
 
         downBtn.setOnClickListener(this);
         liveImg.setOnClickListener(this);
+        searchImg.setOnClickListener(this);
 
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -105,11 +111,14 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
             case R.id.fragment_news_img_live:
 //                Intent intent = new Intent(NewsFragment.this, LiveFragment.class);
                 break;
+            case R.id.fragment_news_img_search:
+                goTo(SearchHotActivity.class);
+                break;
         }
     }
 
     private void setPopupwindow() {
-        PopupWindow pw = new PopupWindow(context);
+        final PopupWindow pw = new PopupWindow(context);
         // 获得屏幕的宽高
         int width = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.WIDTH);
         int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
@@ -118,6 +127,12 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         view = LayoutInflater.from(context).inflate(R.layout.fragment_news_popupwindow, null);
         recyclerView = (RecyclerView) view.findViewById(R.id.popupwindow_rv);
         pwIv = (ImageView) view.findViewById(R.id.fragment_news_pw_iv);
+        pwIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         pw.setContentView(view);
         pw.setFocusable(true);
         pw.setOutsideTouchable(true);
@@ -131,25 +146,27 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         recyclerView.setLayoutManager(gridLayoutManager);
         // 构造数据
         list = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
-            list.add("测试" + i);
+        for (int i = 0; i < fragments.size(); i++) {
+            list.add((getResources().getStringArray(R.array.titles))[i]);
         }
         newsPwAdapter.setDatas(list);
         pwIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pw.dismiss();
+            }
+        });
+        newsPwAdapter.setPopupRecyclerItemClick(new RecyclerViewItemClick() {
+            @Override
+            public void onRvItemClickListener(int position, Object o) {
+                tabLayout.setScrollPosition(position,0,false);
 
+                pw.dismiss();
             }
         });
     }
 
     private void setData() {
-//        tabLayout.getTabAt(0).setText("头条");
-//        tabLayout.getTabAt(1).setText("精选");
-//        tabLayout.getTabAt(2).setText("娱乐");
-//        tabLayout.getTabAt(3).setText("段子");
-//        tabLayout.getTabAt(4).setText("图片");
-//        tabLayout.getTabAt(5).setText("视频");
         /**
          * get到的是array数组!!!!!
          */

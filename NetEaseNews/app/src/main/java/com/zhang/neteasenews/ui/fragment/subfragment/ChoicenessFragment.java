@@ -78,10 +78,16 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(context, NewsDetailActivity.class);
-                intent.putExtra("url", datas.get(position).getUrl_3w());
-                Log.d("wwww", datas.get(position).getUrl_3w());
-                startActivity(intent);
+                if (datas.get(position).getOrder() == 1) {// 轮播图
+                } else if (null != datas.get(position).getSkipType() &&
+                        "photoset".equals(datas.get(position).getSkipType())) {// 三张图片的行布局
+                } else if (datas.get(position).getImgType() == 1) {// 一张图片的行布局
+                } else {// 正常布局
+                    Intent intent = new Intent(context, NewsDetailActivity.class);
+                    intent.putExtra("url", datas.get(position - 1).getUrl_3w());
+                    Log.d("wwww", datas.get(position).getUrl_3w());
+                    startActivity(intent);
+                }
             }
         });
 

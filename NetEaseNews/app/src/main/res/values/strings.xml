@@ -82,4 +82,11 @@
     <string name="set_grade">为网易新闻评分</string>
     <string name="set_story">封面故事</string>
     <string name="set_about">关于</string>
+
+    <!--新闻界面跳转过去的搜索界面的文字-->
+    <string name="search_title">搜索</string>
+    <string name="search_et_hint">请输入关键字...</string>
+    <string name="search_read_history">阅读历史</string>
+    <string name="search_more">更多</string>
+    <string name="search_hot_word">近期热词</string>
 </resources>

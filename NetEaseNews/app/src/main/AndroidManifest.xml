@@ -24,7 +24,8 @@
         <activity android:name=".ui.activity.SetActivity" />
         <activity android:name=".ui.activity.secondactivity.VideoActivity" />
         <activity android:name=".ui.activity.secondactivity.NewsDetailActivity" />
-        <activity android:name=".ui.activity.secondactivity.NewsDetailVPActivity"></activity>
+        <activity android:name=".ui.activity.secondactivity.NewsDetailVPActivity" />
+        <activity android:name=".ui.activity.secondactivity.SearchHotActivity"></activity>
     </application>
 
 </manifest>

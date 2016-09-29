@@ -106,6 +106,11 @@ public class Values {
      */
     public static final String THEMEURL = "http://topic.comment.163.com/topic/list/subject/0-10.html";
 
+    /**
+     * 新闻界面搜索的热词的接口
+     */
+    public static final String SEARCH_HOTURL = "http://c.3g.163.com/nc/search/hotWord.html";
+
     /***********************常量****************************/
     /**
      * 轮播图时间常量

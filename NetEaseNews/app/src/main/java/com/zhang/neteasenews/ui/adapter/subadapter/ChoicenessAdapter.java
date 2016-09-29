@@ -94,9 +94,9 @@ public class ChoicenessAdapter extends BaseAdapter {
 
                     // 为每行设置高度
                     height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
-                    ViewGroup.LayoutParams params1 = convertView.getLayoutParams();
-                    params1.height = height / 6;
-                    convertView.setLayoutParams(params1);
+                    ViewGroup.LayoutParams params = convertView.getLayoutParams();
+                    params.height = height / 6;
+                    convertView.setLayoutParams(params);
 
                     normalViewHolder = new NormalViewHolder(convertView);
                     convertView.setTag(normalViewHolder);
@@ -152,8 +152,12 @@ public class ChoicenessAdapter extends BaseAdapter {
                     threeViewHolder.sourceTv.setText(entity.getSource());
                     threeViewHolder.replyTv.setText(entity.getReplyCount() + "跟帖");
                     Glide.with(context).load(entity.getImgsrc()).error(R.mipmap.netease_big).into(threeViewHolder.leftImg);
-                    Glide.with(context).load(entity.getImgextra().get(0).getImgsrc()).error(R.mipmap.netease_big).into(threeViewHolder.middleImg);
-                    Glide.with(context).load(entity.getImgextra().get(1).getImgsrc()).error(R.mipmap.netease_big).into(threeViewHolder.rightImg);
+                    if (entity.getImgextra().get(0).getImgsrc() != null) {
+                        Glide.with(context).load(entity.getImgextra().get(0).getImgsrc()).error(R.mipmap.netease_big).into(threeViewHolder.middleImg);
+                    }
+                    if (entity.getImgextra().get(1).getImgsrc() != null) {
+                        Glide.with(context).load(entity.getImgextra().get(1).getImgsrc()).error(R.mipmap.netease_big).into(threeViewHolder.rightImg);
+                    }
                     break;
             }
         }
@@ -163,6 +167,7 @@ public class ChoicenessAdapter extends BaseAdapter {
     class HeadViewHolder {
         ImageView headImg;
         TextView headTv;
+
         public HeadViewHolder(View view) {
             headImg = (ImageView) view.findViewById(R.id.item_fra_news_ch_head_img);
             headTv = (TextView) view.findViewById(R.id.item_fra_news_ch_head_tv);
@@ -184,6 +189,7 @@ public class ChoicenessAdapter extends BaseAdapter {
     class OneViewHolder {
         TextView titleTv, sourceTv, replyTv;
         ImageView oneImg;
+
         public OneViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.item_fra_news_ch_one_title_tv);
             sourceTv = (TextView) view.findViewById(R.id.item_fra_news_ch_one_source_tv);
@@ -195,6 +201,7 @@ public class ChoicenessAdapter extends BaseAdapter {
     class ThreeViewHolder {
         TextView titleTv, sourceTv, replyTv;
         ImageView leftImg, middleImg, rightImg;
+
         public ThreeViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.item_fra_news_ch_three_title_tv);
             sourceTv = (TextView) view.findViewById(R.id.item_fra_news_ch_three_source_tv);

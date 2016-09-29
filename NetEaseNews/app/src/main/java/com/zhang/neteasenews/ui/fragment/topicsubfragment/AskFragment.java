@@ -1,8 +1,14 @@
 package com.zhang.neteasenews.ui.fragment.topicsubfragment;
 
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -12,6 +18,7 @@ import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.adapter.topicsubadapter.AskAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
+import com.zhang.neteasenews.utils.ScreenSizeUtils;
 import com.zhang.neteasenews.utils.Values;
 import com.zhang.neteasenews.view.PullDownListView;
 
@@ -27,6 +34,8 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
     private PullDownListView askLv;
     private List<AskEntity.DataBean.ExpertListBean> datas;
     private AskAdapter askAdapter;
+//    private TextView a4444;
+//    private View view;
 
     @Override
     protected int setLayout() {
@@ -36,6 +45,8 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
     @Override
     protected void initViews() {
         askLv = byView(R.id.fragment_topic_ask_lv);
+//        a4444 = byView(R.id.a4444);
+//        view = byView(R.id.vvvv);
     }
 
     @Override
@@ -44,7 +55,27 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
         askAdapter = new AskAdapter(context);
         askLv.setAdapter(askAdapter);
         VolleyInstance.getInstance().startRequest(Values.ASKURL, this);
+//        a4444.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//              popWindow();
+//            }
+//        });
     }
+
+//    private void popWindow() {
+//        final PopupWindow pw = new PopupWindow(context);
+//        // 获得屏幕的宽高
+//        int width = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.WIDTH);
+//        int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
+//        pw.setWidth(width);
+//        pw.setHeight(height / 6);
+//        View view = LayoutInflater.from(context).inflate(R.layout.item_pw_ask, null);
+//        pw.setContentView(view);
+//        pw.setFocusable(true);
+//        pw.setOutsideTouchable(true);
+//        pw.showAsDropDown(view);
+//    }
 
     @Override
     public void success(String resultStr) {

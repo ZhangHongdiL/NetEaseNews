@@ -49,9 +49,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         View view = LayoutInflater.from(context).inflate(R.layout.item_fra_news_video, parent, false);
         // 为每行设置高度
         height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
-        ViewGroup.LayoutParams params1 = view.getLayoutParams();
-        params1.height = height / 3;
-        view.setLayoutParams(params1);
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        params.height = height / 3;
+        view.setLayoutParams(params);
         VideoViewHolder holder = new VideoViewHolder(view);
         return holder;
     }
