@@ -23,7 +23,7 @@
             android:text="新闻标题"
             android:textColor="@color/item_character_color"
             android:layout_margin="@dimen/fra_news_headline_margin"
-            android:textSize="@dimen/fra_news_headline_size"/>
+            android:textSize="18sp"/>
         <TextView
             android:id="@+id/item_fra_news_headline_source"
             android:layout_width="wrap_content"

@@ -56,7 +56,7 @@ public class AmusementEntity {
         private int replyCount;
         private int hasImg;
         private String digest;
-        private String url;
+        private String url_3w;
         private boolean hasIcon;
         private String docid;
         private String title;
@@ -141,12 +141,12 @@ public class AmusementEntity {
             this.digest = digest;
         }
 
-        public String getUrl() {
-            return url;
+        public String getUrl_3w() {
+            return url_3w;
         }
 
-        public void setUrl(String url) {
-            this.url = url;
+        public void setUrl_3w(String url_3w) {
+            this.url_3w = url_3w;
         }
 
         public boolean isHasIcon() {

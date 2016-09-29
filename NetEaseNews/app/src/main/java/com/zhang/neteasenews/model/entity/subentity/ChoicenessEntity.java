@@ -49,6 +49,7 @@ public class ChoicenessEntity {
     }
 
     public static class T1467284926140Bean {
+        private String url_3w;
         private String postid;
         private boolean hasCover;
         private int hasHead;
@@ -81,6 +82,14 @@ public class ChoicenessEntity {
          */
 
         private List<ImgextraBean> imgextra;
+
+        public String getUrl_3w() {
+            return url_3w;
+        }
+
+        public void setUrl_3w(String url_3w) {
+            this.url_3w = url_3w;
+        }
 
         public String getPostid() {
             return postid;

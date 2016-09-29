@@ -3,6 +3,8 @@ package com.zhang.neteasenews.ui.fragment.subfragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -70,6 +72,13 @@ public class PictureFragment extends AbsBaseFragment implements VolleyResult {
 //            Log.d("zzz", pictureEntities.get(i).getSetname());
 //        }
         pictureAdapter.setDatas(datas);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
 
         listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
             @Override

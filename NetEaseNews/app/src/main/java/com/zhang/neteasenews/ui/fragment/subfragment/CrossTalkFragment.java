@@ -1,10 +1,12 @@
 package com.zhang.neteasenews.ui.fragment.subfragment;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -16,6 +18,7 @@ import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.CrossTalkEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
+import com.zhang.neteasenews.ui.activity.secondactivity.NewsDetailActivity;
 import com.zhang.neteasenews.ui.adapter.subadapter.CrossTalkAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
@@ -96,6 +99,14 @@ public class CrossTalkFragment extends AbsBaseFragment implements VolleyResult {
         crossTalkEntity = gson.fromJson(resultStr, CrossTalkEntity.class);
         datas = crossTalkEntity.get段子();
         crossTalkAdapter.setDatas(datas);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(context, NewsDetailActivity.class);
+            }
+        });
+
         listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
             @Override
             public void onRefresh() {

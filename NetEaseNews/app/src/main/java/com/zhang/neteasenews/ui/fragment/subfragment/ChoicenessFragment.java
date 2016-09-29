@@ -1,9 +1,12 @@
 package com.zhang.neteasenews.ui.fragment.subfragment;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -15,6 +18,7 @@ import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.ChoicenessEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
+import com.zhang.neteasenews.ui.activity.secondactivity.NewsDetailActivity;
 import com.zhang.neteasenews.ui.adapter.subadapter.ChoicenessAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
@@ -70,6 +74,17 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
         ChoicenessEntity choicenessEntity = gson.fromJson(resultStr, ChoicenessEntity.class);
         datas = choicenessEntity.getT1467284926140();
         choicenessAdapter.setDatas(datas);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(context, NewsDetailActivity.class);
+                intent.putExtra("url", datas.get(position).getUrl_3w());
+                Log.d("wwww", datas.get(position).getUrl_3w());
+                startActivity(intent);
+            }
+        });
+
         listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
             @Override
             public void onRefresh() {

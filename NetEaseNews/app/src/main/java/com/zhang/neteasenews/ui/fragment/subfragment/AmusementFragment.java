@@ -82,11 +82,11 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
 
                 } else if (datas.get(position).getImgType() == 1) {  // 一张图片的行布局
                     Intent intent = new Intent(context, NewsDetailActivity.class);
-                    intent.putExtra("url", datas.get(position - 1).getUrl());
+                    intent.putExtra("url", datas.get(position - 1).getUrl_3w());
                     startActivity(intent);
                 } else {  // 正常布局
                     Intent intent = new Intent(context, NewsDetailActivity.class);
-                    intent.putExtra("url", datas.get(position - 1).getUrl());
+                    intent.putExtra("url", datas.get(position - 1).getUrl_3w());
                     startActivity(intent);
                 }
 
