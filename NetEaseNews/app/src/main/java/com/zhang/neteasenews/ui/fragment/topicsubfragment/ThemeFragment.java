@@ -58,7 +58,6 @@ public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
         dataBeen = new ArrayList<>();
         themeAdapter = new ThemeAdapter(context);
         listView.setAdapter(themeAdapter);
-
         view = LayoutInflater.from(context).inflate(R.layout.head_theme, null);
         headRv = (RecyclerView) view.findViewById(R.id.head_theme_rv);
 
@@ -75,6 +74,7 @@ public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
                 ThemeHeadEntity themeHeadEntity = gson.fromJson(resultStr, ThemeHeadEntity.class);
                 been = themeHeadEntity.get话题();
                 themeHeadAdapter.setDatas(been);
+                listView.addHeaderView(view);
             }
 
             @Override
@@ -82,7 +82,6 @@ public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
 
             }
         });
-        listView.addHeaderView(view);
 
         VolleyInstance.getInstance().startRequest(Values.THEMEURL, this);
     }

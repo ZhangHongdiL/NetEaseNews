@@ -32,8 +32,9 @@ public class ThemeAdapter extends BaseAdapter {
     private int height;
 
     // 四个人
-    private ThemeEntity.DataBean.RecomendExpertBean recomendExpertBean;
-    private List<ThemeEntity.DataBean.SubjectListBean> datas;
+//    private ThemeEntity.DataBean.RecomendExpertBean recomendExpertBean;
+//    private List<ThemeEntity.DataBean.SubjectListBean> datas;
+    private List datas;
 
     public ThemeAdapter(Context context) {
         this.context = context;
@@ -42,26 +43,27 @@ public class ThemeAdapter extends BaseAdapter {
 
     public void setDatas(ThemeEntity.DataBean dataBean) {
         this.dataBean = dataBean;
-        recomendExpertBean = dataBean.getRecomendExpert();
+//        recomendExpertBean = dataBean.getRecomendExpert();
         datas = dataBean.getSubjectList();
+        datas.add(dataBean.getRecomendExpert().getPosition() - 1, dataBean.getRecomendExpert().getExpertList());
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return datas == null ? 0 : datas.size() + 1;
+        return datas == null ? 0 : datas.size();
     }
 
     @Override
     public Object getItem(int position) {
         // ListView  0   1  2  3  4 5 6 7 8 9 10
         // 显示数据  单独  0  1  2  3 4 5 6 7 8 9 get(0,1)
-        return datas == null ? null : datas.get(position + 1);
+        return datas == null ? null : datas.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return position + 1;
+        return position;
     }
 
     @Override
@@ -71,7 +73,7 @@ public class ThemeAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0) {
+        if (position == dataBean.getRecomendExpert().getPosition() - 1) {
             return Values.THEME_POSITION;// 四个人
         } else if (dataBean.getSubjectList().get(position).getType() == 1) {
             return Values.THEME_THREE;
@@ -122,41 +124,44 @@ public class ThemeAdapter extends BaseAdapter {
                     break;
             }
         }
-
-
+        ThemeEntity.DataBean.SubjectListBean subjectListBean = null;
+        if (position != dataBean.getRecomendExpert().getPosition() - 1) {
+            subjectListBean = ((ThemeEntity.DataBean.SubjectListBean) (datas.get(position)));
+        }
         switch (type) {
             case Values.THEME_TWO:// 2个评论
-                twoViewHolder.twoTitleTv.setText("#" + datas.get(position).getName() + "#");
-                twoViewHolder.upTv.setText("\"" + datas.get(position).getTalkContent().get(0).getContent() + "\"");
-                twoViewHolder.downTv.setText("\"" + datas.get(position).getTalkContent().get(1).getContent() + "\"");
-                Glide.with(context).load(datas.get(position).getTalkContent().get(0).getUserHeadPicUrl().toString()).error(R.mipmap.netease_small).into(twoViewHolder.upCiv);
-                Glide.with(context).load(datas.get(position).getTalkContent().get(1).getUserHeadPicUrl().toString()).error(R.mipmap.netease_small).into(twoViewHolder.downCiv);
-                twoViewHolder.twoSourceTv.setText(datas.get(position).getClassification());
-                twoViewHolder.twoAttentionTv.setText(datas.get(position).getConcernCount() + "关注");
-                twoViewHolder.twoAskTv.setText(datas.get(position).getTalkCount() + "讨论");
+                twoViewHolder.twoTitleTv.setText("#" + subjectListBean.getName() + "#");
+                twoViewHolder.upTv.setText("\"" + subjectListBean.getTalkContent().get(0).getContent() + "\"");
+                twoViewHolder.downTv.setText("\"" + subjectListBean.getTalkContent().get(1).getContent() + "\"");
+                Glide.with(context).load(subjectListBean.getTalkContent().get(0).getUserHeadPicUrl().toString()).error(R.mipmap.netease_small).into(twoViewHolder.upCiv);
+                Glide.with(context).load(subjectListBean.getTalkContent().get(1).getUserHeadPicUrl().toString()).error(R.mipmap.netease_small).into(twoViewHolder.downCiv);
+                twoViewHolder.twoSourceTv.setText(subjectListBean.getClassification());
+                twoViewHolder.twoAttentionTv.setText(subjectListBean.getConcernCount() + "关注");
+                twoViewHolder.twoAskTv.setText(subjectListBean.getTalkCount() + "讨论");
                 break;
             case Values.THEME_THREE:
-                threeViewHolder.threeTitleTv.setText("#" + datas.get(position).getName() + "#");
-                Glide.with(context).load(datas.get(position).getTalkPicture().get(0).toString()).error(R.mipmap.netease_big).into(threeViewHolder.leftImg);
-                Glide.with(context).load(datas.get(position).getTalkPicture().get(1).toString()).error(R.mipmap.netease_big).into(threeViewHolder.middleImg);
-                Glide.with(context).load(datas.get(position).getTalkPicture().get(2).toString()).error(R.mipmap.netease_big).into(threeViewHolder.rightImg);
-                threeViewHolder.threeSourceTv.setText(datas.get(position).getClassification());
-                threeViewHolder.threeAttentionTv.setText(datas.get(position).getConcernCount() + "关注");
-                threeViewHolder.threeAskTv.setText(datas.get(position).getTalkCount() + "讨论");
+                threeViewHolder.threeTitleTv.setText("#" + subjectListBean.getName() + "#");
+                Glide.with(context).load(subjectListBean.getTalkPicture().get(0).toString()).error(R.mipmap.netease_big).into(threeViewHolder.leftImg);
+                Glide.with(context).load(subjectListBean.getTalkPicture().get(1).toString()).error(R.mipmap.netease_big).into(threeViewHolder.middleImg);
+                Glide.with(context).load(subjectListBean.getTalkPicture().get(2).toString()).error(R.mipmap.netease_big).into(threeViewHolder.rightImg);
+                threeViewHolder.threeSourceTv.setText(subjectListBean.getClassification());
+                threeViewHolder.threeAttentionTv.setText(subjectListBean.getConcernCount() + "关注");
+                threeViewHolder.threeAskTv.setText(subjectListBean.getTalkCount() + "讨论");
                 break;
             case Values.THEME_POSITION:
-                positionViewHolder.oneNameTv.setText(recomendExpertBean.getExpertList().get(0).getName());
-                positionViewHolder.twoNameTv.setText(recomendExpertBean.getExpertList().get(1).getName());
-                positionViewHolder.threeNameTv.setText(recomendExpertBean.getExpertList().get(2).getName());
-                positionViewHolder.fourNameTv.setText(recomendExpertBean.getExpertList().get(3).getName());
-                Glide.with(context).load(recomendExpertBean.getExpertList().get(0).getHeadpicurl()).error(R.mipmap.netease_small).into(positionViewHolder.oneImg);
-                Glide.with(context).load(recomendExpertBean.getExpertList().get(1).getHeadpicurl()).error(R.mipmap.netease_small).into(positionViewHolder.twoImg);
-                Glide.with(context).load(recomendExpertBean.getExpertList().get(2).getHeadpicurl()).error(R.mipmap.netease_small).into(positionViewHolder.threeImg);
-                Glide.with(context).load(recomendExpertBean.getExpertList().get(3).getHeadpicurl()).error(R.mipmap.netease_small).into(positionViewHolder.fourImg);
-                int concern1 = recomendExpertBean.getExpertList().get(0).getConcernCount();
-                int concern2 = recomendExpertBean.getExpertList().get(1).getConcernCount();
-                int concern3 = recomendExpertBean.getExpertList().get(2).getConcernCount();
-                int concern4 = recomendExpertBean.getExpertList().get(3).getConcernCount();
+                dataBean.getRecomendExpert().setExpertList((List<ThemeEntity.DataBean.RecomendExpertBean.ExpertListBean>) datas.get(3));
+                positionViewHolder.oneNameTv.setText(dataBean.getRecomendExpert().getExpertList().get(0).getName());
+                positionViewHolder.twoNameTv.setText(dataBean.getRecomendExpert().getExpertList().get(1).getName());
+                positionViewHolder.threeNameTv.setText(dataBean.getRecomendExpert().getExpertList().get(2).getName());
+                positionViewHolder.fourNameTv.setText(dataBean.getRecomendExpert().getExpertList().get(3).getName());
+                Glide.with(context).load(dataBean.getRecomendExpert().getExpertList().get(0).getHeadpicurl()).error(R.mipmap.netease_small).into(positionViewHolder.oneImg);
+                Glide.with(context).load(dataBean.getRecomendExpert().getExpertList().get(1).getHeadpicurl()).error(R.mipmap.netease_small).into(positionViewHolder.twoImg);
+                Glide.with(context).load(dataBean.getRecomendExpert().getExpertList().get(2).getHeadpicurl()).error(R.mipmap.netease_small).into(positionViewHolder.threeImg);
+                Glide.with(context).load(dataBean.getRecomendExpert().getExpertList().get(3).getHeadpicurl()).error(R.mipmap.netease_small).into(positionViewHolder.fourImg);
+                int concern1 = dataBean.getRecomendExpert().getExpertList().get(0).getConcernCount();
+                int concern2 = dataBean.getRecomendExpert().getExpertList().get(1).getConcernCount();
+                int concern3 = dataBean.getRecomendExpert().getExpertList().get(2).getConcernCount();
+                int concern4 = dataBean.getRecomendExpert().getExpertList().get(3).getConcernCount();
                 float finalConcern;
                 int a = concern1 / 10000;
                 int b = (concern1 % 10000) / 1000;

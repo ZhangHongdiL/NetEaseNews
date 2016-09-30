@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.topicsubentity.ThemeHeadEntity;
+import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class ThemeHeadAdapter extends RecyclerView.Adapter<ThemeHeadAdapter.Them
 
     private List<ThemeHeadEntity.话题Bean> datas;
     private Context context;
+    private int width, height;
 
     public ThemeHeadAdapter(Context context) {
         this.context = context;
@@ -34,6 +36,14 @@ public class ThemeHeadAdapter extends RecyclerView.Adapter<ThemeHeadAdapter.Them
     @Override
     public ThemeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_head_theme, parent, false);
+
+        height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
+        width = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.WIDTH);
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+        params.height = height / 4;
+        params.width = width * 2 / 5;
+        view.setLayoutParams(params);
+
         ThemeViewHolder themeViewHolder = new ThemeViewHolder(view);
         return themeViewHolder;
     }
