@@ -17,6 +17,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/ask_first"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -73,9 +74,11 @@
                     android:textColor="@color/black_color" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/ask_second"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -129,9 +132,11 @@
                     android:textColor="@color/black_color" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/ask_third"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -185,11 +190,11 @@
                     android:textColor="@color/black_color" />
             </LinearLayout>
             <ImageView
-                android:id="@+id/ask_up_img"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:id="@+id/ask_down_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/upbtn"/>
+                android:src="@mipmap/downbtn"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

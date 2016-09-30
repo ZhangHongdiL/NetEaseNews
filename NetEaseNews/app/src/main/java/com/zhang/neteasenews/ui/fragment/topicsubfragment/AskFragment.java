@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -34,8 +35,14 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
     private PullDownListView askLv;
     private List<AskEntity.DataBean.ExpertListBean> datas;
     private AskAdapter askAdapter;
-//    private TextView a4444;
-//    private View view;
+
+    /**
+     * 头布局
+     */
+    private View view;
+    private ImageView downImg;
+    private boolean state = false;
+    private LinearLayout askFirst, askSecond, askThird;
 
     @Override
     protected int setLayout() {
@@ -45,8 +52,6 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
     @Override
     protected void initViews() {
         askLv = byView(R.id.fragment_topic_ask_lv);
-//        a4444 = byView(R.id.a4444);
-//        view = byView(R.id.vvvv);
     }
 
     @Override
@@ -54,28 +59,31 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
         datas = new ArrayList<>();
         askAdapter = new AskAdapter(context);
         askLv.setAdapter(askAdapter);
-        VolleyInstance.getInstance().startRequest(Values.ASKURL, this);
-//        a4444.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//              popWindow();
-//            }
-//        });
-    }
 
-//    private void popWindow() {
-//        final PopupWindow pw = new PopupWindow(context);
-//        // 获得屏幕的宽高
-//        int width = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.WIDTH);
-//        int height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
-//        pw.setWidth(width);
-//        pw.setHeight(height / 6);
-//        View view = LayoutInflater.from(context).inflate(R.layout.item_pw_ask, null);
-//        pw.setContentView(view);
-//        pw.setFocusable(true);
-//        pw.setOutsideTouchable(true);
-//        pw.showAsDropDown(view);
-//    }
+        view = LayoutInflater.from(context).inflate(R.layout.item_head_ask, null);
+        downImg = (ImageView) view.findViewById(R.id.ask_down_img);
+        askFirst = (LinearLayout) view.findViewById(R.id.ask_first);
+        askSecond = (LinearLayout) view.findViewById(R.id.ask_second);
+        askThird = (LinearLayout) view.findViewById(R.id.ask_third);
+        downImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (state == false) {
+                    askSecond.setVisibility(View.VISIBLE);
+                    askThird.setVisibility(View.VISIBLE);
+                    downImg.setImageResource(R.mipmap.upbtn);
+                    state = true;
+                } else {
+                    askSecond.setVisibility(View.GONE);
+                    askThird.setVisibility(View.GONE);
+                    downImg.setImageResource(R.mipmap.downbtn);
+                    state = false;
+                }
+            }
+        });
+        askLv.addHeaderView(view);
+        VolleyInstance.getInstance().startRequest(Values.ASKURL, this);
+    }
 
     @Override
     public void success(String resultStr) {
@@ -101,6 +109,10 @@ public class AskFragment extends AbsBaseFragment implements VolleyResult {
                                     AskEntity.DataBean dataBean = askEntity.getData();
                                     datas = dataBean.getExpertList();
                                     askAdapter.setDatas(datas);
+                                    askSecond.setVisibility(View.GONE);
+                                    askThird.setVisibility(View.GONE);
+                                    downImg.setImageResource(R.mipmap.downbtn);
+                                    state = false;
                                 }
 
                                 @Override
