@@ -58,10 +58,10 @@ public class NewsPwAdapter extends RecyclerView.Adapter<NewsPwAdapter.NewsPwHold
         View view = LayoutInflater.from(context).inflate(R.layout.item_news_pw, parent, false);
 
         cardView = (CardView) view.findViewById(R.id.cardView);
-        if (current == position2) {
+        if (position2 == current) {
             cardView.setCardBackgroundColor(R.color.fragment_me_bg);
         } else {
-            cardView.setCardBackgroundColor(R.color.white_bg);
+//            cardView.setCardBackgroundColor(R.color.white_bg);
         }
         NewsPwHolder newsPwHolder = new NewsPwHolder(view);
         return newsPwHolder;

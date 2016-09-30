@@ -1,16 +1,24 @@
 package com.zhang.neteasenews.ui.fragment.topicsubfragment;
 
 import android.os.AsyncTask;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.topicsubentity.ThemeEntity;
+import com.zhang.neteasenews.model.entity.topicsubentity.ThemeHeadEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.adapter.topicsubadapter.ThemeAdapter;
+import com.zhang.neteasenews.ui.adapter.topicsubadapter.ThemeHeadAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
 import com.zhang.neteasenews.view.PullDownListView;
@@ -23,9 +31,18 @@ import java.util.List;
  * 话题界面话题的Fragment
  */
 public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
-    private List<ThemeEntity.DataBean> datas;
+    private List<ThemeEntity.DataBean> dataBeen;
     private PullDownListView listView;
     private ThemeAdapter themeAdapter;
+
+    /**
+     * 头布局
+     */
+    private ThemeHeadAdapter themeHeadAdapter;
+    private RecyclerView headRv;
+    private List<ThemeHeadEntity.话题Bean> been;
+    private View view;
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_topic_theme;
@@ -38,9 +55,35 @@ public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
 
     @Override
     protected void initDatas() {
-        datas = new ArrayList<>();
+        dataBeen = new ArrayList<>();
         themeAdapter = new ThemeAdapter(context);
         listView.setAdapter(themeAdapter);
+
+        view = LayoutInflater.from(context).inflate(R.layout.head_theme, null);
+        headRv = (RecyclerView) view.findViewById(R.id.head_theme_rv);
+
+//        been = new ArrayList<>();
+        themeHeadAdapter = new ThemeHeadAdapter(context);
+        headRv.setAdapter(themeHeadAdapter);
+        LinearLayoutManager manager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        headRv.setLayoutManager(manager);
+        VolleyInstance.getInstance().startRequest(Values.THEMEHEADURL, new VolleyResult() {
+            @Override
+            public void success(String resultStr) {
+                Gson gson = new Gson();
+                Log.d("bbbb", resultStr);
+                ThemeHeadEntity themeHeadEntity = gson.fromJson(resultStr, ThemeHeadEntity.class);
+                been = themeHeadEntity.get话题();
+                themeHeadAdapter.setDatas(been);
+            }
+
+            @Override
+            public void failure() {
+
+            }
+        });
+        listView.addHeaderView(view);
+
         VolleyInstance.getInstance().startRequest(Values.THEMEURL, this);
     }
 
@@ -51,6 +94,7 @@ public class ThemeFragment extends AbsBaseFragment implements VolleyResult {
         ThemeEntity themeEntity = gson.fromJson(resultStr, ThemeEntity.class);
         ThemeEntity.DataBean dataBean = themeEntity.getData();
         themeAdapter.setDatas(dataBean);
+
         listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
             @Override
             public void onRefresh() {

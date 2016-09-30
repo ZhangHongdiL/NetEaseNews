@@ -105,6 +105,10 @@ public class Values {
      * 话题界面话题的接口
      */
     public static final String THEMEURL = "http://topic.comment.163.com/topic/list/subject/0-10.html";
+    /**
+     * 话题界面话题头布局的接口
+     */
+    public static final String THEMEHEADURL = "http://c.3g.163.com/recommend/getChanRecomNews?channel=T1460094487214&size=5&passport=&devId=44t6%2B5mG3ACAOlQOCLuIHg%3D%3D&lat=&lon=&version=15.0&net=wifi&ts=1475041423&sign=%2Fzk36HcAsLNLPaU4ZDlIcrgQ42C8ClBEKkxZd9gyb3x48ErR02zJ6%2FKXOnxX046I&encryption=1&canal=netease_gw&mac=3Fg2bhJMR1xtVeOmVPRkSIe1A3IUPLLdoCiqBVf2Go0%3D";
 
     /**
      * 新闻界面搜索的热词的接口
