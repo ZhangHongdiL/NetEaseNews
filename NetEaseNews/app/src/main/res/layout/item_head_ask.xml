@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/middle_margin"
+        app:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ask_fl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/falv"
+                    android:gravity="center"
+                    android:text="@string/ask_falv"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_health"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/health"
+                    android:gravity="center"
+                    android:text="@string/ask_health"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_car"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/car"
+                    android:gravity="center"
+                    android:text="@string/ask_car"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_cj"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/cj"
+                    android:gravity="center"
+                    android:text="@string/ask_caijing"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_history"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/history"
+                    android:gravity="center"
+                    android:text="@string/ask_history"
+                    android:textColor="@color/black_color" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ask_current"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/current"
+                    android:gravity="center"
+                    android:text="@string/ask_current"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_physic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/physic"
+                    android:gravity="center"
+                    android:text="@string/ask_physic"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/war"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/war"
+                    android:gravity="center"
+                    android:text="@string/ask_war"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_travel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/travel"
+                    android:gravity="center"
+                    android:text="@string/ask_travel"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_house"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/house"
+                    android:gravity="center"
+                    android:text="@string/ask_house"
+                    android:textColor="@color/black_color" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ask_technology"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/technology"
+                    android:gravity="center"
+                    android:text="@string/ask_technology"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_teach"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/teach"
+                    android:gravity="center"
+                    android:text="@string/ask_teach"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_amuse"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/amuse"
+                    android:gravity="center"
+                    android:text="@string/ask_amuse"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_live"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/live"
+                    android:gravity="center"
+                    android:text="@string/ask_live"
+                    android:textColor="@color/black_color" />
+
+                <TextView
+                    android:id="@+id/ask_fashion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/fashion"
+                    android:gravity="center"
+                    android:text="@string/ask_fashion"
+                    android:textColor="@color/black_color" />
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/ask_up_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/upbtn"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

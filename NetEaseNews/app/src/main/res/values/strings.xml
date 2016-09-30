@@ -89,4 +89,21 @@
     <string name="search_read_history">阅读历史</string>
     <string name="search_more">更多</string>
     <string name="search_hot_word">近期热词</string>
+
+    <!--问吧界面头布局的文字-->
+    <string name="ask_falv">法律</string>
+    <string name="ask_health">健康</string>
+    <string name="ask_car">汽车</string>
+    <string name="ask_caijing">财经</string>
+    <string name="ask_history">历史</string>
+    <string name="ask_current">时政</string>
+    <string name="ask_physic">体育</string>
+    <string name="ask_war">军事</string>
+    <string name="ask_travel">旅游</string>
+    <string name="ask_house">房产</string>
+    <string name="ask_technology">科技</string>
+    <string name="ask_teach">教育</string>
+    <string name="ask_amuse">娱乐</string>
+    <string name="ask_live">生活</string>
+    <string name="ask_fashion">时尚</string>
 </resources>

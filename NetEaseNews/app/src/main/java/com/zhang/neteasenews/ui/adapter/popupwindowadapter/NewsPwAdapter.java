@@ -29,6 +29,7 @@ public class NewsPwAdapter extends RecyclerView.Adapter<NewsPwAdapter.NewsPwHold
     private RecyclerViewItemLongClick popupRecyclerItemLongClick;
     private CardView cardView;
     private int position2;
+    private int current; // 获取的当前Vp的位置
 
     public void setPopupRecyclerItemClick(RecyclerViewItemClick popupRecyclerItemClick) {
         this.popupRecyclerItemClick = popupRecyclerItemClick;
@@ -47,10 +48,21 @@ public class NewsPwAdapter extends RecyclerView.Adapter<NewsPwAdapter.NewsPwHold
         notifyDataSetChanged();
     }
 
+    public void setCurrent(int current) {
+        this.current = current;
+        notifyDataSetChanged();
+    }
+
     @Override
     public NewsPwHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_news_pw, parent, false);
+
         cardView = (CardView) view.findViewById(R.id.cardView);
+        if (current == position2) {
+            cardView.setCardBackgroundColor(R.color.fragment_me_bg);
+        } else {
+            cardView.setCardBackgroundColor(R.color.white_bg);
+        }
         NewsPwHolder newsPwHolder = new NewsPwHolder(view);
         return newsPwHolder;
     }
@@ -66,14 +78,8 @@ public class NewsPwAdapter extends RecyclerView.Adapter<NewsPwAdapter.NewsPwHold
                 position2 = holder.getLayoutPosition();
                 String str = datas.get(position2);
                 popupRecyclerItemClick.onRvItemClickListener(position2, str);
-
             }
         });
-        cardView.setBackgroundColor(Color.WHITE);
-        if (position2 == position) {
-//            cardView.setBackgroundColor(Color.RED);
-        }
-
 
         holder.pwTv.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

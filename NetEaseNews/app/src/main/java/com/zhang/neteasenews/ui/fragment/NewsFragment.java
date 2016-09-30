@@ -150,6 +150,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
             list.add((getResources().getStringArray(R.array.titles))[i]);
         }
         newsPwAdapter.setDatas(list);
+        newsPwAdapter.setCurrent(viewPager.getCurrentItem());
         pwIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,10 +161,15 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
             @Override
             public void onRvItemClickListener(int position, Object o) {
                 tabLayout.setScrollPosition(position,0,false);
-
+                viewPager.setCurrentItem(position);
+                newsPwAdapter.setCurrent(position);
                 pw.dismiss();
             }
         });
+//        int po = viewPager.getCurrentItem();
+//        tabLayout.setTabTextColors(Color.parseColor("#a9b7b7"), Color.parseColor("#eb4f38"));
+//        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#eb4f38"));
+//        newsPwAdapter.setCurrent(po);
     }
 
     private void setData() {
