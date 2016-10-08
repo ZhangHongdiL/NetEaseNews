@@ -106,4 +106,7 @@
     <string name="ask_amuse">娱乐</string>
     <string name="ask_live">生活</string>
     <string name="ask_fashion">时尚</string>
+
+    <!--详情界面的Dialog的文字-->
+    <string name="dialog_share">分享</string>
 </resources>
