@@ -1,18 +1,24 @@
 package com.zhang.neteasenews.ui.activity.secondactivity;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.activity.AbsBaseActivity;
+import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
 /**
  * Created by dllo on 16/9/28.
@@ -24,6 +30,11 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
     private ImageView backIv, pointsIv, shareIv;
     private TextView replyTv;
     private EditText writeEt;
+
+    private TextView shareTv, collectionTv, jpTv, characterTv, nightTv, faultTv;
+    private int width, height;
+    private LinearLayout rootView;
+    private View view;
 
     @Override
     protected int setLayout() {
@@ -38,6 +49,7 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
         shareIv = byView(R.id.act_detail_wv_share_iv);
         replyTv = byView(R.id.act_detail_wv_reply_tv);
         writeEt = byView(R.id.act_detail_wv_write_et);
+        rootView = byView(R.id.root_view);
     }
 
     @Override
@@ -63,7 +75,7 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
 
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
-        Log.d("vvvv", url);
+//        Log.d("vvvv", url);
         detailWv.loadUrl(url);
     }
 
@@ -73,6 +85,29 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
             case R.id.act_detail_wv_back_img:
                 finish();
                 break;
+            case R.id.act_detail_wv_points_img:
+                setPopupWindow();
+                break;
         }
+    }
+
+    private void setPopupWindow() {
+        PopupWindow pw = new PopupWindow(this);
+        width = ScreenSizeUtils.getScreenSize(this, ScreenSizeUtils.ScreenState.WIDTH);
+//        height = ScreenSizeUtils.getScreenSize(this, ScreenSizeUtils.ScreenState.HEIGHT);
+        pw.setWidth(width / 2);
+        pw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        view = getLayoutInflater().inflate(R.layout.act_detail_dialog, null);
+        shareTv = (TextView) view.findViewById(R.id.detail_share_tv);
+        collectionTv = (TextView) view.findViewById(R.id.detail_collection_tv);
+        jpTv = (TextView) view.findViewById(R.id.detail_jp_tv);
+        characterTv = (TextView) view.findViewById(R.id.detail_character_tv);
+        nightTv = (TextView) view.findViewById(R.id.detail_night_tv);
+        faultTv = (TextView) view.findViewById(R.id.detail_fault_tv);
+
+        pw.setContentView(view);
+        pw.setFocusable(true);
+        pw.setOutsideTouchable(true);
+        pw.showAtLocation(rootView, Gravity.NO_GRAVITY, width, 0);
     }
 }

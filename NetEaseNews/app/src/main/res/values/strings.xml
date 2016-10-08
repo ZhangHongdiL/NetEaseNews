@@ -109,4 +109,9 @@
 
     <!--详情界面的Dialog的文字-->
     <string name="dialog_share">分享</string>
+    <string name="dialog_collection">收藏</string>
+    <string name="dialog_jieping">态度截屏</string>
+    <string name="dialog_character">正文字号</string>
+    <string name="dialog_night">夜间模式</string>
+    <string name="dialog_fault">我要报错</string>
 </resources>
