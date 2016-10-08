@@ -115,6 +115,14 @@ public class Values {
      */
     public static final String SEARCH_HOTURL = "http://c.3g.163.com/nc/search/hotWord.html";
 
+    /**
+     * 新闻娱乐vp二级界面的接口
+     */
+    // 二级界面详情
+    public static final String DETAIL_VP = "http://c.m.163.com/photo/api/set/0003/612635.json";
+    // 推荐图集
+    public static final String DETAIL_VP_TJ = "http://c.m.163.com/photo/api/related/0003/612635.json";
+
     /***********************常量****************************/
     /**
      * 轮播图时间常量

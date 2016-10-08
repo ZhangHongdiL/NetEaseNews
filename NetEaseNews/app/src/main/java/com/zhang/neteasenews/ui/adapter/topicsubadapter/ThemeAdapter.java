@@ -23,6 +23,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by dllo on 16/9/20.
  * 话题界面话题的适配器
+ * 接口数据比较有三层,从Fragment中给适配器设置的数据文最外层数据,在此将第一层的数据添加到datas中
  */
 public class ThemeAdapter extends BaseAdapter {
 
@@ -32,8 +33,6 @@ public class ThemeAdapter extends BaseAdapter {
     private int height;
 
     // 四个人
-//    private ThemeEntity.DataBean.RecomendExpertBean recomendExpertBean;
-//    private List<ThemeEntity.DataBean.SubjectListBean> datas;
     private List datas;
 
     public ThemeAdapter(Context context) {
@@ -43,7 +42,6 @@ public class ThemeAdapter extends BaseAdapter {
 
     public void setDatas(ThemeEntity.DataBean dataBean) {
         this.dataBean = dataBean;
-//        recomendExpertBean = dataBean.getRecomendExpert();
         datas = dataBean.getSubjectList();
         datas.add(dataBean.getRecomendExpert().getPosition() - 1, dataBean.getRecomendExpert().getExpertList());
         notifyDataSetChanged();
@@ -56,8 +54,6 @@ public class ThemeAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        // ListView  0   1  2  3  4 5 6 7 8 9 10
-        // 显示数据  单独  0  1  2  3 4 5 6 7 8 9 get(0,1)
         return datas == null ? null : datas.get(position);
     }
 
