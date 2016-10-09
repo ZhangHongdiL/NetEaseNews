@@ -19,6 +19,7 @@ import com.zhang.neteasenews.model.entity.subentity.ChoicenessEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.activity.secondactivity.NewsDetailActivity;
+import com.zhang.neteasenews.ui.activity.secondactivity.NewsDetailVPActivity;
 import com.zhang.neteasenews.ui.adapter.subadapter.ChoicenessAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
@@ -78,15 +79,20 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (datas.get(position).getOrder() == 1) {// 轮播图
-                } else if (null != datas.get(position).getSkipType() &&
-                        "photoset".equals(datas.get(position).getSkipType())) {// 三张图片的行布局
-                } else if (datas.get(position).getImgType() == 1) {// 一张图片的行布局
-                } else {// 正常布局
+                String str = datas.get(position).getPostid();
+                if (str.startsWith("P")) {// 轮播图, 三张图片的行布局
+                    Intent intent = new Intent(context, NewsDetailVPActivity.class);
+                    intent.putExtra("skipId", datas.get(position - 1).getSkipID());
+                    startActivity(intent);
+
+                }  else if (str.startsWith("C")) {  // 正常布局
                     Intent intent = new Intent(context, NewsDetailActivity.class);
                     intent.putExtra("url", datas.get(position - 1).getUrl_3w());
-                    Log.d("wwww", datas.get(position).getUrl_3w());
+//                    Log.d("wwww", datas.get(position).getUrl_3w());
                     startActivity(intent);
+
+                } else {
+//                    throw null;
                 }
             }
         });

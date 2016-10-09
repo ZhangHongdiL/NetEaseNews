@@ -114,4 +114,5 @@
     <string name="dialog_character">正文字号</string>
     <string name="dialog_night">夜间模式</string>
     <string name="dialog_fault">我要报错</string>
+    <string name="dialog_save">保存</string>
 </resources>

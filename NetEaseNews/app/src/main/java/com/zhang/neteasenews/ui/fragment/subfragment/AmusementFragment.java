@@ -75,19 +75,17 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (datas.get(position).getOrder() == 1) {  // 轮播图
+                String str = datas.get(position - 1).getPostid();
+                if (str.startsWith("P")) {  // 轮播图, 三张图片的行布局
                     Intent intent = new Intent(context, NewsDetailVPActivity.class);
-                } else if (null != datas.get(position).getSkipType()
-                        && "photoset".equals(datas.get(position).getSkipType())) {  // 三张图片的行布局
-                    
-                } else if (datas.get(position).getImgType() == 1) {  // 一张图片的行布局
-                    Intent intent = new Intent(context, NewsDetailActivity.class);
-                    intent.putExtra("url", datas.get(position - 1).getUrl_3w());
+                    intent.putExtra("skipId", datas.get(position - 1).getSkipID());
                     startActivity(intent);
-                } else {  // 正常布局
+                } else if (str.startsWith("C")) {  // 一张图片的行布局
                     Intent intent = new Intent(context, NewsDetailActivity.class);
-                    intent.putExtra("url", datas.get(position - 1).getUrl_3w());
+                    intent.putExtra("url", datas.get(position).getUrl_3w());
                     startActivity(intent);
+                } else {
+                    Toast.makeText(context, "无详情", Toast.LENGTH_SHORT).show();
                 }
 
             }

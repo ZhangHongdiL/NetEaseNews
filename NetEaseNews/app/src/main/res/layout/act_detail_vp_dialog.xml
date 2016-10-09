@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white_bg">
+
+    <TextView
+        android:id="@+id/detail_vp_share_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_share"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/big_size"
+        android:drawableLeft="@mipmap/share_menu"
+        android:drawablePadding="@dimen/big_margin"
+        android:layout_margin="@dimen/big_margin"/>
+    <TextView
+        android:id="@+id/detail_vp_collection_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_collection"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/big_size"
+        android:drawableLeft="@mipmap/collection"
+        android:drawablePadding="@dimen/big_margin"
+        android:layout_margin="@dimen/big_margin"/>
+
+    <TextView
+        android:id="@+id/detail_vp_save_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_save"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/big_size"
+        android:drawableLeft="@mipmap/dialog_save"
+        android:drawablePadding="@dimen/big_margin"
+        android:layout_margin="@dimen/big_margin"/>
+    <TextView
+        android:id="@+id/detail_vp_fault_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dialog_fault"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/big_size"
+        android:drawableLeft="@mipmap/fault"
+        android:drawablePadding="@dimen/big_margin"
+        android:layout_margin="@dimen/big_margin"/>
+</LinearLayout>

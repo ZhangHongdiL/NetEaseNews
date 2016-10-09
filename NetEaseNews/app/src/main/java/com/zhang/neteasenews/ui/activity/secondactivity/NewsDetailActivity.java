@@ -100,6 +100,11 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
         PopupWindow pw = new PopupWindow(this);
         width = ScreenSizeUtils.getScreenSize(this, ScreenSizeUtils.ScreenState.WIDTH);
         height = ScreenSizeUtils.getScreenSize(this, ScreenSizeUtils.ScreenState.HEIGHT);
+
+        Rect rect = new Rect();
+        getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+        int statusBarHeight = rect.top;  // 获得状态栏的高度
+
         pw.setWidth(width / 2);
         pw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         view = getLayoutInflater().inflate(R.layout.act_detail_dialog, null);
@@ -110,9 +115,6 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
         nightTv = (TextView) view.findViewById(R.id.detail_night_tv);
         faultTv = (TextView) view.findViewById(R.id.detail_fault_tv);
 
-        Rect rect = new Rect();
-        getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-        int statusBarHeight = rect.top;  // 获得状态栏的高度
         pw.setContentView(view);
         pw.setFocusable(true);
         pw.setOutsideTouchable(true);
