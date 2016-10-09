@@ -3,6 +3,7 @@ package com.zhang.neteasenews.ui.fragment.subfragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,9 @@ import com.zhang.neteasenews.ui.adapter.subadapter.NewsHeadlineAdapter;
 import com.zhang.neteasenews.ui.adapter.subadapter.RotateAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
+import com.zhang.neteasenews.view.OnRefreshListener;
 import com.zhang.neteasenews.view.PullDownListView;
+import com.zhang.neteasenews.view.RefreshListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +32,12 @@ import java.util.List;
  * Created by dllo on 16/9/10.
  * 新闻头条的Fragment
  */
-public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResult {
+public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResult, OnRefreshListener {
 
     private NewsHeadlineAdapter newsHeadlineAdapter;
     private List<HeadlineEntity.T1348647909107Bean> datas;
-    private PullDownListView listView;
+    private RefreshListView listView;
+    private int i;
 
     /**
      * 头布局轮播图
@@ -76,6 +80,7 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
         datas = new ArrayList<>();
         adsBeen = new ArrayList<>();
         newsHeadlineAdapter = new NewsHeadlineAdapter(context);
+        listView.setOnRefreshListener(this);
         listView.setAdapter(newsHeadlineAdapter);
         //=========
         listView.addHeaderView(head);
@@ -106,43 +111,12 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
         // 随着轮播改变小点
         changePoints();
 
-        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                new AsyncTask<Void, Void, Void>() {
-                    protected Void doInBackground(Void... params) {
-                        try {
-                            Thread.sleep(2000);
-                            VolleyInstance.getInstance().startRequest(Values.HEADLINEURL, new VolleyResult() {
-                                @Override
-                                public void success(String resultStr) {
-                                    Gson gson = new Gson();
-                                    HeadlineEntity headlineEntity = gson.fromJson(resultStr, HeadlineEntity.class);
-                                    List<HeadlineEntity.T1348647909107Bean> tb = headlineEntity.getT1348647909107();
-                                    adsBeen =tb.get(0).getAds();
-                                    datas = headlineEntity.getT1348647909107();
-                                    newsHeadlineAdapter.setDatas(datas);
-                                }
-
-                                @Override
-                                public void failure() {
-                                    Toast.makeText(context, "网络不给力", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        return null;
-                    }
-
-                    @Override
-                    protected void onPostExecute(Void result) {
-                        newsHeadlineAdapter.notifyDataSetChanged();
-                        listView.onRefreshComplete();
-                    }
-                }.execute(null, null, null);
-            }
-        });
+//        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//
+//            }
+//        });
     }
     private void changePoints() {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -227,5 +201,53 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
         super.onPause();
         isRotate = false;
     }
+//=====================================================================================
 
+    /**
+     * 下拉刷新数据
+     */
+    @Override
+    public void onDownPullRefresh() {
+        new AsyncTask<Void, Void, Void>() {
+            protected Void doInBackground(Void... params) {
+                try {
+                    Thread.sleep(2000);
+                    VolleyInstance.getInstance().startRequest(Values.HEADLINEURL, new VolleyResult() {
+                        @Override
+                        public void success(String resultStr) {
+                            Gson gson = new Gson();
+                            HeadlineEntity headlineEntity = gson.fromJson(resultStr, HeadlineEntity.class);
+                            List<HeadlineEntity.T1348647909107Bean> tb = headlineEntity.getT1348647909107();
+                            adsBeen =tb.get(0).getAds();
+                            datas = headlineEntity.getT1348647909107();
+                            datas.remove(0);
+                            newsHeadlineAdapter.setDatas(datas);
+                        }
+
+                        @Override
+                        public void failure() {
+                            Toast.makeText(context, "网络不给力", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void result) {
+                newsHeadlineAdapter.notifyDataSetChanged();
+                listView.hideHeaderView();
+            }
+        }.execute(null, null, null);
+    }
+
+    /**
+     * 上拉加载数据
+     */
+    @Override
+    public void onLoadingMore() {
+
+    }
 }

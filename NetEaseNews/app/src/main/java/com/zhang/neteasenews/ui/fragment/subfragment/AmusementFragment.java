@@ -3,6 +3,7 @@ package com.zhang.neteasenews.ui.fragment.subfragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.subentity.AmusementEntity;
+import com.zhang.neteasenews.model.entity.subentity.ChoicenessEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.activity.secondactivity.NewsDetailActivity;
@@ -17,7 +19,9 @@ import com.zhang.neteasenews.ui.activity.secondactivity.NewsDetailVPActivity;
 import com.zhang.neteasenews.ui.adapter.subadapter.AmusementAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
+import com.zhang.neteasenews.view.OnRefreshListener;
 import com.zhang.neteasenews.view.PullDownListView;
+import com.zhang.neteasenews.view.RefreshListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,15 +31,17 @@ import java.util.List;
  * Created by dllo on 16/9/22.
  * 新闻界面娱乐页
  */
-public class AmusementFragment extends AbsBaseFragment implements VolleyResult, PullDownListView.OnRefreshListener {
+public class AmusementFragment extends AbsBaseFragment implements VolleyResult, OnRefreshListener {
 
+    private int i;
     private AmusementAdapter amusementAdapter;
     private List<AmusementEntity.T1348648517839Bean> datas;
+    private List<AmusementEntity.T1348648517839Bean> list;
 
     /**
      * 下拉刷新
      */
-    private PullDownListView lv;
+    private RefreshListView lv;
 
     public static AmusementFragment newInstance() {
 
@@ -60,6 +66,7 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
     protected void initDatas() {
         datas = new ArrayList<>();
         amusementAdapter = new AmusementAdapter(context);
+        lv.setOnRefreshListener(this);
         lv.setAdapter(amusementAdapter);
         VolleyInstance.getInstance().startRequest(Values.AMUSEMENTURL, this);
     }
@@ -70,7 +77,7 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
         AmusementEntity amusementEntity = gson.fromJson(resultStr, AmusementEntity.class);
         datas = amusementEntity.getT1348648517839();
         amusementAdapter.setDatas(datas);
-        lv.setonRefreshListener(this);
+//        lv.setonRefreshListener(this);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -97,9 +104,14 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
 
     }
 
+//    @Override
+//    public void onRefresh() {
+//
+//    }
+
+
     @Override
-    public void onRefresh() {
-//        Toast.makeText(context, "aaa", Toast.LENGTH_SHORT).show();
+    public void onDownPullRefresh() {
         new AsyncTask<Void, Void, Void>() {
             protected Void doInBackground(Void... params) {
                 VolleyInstance.getInstance().startRequest(Values.AMUSEMENTURL, new VolleyResult() {
@@ -127,10 +139,50 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
             @Override
             protected void onPostExecute(Void result) {
                 amusementAdapter.notifyDataSetChanged();
-                lv.onRefreshComplete();
+                lv.hideHeaderView();
             }
         }.execute(null, null, null);
     }
 
+    /**
+     * 上拉加载数据
+     */
+    @Override
+    public void onLoadingMore() {
+        new AsyncTask<Void, Void, Void>() {
 
+            @Override
+            protected Void doInBackground(Void... params) {
+                SystemClock.sleep(2000);
+                String CHOSENURL_LEFT = "http://c.m.163.com/nc/article/list/T1348648517839/";
+                String RIGHT = ".html";
+                VolleyInstance.getInstance().startRequest(CHOSENURL_LEFT + i + "-20" + RIGHT, new VolleyResult() {
+                    @Override
+                    public void success(String resultStr) {
+                        Gson gson = new Gson();
+                        AmusementEntity entity = gson.fromJson(resultStr, AmusementEntity.class);
+                        i = i + 20;
+                        list = entity.getT1348648517839();
+                        datas.addAll(list);
+                        datas.remove(0);
+                        amusementAdapter.setDatas(datas);
+
+                    }
+
+                    @Override
+                    public void failure() {
+
+                    }
+                });
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                amusementAdapter.notifyDataSetChanged();
+                lv.hideFooterView();
+            }
+        }.execute(new Void[]{});
+    }
 }

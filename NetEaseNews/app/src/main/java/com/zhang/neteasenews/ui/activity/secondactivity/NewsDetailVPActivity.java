@@ -16,15 +16,17 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
-import com.zhang.neteasenews.model.entity.topicsubentity.VpDetailEntity;
+import com.zhang.neteasenews.model.entity.VpDetailEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.activity.AbsBaseActivity;
+import com.zhang.neteasenews.ui.adapter.subadapter.DetailVpAdapter;
 import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClickListener, VolleyResult {
+public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClickListener {
 
     private ViewPager detailVp;
     private ImageView backIv, pointsIv, shareIv;
@@ -37,6 +39,8 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
     private String skipId;
     private String finalUrl;
     private VpDetailEntity vpDetailEntity;
+    private DetailVpAdapter detailVpAdapter;
+    private List<VpDetailEntity.PhotosBean> datas;
 
     private TextView shareTv, collectionTv, saveTv, faultTv;
     private int width, height;
@@ -69,7 +73,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
         backIv.setOnClickListener(this);
         pointsIv.setOnClickListener(this);
         shareIv.setOnClickListener(this);
-        setContent();
+
 
         Intent intent = getIntent();
         skipId = intent.getStringExtra("skipId");
@@ -80,10 +84,52 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
             finalUrl = STARTURL + skipId + ENDURL;
             Log.d("iii", finalUrl);
         }
+        datas = new ArrayList<>();
+        detailVpAdapter = new DetailVpAdapter(this);
+        setContent();
     }
 
     private void setContent() {
-        VolleyInstance.getInstance().startRequest(finalUrl, this);
+        VolleyInstance.getInstance().startRequest(finalUrl, new VolleyResult() {
+            @Override
+            public void success(String resultStr) {
+                Log.d("123", resultStr);
+                Gson gson = new Gson();
+                vpDetailEntity = gson.fromJson(resultStr, VpDetailEntity.class);
+                datas = vpDetailEntity.getPhotos();
+                detailVpAdapter.setDatas(datas);
+                detailVp.setAdapter(detailVpAdapter);
+
+                titleTv.setText(vpDetailEntity.getSetname());
+                totalTv.setText(vpDetailEntity.getImgsum());
+                contentTv.setText(datas.get(0).getImgtitle() + datas.get(0).getNote());
+                positionTv.setText(1 + "/");
+                detailVp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+                        if (position < datas.size()) {
+                            contentTv.setText(datas.get(position).getImgtitle() + datas.get(position).getNote());
+                            positionTv.setText((position + 1) + "/");
+                        }
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void failure() {
+
+            }
+        });
     }
 
     @Override
@@ -120,20 +166,5 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
         pw.setFocusable(true);
         pw.setOutsideTouchable(true);
         pw.showAtLocation(relativeLayout, Gravity.NO_GRAVITY, width, statusBarHeight);
-    }
-
-    @Override
-    public void success(String resultStr) {
-        Gson gson = new Gson();
-        vpDetailEntity = gson.fromJson(resultStr, VpDetailEntity.class);
-        List<VpDetailEntity.PhotosBean> photosBean = vpDetailEntity.getPhotos();
-        titleTv.setText(vpDetailEntity.getSetname());
-//        contentTv.setText(photosBean.get().getImgtitle() + photosBean.get().getNote());
-        totalTv.setText(vpDetailEntity.getImgsum());
-    }
-
-    @Override
-    public void failure() {
-
     }
 }

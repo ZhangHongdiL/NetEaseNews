@@ -17,7 +17,9 @@ import com.zhang.neteasenews.model.net.VolleyResult;
 import com.zhang.neteasenews.ui.adapter.subadapter.PictureAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
 import com.zhang.neteasenews.utils.Values;
+import com.zhang.neteasenews.view.OnRefreshListener;
 import com.zhang.neteasenews.view.PullDownListView;
+import com.zhang.neteasenews.view.RefreshListView;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -27,9 +29,9 @@ import java.util.List;
  * Created by dllo on 16/9/14.
  * 新闻的图片界面
  */
-public class PictureFragment extends AbsBaseFragment implements VolleyResult {
+public class PictureFragment extends AbsBaseFragment implements VolleyResult, OnRefreshListener {
 
-    private PullDownListView listView;
+    private RefreshListView listView;
     private PictureAdapter pictureAdapter;
     private List<PictureEntity> datas;
 
@@ -55,6 +57,7 @@ public class PictureFragment extends AbsBaseFragment implements VolleyResult {
     protected void initDatas() {
         datas = new ArrayList<>();
         pictureAdapter = new PictureAdapter(context);
+        listView.setOnRefreshListener(this);
         listView.setAdapter(pictureAdapter);
         VolleyInstance.getInstance().startRequest(Values.PICTUREURL, this);
     }
@@ -80,45 +83,55 @@ public class PictureFragment extends AbsBaseFragment implements VolleyResult {
             }
         });
 
-        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                new AsyncTask<Void, Void, Void>() {
-                    protected Void doInBackground(Void... params) {
-                        try {
-                            Thread.sleep(2000);
-                            VolleyInstance.getInstance().startRequest(Values.PICTUREURL, new VolleyResult() {
-                                @Override
-                                public void success(String resultStr) {
-                                    Gson gson = new Gson();
-                                    Type type = new TypeToken<List<PictureEntity>>(){}.getType();
-                                    datas = gson.fromJson(resultStr, type);
-                                    pictureAdapter.setDatas(datas);
-                                }
-
-                                @Override
-                                public void failure() {
-                                    Toast.makeText(context, "网络不给力", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        return null;
-                    }
-
-                    @Override
-                    protected void onPostExecute(Void result) {
-                        pictureAdapter.notifyDataSetChanged();
-                        listView.onRefreshComplete();
-                    }
-                }.execute(null, null, null);
-            }
-        });
+//        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//
+//            }
+//        });
     }
 
     @Override
     public void failure() {
+
+    }
+
+    @Override
+    public void onDownPullRefresh() {
+        new AsyncTask<Void, Void, Void>() {
+            protected Void doInBackground(Void... params) {
+                try {
+                    Thread.sleep(2000);
+                    VolleyInstance.getInstance().startRequest(Values.PICTUREURL, new VolleyResult() {
+                        @Override
+                        public void success(String resultStr) {
+                            Gson gson = new Gson();
+                            Type type = new TypeToken<List<PictureEntity>>(){}.getType();
+                            datas = gson.fromJson(resultStr, type);
+                            pictureAdapter.setDatas(datas);
+                        }
+
+                        @Override
+                        public void failure() {
+                            Toast.makeText(context, "网络不给力", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void result) {
+                pictureAdapter.notifyDataSetChanged();
+                listView.hideHeaderView();
+            }
+        }.execute(null, null, null);
+    }
+
+    @Override
+    public void onLoadingMore() {
 
     }
 }
