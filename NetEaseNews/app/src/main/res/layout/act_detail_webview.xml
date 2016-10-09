@@ -6,9 +6,11 @@
     android:id="@+id/root_view">
 
     <RelativeLayout
+        android:id="@+id/root_view2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+
         <ImageView
             android:id="@+id/act_detail_wv_back_img"
             android:layout_width="wrap_content"
