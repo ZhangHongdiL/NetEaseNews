@@ -5,64 +5,132 @@
     android:orientation="vertical"
     android:background="@color/white_bg">
 
-    <TextView
-        android:id="@+id/detail_share_tv"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_share"
-        android:textColor="@color/black_color"
-        android:textSize="@dimen/big_size"
-        android:drawableLeft="@mipmap/share_menu"
-        android:drawablePadding="@dimen/big_margin"
-        android:layout_margin="@dimen/big_margin"/>
-    <TextView
-        android:id="@+id/detail_collection_tv"
+        android:id="@+id/detail_share_rl">
+        <ImageView
+            android:id="@+id/detail_share_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/share_menu"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/big_margin"/>
+        <TextView
+            android:id="@+id/detail_share_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_share"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/big_size"
+            android:layout_toRightOf="@id/detail_share_iv"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_collection"
-        android:textColor="@color/black_color"
-        android:textSize="@dimen/big_size"
-        android:drawableLeft="@mipmap/collection"
-        android:drawablePadding="@dimen/big_margin"
-        android:layout_margin="@dimen/big_margin"/>
-    <TextView
-        android:id="@+id/detail_jp_tv"
+        android:id="@+id/detail_collection_rl">
+        <ImageView
+            android:id="@+id/detail_collection_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/collection"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/big_margin"/>
+        <TextView
+            android:id="@+id/detail_collection_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_collection"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/big_size"
+            android:layout_toRightOf="@id/detail_collection_iv"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_jieping"
-        android:textColor="@color/black_color"
-        android:textSize="@dimen/big_size"
-        android:drawableLeft="@mipmap/jp"
-        android:drawablePadding="@dimen/big_margin"
-        android:layout_margin="@dimen/big_margin"/>
-    <TextView
-        android:id="@+id/detail_character_tv"
+        android:id="@+id/detail_jp_rl">
+        <ImageView
+            android:id="@+id/detail_jp_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/jp"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/big_margin"/>
+        <TextView
+            android:id="@+id/detail_jp_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_jieping"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/big_size"
+            android:layout_toRightOf="@id/detail_jp_iv"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_character"
-        android:textColor="@color/black_color"
-        android:textSize="@dimen/big_size"
-        android:drawableLeft="@mipmap/detail_character"
-        android:drawablePadding="@dimen/big_margin"
-        android:layout_margin="@dimen/big_margin"/>
-    <TextView
-        android:id="@+id/detail_night_tv"
+        android:id="@+id/detail_character_rl">
+        <ImageView
+            android:id="@+id/detail_character_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/detail_character"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/big_margin"/>
+        <TextView
+            android:id="@+id/detail_character_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_character"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/big_size"
+            android:layout_toRightOf="@id/detail_character_iv"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_night"
-        android:textColor="@color/black_color"
-        android:textSize="@dimen/big_size"
-        android:drawableLeft="@mipmap/night"
-        android:drawablePadding="@dimen/big_margin"
-        android:layout_margin="@dimen/big_margin"/>
-    <TextView
-        android:id="@+id/detail_fault_tv"
+        android:id="@+id/detail_night_rl">
+        <ImageView
+            android:id="@+id/detail_night_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/night"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/big_margin"/>
+        <TextView
+            android:id="@+id/detail_night_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_night"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/big_size"
+            android:layout_toRightOf="@id/detail_night_iv"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_fault"
-        android:textColor="@color/black_color"
-        android:textSize="@dimen/big_size"
-        android:drawableLeft="@mipmap/fault"
-        android:drawablePadding="@dimen/big_margin"
-        android:layout_margin="@dimen/big_margin"/>
+        android:id="@+id/detail_fault_rl">
+        <ImageView
+            android:id="@+id/detail_fault_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/fault"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/big_margin"/>
+        <TextView
+            android:id="@+id/detail_fault_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_fault"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/big_size"
+            android:layout_toRightOf="@id/detail_fault_iv"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
 </LinearLayout>

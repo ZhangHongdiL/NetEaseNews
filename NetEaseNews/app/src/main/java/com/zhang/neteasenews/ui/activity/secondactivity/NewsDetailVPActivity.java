@@ -42,11 +42,14 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
     private DetailVpAdapter detailVpAdapter;
     private List<VpDetailEntity.PhotosBean> datas;
 
-    private TextView shareTv, collectionTv, saveTv, faultTv;
+    private RelativeLayout shareRl, collectionRl, saveRl, faultRl;
+    private TextView collectionTv;
+    private ImageView collectionIv;
     private int width, height;
     private LinearLayout rootView;
     private RelativeLayout relativeLayout;
     private View view;
+    private boolean state = false;
 
     @Override
     protected int setLayout() {
@@ -157,10 +160,20 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
         int statusBarHeight = rect.top;
 
         view = getLayoutInflater().inflate(R.layout.act_detail_vp_dialog, null);
-        shareTv = (TextView) view.findViewById(R.id.detail_vp_share_tv);
+        shareRl = (RelativeLayout) view.findViewById(R.id.detail_vp_share_rl);
+        collectionRl = (RelativeLayout) view.findViewById(R.id.detail_vp_collection_rl);
         collectionTv = (TextView) view.findViewById(R.id.detail_vp_collection_tv);
-        saveTv = (TextView) view.findViewById(R.id.detail_vp_save_tv);
-        faultTv = (TextView) view.findViewById(R.id.detail_vp_fault_tv);
+        collectionIv = (ImageView) view.findViewById(R.id.detail_vp_collection_iv);
+
+        saveRl = (RelativeLayout) view.findViewById(R.id.detail_vp_save_rl);
+        faultRl = (RelativeLayout) view.findViewById(R.id.detail_vp_fault_rl);
+
+        collectionRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         pw.setContentView(view);
         pw.setFocusable(true);

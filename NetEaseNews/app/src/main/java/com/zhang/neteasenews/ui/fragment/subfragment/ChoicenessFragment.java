@@ -37,7 +37,7 @@ import java.util.List;
  */
 public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult, OnRefreshListener {
 
-    private int i;
+    private int i= 20;
     private RefreshListView listView;
     private ChoicenessAdapter choicenessAdapter;
     private List<ChoicenessEntity.T1467284926140Bean> datas;

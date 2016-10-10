@@ -115,4 +115,10 @@
     <string name="dialog_night">夜间模式</string>
     <string name="dialog_fault">我要报错</string>
     <string name="dialog_save">保存</string>
+
+    <string name="dialog_change_collection">取消收藏</string>
+
+    <!--toast的文字-->
+    <string name="toast_collection_success">收藏成功!</string>
+    <string name="toast_collection_cancel">已取消收藏!</string>
 </resources>

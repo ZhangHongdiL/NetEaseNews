@@ -33,7 +33,7 @@ import java.util.List;
  */
 public class AmusementFragment extends AbsBaseFragment implements VolleyResult, OnRefreshListener {
 
-    private int i;
+    private int i = 20;
     private AmusementAdapter amusementAdapter;
     private List<AmusementEntity.T1348648517839Bean> datas;
     private List<AmusementEntity.T1348648517839Bean> list;
