@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 import com.zhang.neteasenews.R;
@@ -23,6 +24,7 @@ import com.zhang.neteasenews.ui.activity.secondactivity.NewsDetailActivity;
 import com.zhang.neteasenews.ui.activity.secondactivity.NewsDetailVPActivity;
 import com.zhang.neteasenews.ui.adapter.subadapter.ChoicenessAdapter;
 import com.zhang.neteasenews.ui.fragment.AbsBaseFragment;
+import com.zhang.neteasenews.utils.ScreenSizeUtils;
 import com.zhang.neteasenews.utils.Values;
 import com.zhang.neteasenews.view.OnRefreshListener;
 import com.zhang.neteasenews.view.PullDownListView;
@@ -42,7 +44,9 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult,
     private ChoicenessAdapter choicenessAdapter;
     private List<ChoicenessEntity.T1467284926140Bean> datas;
     private List<ChoicenessEntity.T1467284926140Bean> list;
-//    private View headView;
+    private View headView;
+    private ImageView headImg;
+    private TextView headTv;
 
     public static ChoicenessFragment newInstance() {
 
@@ -60,9 +64,6 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult,
     @Override
     protected void initViews() {
         listView = byView(R.id.fragment_news_headline_lv);
-//        headView = LayoutInflater.from(context).inflate(R.layout.item_fra_news_ch_head, null);
-//        ImageView headImg = (ImageView) headView.findViewById(R.id.item_fra_news_ch_head_img);
-//        TextView headTv = (TextView) headView.findViewById(R.id.item_fra_news_ch_head_tv);
     }
 
     @Override
@@ -71,7 +72,7 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult,
         choicenessAdapter = new ChoicenessAdapter(context);
         listView.setOnRefreshListener(this);
         listView.setAdapter(choicenessAdapter);
-//        listView.addHeaderView(headView);
+
         VolleyInstance.getInstance().startRequest(Values.CHOICENESSURL, this);
     }
 
@@ -80,6 +81,18 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult,
         Gson gson = new Gson();
         ChoicenessEntity choicenessEntity = gson.fromJson(resultStr, ChoicenessEntity.class);
         datas = choicenessEntity.getT1467284926140();
+
+//        headView = LayoutInflater.from(context).inflate(R.layout.choiceness_head, null);
+//        headImg = (ImageView) headView.findViewById(R.id.choiceness_head_iv);
+//        headTv = (TextView) headView.findViewById(R.id.choiceness_head_tv);
+//        headTv.setText(datas.get(0).getTitle());
+//        Glide.with(context).load(datas.get(0).getImgsrc()).override(ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.WIDTH),
+//                ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT) / 3)
+//                .error(R.mipmap.netease_big)
+//                .into(headImg);
+//
+//        listView.addHeaderView(headView);
+
         choicenessAdapter.setDatas(datas);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -101,13 +114,6 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult,
                 }
             }
         });
-
-//        listView.setonRefreshListener(new PullDownListView.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//
-//            }
-//        });
     }
 
     @Override
@@ -127,6 +133,7 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult,
                             Gson gson = new Gson();
                             ChoicenessEntity choicenessEntity = gson.fromJson(resultStr, ChoicenessEntity.class);
                             datas = choicenessEntity.getT1467284926140();
+                            datas.remove(0);
                             choicenessAdapter.setDatas(datas);
                         }
 
@@ -169,7 +176,6 @@ public class ChoicenessFragment extends AbsBaseFragment implements VolleyResult,
                         i = i + 20;
                         list = entity.getT1467284926140();
                         datas.addAll(list);
-                        datas.remove(0);
                         choicenessAdapter.setDatas(datas);
 
                     }

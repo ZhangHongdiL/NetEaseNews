@@ -79,7 +79,6 @@ public class ChoicenessAdapter extends BaseAdapter {
         OneViewHolder oneViewHolder = null;
         ThreeViewHolder threeViewHolder = null;
         int type = getItemViewType(position);
-//        Log.d("ChoicenessAdapter", "type:" + type);
         if (convertView == null) {
 
             switch (type) {
@@ -89,9 +88,7 @@ public class ChoicenessAdapter extends BaseAdapter {
                     convertView.setTag(headViewHolder);
                     break;
                 case Values.CH_TYPE_NORMAL:
-//                    Log.d("ChoicenessAdapter", ">>>>>>>>");
                     convertView = inflater.inflate(R.layout.item_fra_news_headline, parent, false);
-
                     // 为每行设置高度
                     height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
                     ViewGroup.LayoutParams params = convertView.getLayoutParams();
