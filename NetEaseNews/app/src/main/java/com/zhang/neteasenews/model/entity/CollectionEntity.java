@@ -17,23 +17,19 @@ public class CollectionEntity {
 
     private String user;
     private String title;
-    private String url;
+    private String imgurl;
+    private String content;
+    private int reply;
+    private int imgSum;
 
     public CollectionEntity() {
 
     }
 
-    public CollectionEntity(String user, String title, String url) {
-        this.user = user;
+    public CollectionEntity(String title, String imgurl, int imgSum) {
         this.title = title;
-        this.url = url;
-    }
-
-    public CollectionEntity(int id, String user, String title, String url) {
-        this.id = id;
-        this.user = user;
-        this.title = title;
-        this.url = url;
+        this.imgurl = imgurl;
+        this.imgSum = imgSum;
     }
 
     public int getId() {
@@ -60,11 +56,35 @@ public class CollectionEntity {
         this.title = title;
     }
 
-    public String getUrl() {
-        return url;
+    public String getImgurl() {
+        return imgurl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public int getReply() {
+        return reply;
+    }
+
+    public void setReply(int reply) {
+        this.reply = reply;
+    }
+
+    public int getImgSum() {
+        return imgSum;
+    }
+
+    public void setImgSum(int imgSum) {
+        this.imgSum = imgSum;
     }
 }

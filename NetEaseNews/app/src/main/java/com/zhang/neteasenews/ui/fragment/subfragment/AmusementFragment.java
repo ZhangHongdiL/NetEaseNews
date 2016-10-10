@@ -86,10 +86,12 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
                 if (str.startsWith("P")) {  // 轮播图, 三张图片的行布局
                     Intent intent = new Intent(context, NewsDetailVPActivity.class);
                     intent.putExtra("skipId", datas.get(position - 1).getSkipID());
+
                     startActivity(intent);
                 } else if (str.startsWith("C")) {  // 一张图片的行布局
                     Intent intent = new Intent(context, NewsDetailActivity.class);
                     intent.putExtra("url", datas.get(position).getUrl_3w());
+                    intent.putExtra("reply", 123);
                     startActivity(intent);
                 } else {
                     Toast.makeText(context, "无详情", Toast.LENGTH_SHORT).show();

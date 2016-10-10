@@ -44,8 +44,8 @@ public class LiteOrmInstance {
     /**
      * 插入一条数据的方法
      */
-    public void insert(CollectionEntity collectionEntity) {
-        liteOrm.insert(collectionEntity);
+    public void insert(CollectionEntity ce) {
+        liteOrm.insert(ce);
     }
 
     /**

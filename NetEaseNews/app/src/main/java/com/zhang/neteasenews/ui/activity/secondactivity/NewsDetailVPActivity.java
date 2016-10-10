@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
+import com.zhang.neteasenews.model.db.LiteOrmInstance;
+import com.zhang.neteasenews.model.entity.CollectionEntity;
 import com.zhang.neteasenews.model.entity.VpDetailEntity;
 import com.zhang.neteasenews.model.net.VolleyInstance;
 import com.zhang.neteasenews.model.net.VolleyResult;
@@ -52,6 +54,12 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
     private View view;
     private Boolean state = false;
 
+    /**
+     * 数据库实体类的参数
+     */
+    private String title, imgUrl;
+    private int imgSum;
+
     @Override
     protected int setLayout() {
         return R.layout.act_news_detail_vp;
@@ -81,6 +89,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
 
         Intent intent = getIntent();
         skipId = intent.getStringExtra("skipId");
+
         if (!skipId.isEmpty()) {
             skipId = skipId.substring(4, skipId.length());
             skipId = skipId.replace("|", "/");
@@ -108,6 +117,11 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
                 totalTv.setText(vpDetailEntity.getImgsum());
                 contentTv.setText(datas.get(0).getImgtitle() + datas.get(0).getNote());
                 positionTv.setText(1 + "/");
+
+                title = vpDetailEntity.getSetname();
+                imgUrl = vpDetailEntity.getPhotos().get(0).getImgurl();
+                imgSum = Integer.valueOf(vpDetailEntity.getImgsum());
+
                 detailVp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                     @Override
                     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -158,7 +172,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
 
         Rect rect = new Rect();
         getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-        int statusBarHeight = rect.top;
+        int statusBarHeight = rect.top;  // 电量栏的高度
 
         view = getLayoutInflater().inflate(R.layout.act_detail_vp_dialog, null);
         shareRl = (RelativeLayout) view.findViewById(R.id.detail_vp_share_rl);
@@ -172,16 +186,18 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
         collectionRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CollectionEntity ce = new CollectionEntity(title, imgUrl, imgSum);
                 if (state == false) {
                     collectionIv.setImageResource(R.mipmap.collection_true);
                     collectionTv.setText(R.string.dialog_change_collection);
-//                    pw.dismiss();
                     Toast.makeText(NewsDetailVPActivity.this, R.string.toast_collection_success, Toast.LENGTH_SHORT).show();
                     state = true;
+
+                    LiteOrmInstance.getInstance().insert(ce);
                 } else {
+                    pw.update();
                     collectionIv.setImageResource(R.mipmap.collection);
                     collectionTv.setText(R.string.dialog_collection);
-//                    pw.dismiss();
                     Toast.makeText(NewsDetailVPActivity.this, R.string.toast_collection_cancel, Toast.LENGTH_SHORT).show();
                     state = false;
                 }
