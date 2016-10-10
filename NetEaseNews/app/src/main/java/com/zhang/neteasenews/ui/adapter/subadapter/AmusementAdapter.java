@@ -61,9 +61,9 @@ public class AmusementAdapter extends BaseAdapter{
     public int getItemViewType(int position) {
         if (datas.get(position).getOrder() == 1) {
             return Values.CH_TYPE_ROTATE; // 轮播图
-        } else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType())) {
+        } else if (null != datas.get(position).getSkipType() && "photoset".equals(datas.get(position).getSkipType()) &&datas.get(position).getImgextra() != null) {
             return Values.CH_TYPE_THREEIMG; // 三张图片的行布局
-        } else if (datas.get(position).getImgType() == 1) {
+        } else if (datas.get(position).getImgType() == 1 && datas.get(position).getImgextra() == null) {
             return Values.CH_TYPE_ONEIMG; // 一张图片的行布局
         } else {
             return Values.CH_TYPE_NORMAL; // 正常布局
@@ -149,8 +149,10 @@ public class AmusementAdapter extends BaseAdapter{
                     threeHolder.sourceTv.setText(entity.getSource());
                     threeHolder.replyTv.setText(entity.getReplyCount() + "跟帖");
                     Glide.with(context).load(entity.getImgsrc()).error(R.mipmap.netease_big).into(threeHolder.leftImg);
-                    Glide.with(context).load(entity.getImgextra().get(0).getImgsrc()).error(R.mipmap.netease_big).into(threeHolder.middleImg);
-                    Glide.with(context).load(entity.getImgextra().get(1).getImgsrc()).error(R.mipmap.netease_big).into(threeHolder.rightImg);
+                    if (entity.getImgextra() != null) {
+                        Glide.with(context).load(entity.getImgextra().get(0).getImgsrc()).error(R.mipmap.netease_big).into(threeHolder.middleImg);
+                        Glide.with(context).load(entity.getImgextra().get(1).getImgsrc()).error(R.mipmap.netease_big).into(threeHolder.rightImg);
+                    }
                     break;
             }
         }

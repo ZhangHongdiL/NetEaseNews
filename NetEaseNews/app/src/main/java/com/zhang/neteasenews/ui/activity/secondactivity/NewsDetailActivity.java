@@ -42,7 +42,7 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
     private LinearLayout rootView;
     private RelativeLayout relativeLayout;
     private View view;
-    private boolean state = false;
+    private Boolean state = false;
 
     @Override
     protected int setLayout() {
@@ -116,13 +116,13 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
                 if (state == false) {
                     collectionIv.setImageResource(R.mipmap.collection_true);
                     collectionTv.setText(R.string.dialog_change_collection);
-//                    pw.dismiss();
+                    pw.dismiss();
                     Toast.makeText(NewsDetailActivity.this, R.string.toast_collection_success, Toast.LENGTH_SHORT).show();
                     state = true;
                 } else {
                     collectionIv.setImageResource(R.mipmap.collection);
                     collectionTv.setText(R.string.dialog_collection);
-//                    pw.dismiss();
+                    pw.dismiss();
                     Toast.makeText(NewsDetailActivity.this, R.string.toast_collection_cancel, Toast.LENGTH_SHORT).show();
                     state = false;
                 }

@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.zhang.neteasenews.R;
@@ -49,7 +50,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
     private LinearLayout rootView;
     private RelativeLayout relativeLayout;
     private View view;
-    private boolean state = false;
+    private Boolean state = false;
 
     @Override
     protected int setLayout() {
@@ -150,7 +151,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
     }
 
     private void setPopupWindow() {
-        PopupWindow pw = new PopupWindow(this);
+        final PopupWindow pw = new PopupWindow(this);
         width = ScreenSizeUtils.getScreenSize(this, ScreenSizeUtils.ScreenState.WIDTH);
         pw.setWidth(width / 2);
         pw.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -171,7 +172,19 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
         collectionRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (state == false) {
+                    collectionIv.setImageResource(R.mipmap.collection_true);
+                    collectionTv.setText(R.string.dialog_change_collection);
+//                    pw.dismiss();
+                    Toast.makeText(NewsDetailVPActivity.this, R.string.toast_collection_success, Toast.LENGTH_SHORT).show();
+                    state = true;
+                } else {
+                    collectionIv.setImageResource(R.mipmap.collection);
+                    collectionTv.setText(R.string.dialog_collection);
+//                    pw.dismiss();
+                    Toast.makeText(NewsDetailVPActivity.this, R.string.toast_collection_cancel, Toast.LENGTH_SHORT).show();
+                    state = false;
+                }
             }
         });
 
