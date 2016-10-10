@@ -14,6 +14,7 @@ import com.zhang.neteasenews.model.entity.MeListViewEntity;
 import com.zhang.neteasenews.ui.activity.HelpAndFBActivity;
 import com.zhang.neteasenews.ui.activity.LoginActivity;
 import com.zhang.neteasenews.ui.activity.SetActivity;
+import com.zhang.neteasenews.ui.activity.secondactivity.CollectionActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +72,7 @@ public class MeFragment extends AbsBaseFragment implements View.OnClickListener 
                 goTo(LoginActivity.class); // 登陆的点击事件
                 break;
             case R.id.fragment_me_collect: // 收藏的点击事件
-                goTo(LoginActivity.class);
+                goTo(CollectionActivity.class);
                 break;
             case R.id.fragment_me_set:  // 设置的点击事件
                 goTo(SetActivity.class);
@@ -80,6 +81,7 @@ public class MeFragment extends AbsBaseFragment implements View.OnClickListener 
             case R.id.item_fra_me_opinion: // 意见反馈行的跳转
                 goTo(HelpAndFBActivity.class);
                 break;
+
         }
     }
 }

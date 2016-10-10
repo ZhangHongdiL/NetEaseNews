@@ -26,6 +26,7 @@
         <activity android:name=".ui.activity.secondactivity.NewsDetailActivity" />
         <activity android:name=".ui.activity.secondactivity.NewsDetailVPActivity" />
         <activity android:name=".ui.activity.secondactivity.SearchHotActivity"></activity>
+        <activity android:name=".ui.activity.secondactivity.CollectionActivity"/>
     </application>
 
 </manifest>
