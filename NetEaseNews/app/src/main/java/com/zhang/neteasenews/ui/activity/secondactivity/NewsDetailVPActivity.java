@@ -238,7 +238,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
                 oks.setText(datas.get(0).getImgtitle() + datas.get(0).getNote());
                 //分享网络图片，新浪微博分享网络图片需要通过审核后申请高级写入接口，否则请注释掉测试新浪微博
 //                Glide.with(NewsDetailVPActivity.this).load(datas.get(0).getImgurl()).into(oks);
-                
+
                 oks.setImageUrl(datas.get(0).getImgurl());
                 // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
                 //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片

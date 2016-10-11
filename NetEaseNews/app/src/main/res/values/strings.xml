@@ -28,6 +28,12 @@
     <string name="fragment_me_gold">金币</string>
     <string name="fragment_me_login">立即登录</string>
     <string name="fragment_me_action">赢积分 抢大礼!</string>
+    <string name="off_read">已离线阅读</string>
+    <string name="off_read_begin">离线阅读</string>
+    <string name="off_read_toast">开始离线阅读</string>
+    <string name="off_read_stop_toast">结束离线阅读</string>
+    <string name="my_msg">暂无任何消息</string>
+    <string name="dynamic">暂无任何动态</string>
 
     <!--登陆界面-->
     <string name="login_login">登陆</string>
