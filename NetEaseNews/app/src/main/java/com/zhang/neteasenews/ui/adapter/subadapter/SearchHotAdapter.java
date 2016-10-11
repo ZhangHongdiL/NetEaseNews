@@ -28,7 +28,7 @@ public class SearchHotAdapter extends RecyclerView.Adapter<SearchHotAdapter.Sear
 
     public void setDatas(List<SearchHotEntity.HotWordListBean> datas) {
         this.datas = datas;
-        Log.d("rrr", "datas.size():-----" + datas.size());
+//        Log.d("rrr", "datas.size():-----" + datas.size());
         notifyDataSetChanged();
     }
 
@@ -43,7 +43,7 @@ public class SearchHotAdapter extends RecyclerView.Adapter<SearchHotAdapter.Sear
     public void onBindViewHolder(SearchViewHolder holder, int position) {
         if (holder != null) {
             holder.hotTv.setText(datas.get(position).getHotWord());
-        Log.d("rrr", datas.get(position).getHotWord());
+//        Log.d("rrr", datas.get(position).getHotWord());
         }
     }
 
