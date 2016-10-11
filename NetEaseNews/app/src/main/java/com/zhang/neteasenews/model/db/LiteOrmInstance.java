@@ -58,8 +58,8 @@ public class LiteOrmInstance {
     /**
      * 查询所有数据的方法
      */
-    public void queryAll() {
-        liteOrm.query(CollectionEntity.class);
+    public List<CollectionEntity> queryAll() {
+        return liteOrm.query(CollectionEntity.class);
     }
 
     /**
@@ -67,7 +67,7 @@ public class LiteOrmInstance {
      */
     public List<CollectionEntity> queryByTitle(String title) {
         QueryBuilder<CollectionEntity> qb = new QueryBuilder<>(CollectionEntity.class);
-        qb.where("title = ?", new String[]{title});
+        qb.where("title = ?", new Object[]{title});
         return liteOrm.query(qb);
     }
 
@@ -79,7 +79,7 @@ public class LiteOrmInstance {
      */
     public List<CollectionEntity> queryByTitle(String title, int start, int end) {
         QueryBuilder<CollectionEntity> qb = new QueryBuilder<>(CollectionEntity.class);
-        qb.where("title = ?", new String[]{title});
+        qb.where("title = ?", new Object[]{title});
         qb.limit(start, end);
         return liteOrm.query(qb);
     }
@@ -88,7 +88,7 @@ public class LiteOrmInstance {
      * 按条件删除
      */
     public void deleteByTile(String title) {
-        WhereBuilder wb = new WhereBuilder(CollectionEntity.class, "title = ?", new String[]{title});
+        WhereBuilder wb = new WhereBuilder(CollectionEntity.class, "title = ?", new Object[]{title});
         liteOrm.delete(wb);
     }
 

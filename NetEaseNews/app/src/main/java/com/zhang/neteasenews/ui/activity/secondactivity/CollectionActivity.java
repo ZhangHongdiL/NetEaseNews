@@ -1,9 +1,14 @@
 package com.zhang.neteasenews.ui.activity.secondactivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.zhang.neteasenews.R;
+import com.zhang.neteasenews.model.db.LiteOrmInstance;
 import com.zhang.neteasenews.model.entity.CollectionEntity;
 import com.zhang.neteasenews.ui.activity.AbsBaseActivity;
 import com.zhang.neteasenews.ui.adapter.ActCollectionAdapter;
@@ -37,7 +42,22 @@ public class CollectionActivity extends AbsBaseActivity {
     protected void initDatas() {
         adapter = new ActCollectionAdapter(this);
         datas = new ArrayList<>();
+        datas = LiteOrmInstance.getInstance().queryAll();
         adapter.setDatas(datas);
         listView.setAdapter(adapter);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        listView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goTo(CollectionActivity.this ,NewsDetailVPActivity.class);
+            }
+        });
     }
 }

@@ -52,7 +52,8 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
     private LinearLayout rootView;
     private RelativeLayout relativeLayout;
     private View view;
-    private Boolean state = false;
+    private Boolean state = false; // 存储pw的状态
+    private Boolean toast = false; // 存储toast的状态
 
     /**
      * 数据库实体类的参数
@@ -93,9 +94,9 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
         if (!skipId.isEmpty()) {
             skipId = skipId.substring(4, skipId.length());
             skipId = skipId.replace("|", "/");
-            Log.d("iii", skipId);
+//            Log.d("iii", skipId);
             finalUrl = STARTURL + skipId + ENDURL;
-            Log.d("iii", finalUrl);
+//            Log.d("iii", finalUrl);
         }
         datas = new ArrayList<>();
         detailVpAdapter = new DetailVpAdapter(this);
@@ -106,7 +107,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
         VolleyInstance.getInstance().startRequest(finalUrl, new VolleyResult() {
             @Override
             public void success(String resultStr) {
-                Log.d("123", resultStr);
+//                Log.d("123", resultStr);
                 Gson gson = new Gson();
                 vpDetailEntity = gson.fromJson(resultStr, VpDetailEntity.class);
                 datas = vpDetailEntity.getPhotos();
@@ -180,33 +181,47 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
         collectionTv = (TextView) view.findViewById(R.id.detail_vp_collection_tv);
         collectionIv = (ImageView) view.findViewById(R.id.detail_vp_collection_iv);
 
-        saveRl = (RelativeLayout) view.findViewById(R.id.detail_vp_save_rl);
-        faultRl = (RelativeLayout) view.findViewById(R.id.detail_vp_fault_rl);
-
+        if (!LiteOrmInstance.getInstance().queryByTitle(title).isEmpty()) {
+            collectionIv.setImageResource(R.mipmap.collection_true);
+            collectionTv.setText(R.string.dialog_change_collection);
+            toast = false;
+            state = true;
+        } else {
+            collectionIv.setImageResource(R.mipmap.collection);
+            collectionTv.setText(R.string.dialog_collection);
+            LiteOrmInstance.getInstance().deleteByTile(title);
+            toast = true;
+            state = false;
+        }
         collectionRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CollectionEntity ce = new CollectionEntity(title, imgUrl, imgSum);
-                if (state == false) {
-                    collectionIv.setImageResource(R.mipmap.collection_true);
-                    collectionTv.setText(R.string.dialog_change_collection);
-                    Toast.makeText(NewsDetailVPActivity.this, R.string.toast_collection_success, Toast.LENGTH_SHORT).show();
-                    state = true;
 
+                if (state == false) {
+                    pw.dismiss();
                     LiteOrmInstance.getInstance().insert(ce);
                 } else {
-                    pw.update();
-                    collectionIv.setImageResource(R.mipmap.collection);
-                    collectionTv.setText(R.string.dialog_collection);
-                    Toast.makeText(NewsDetailVPActivity.this, R.string.toast_collection_cancel, Toast.LENGTH_SHORT).show();
-                    state = false;
+                    pw.dismiss();
+                    LiteOrmInstance.getInstance().deleteByTile(title);
                 }
+                if (toast == true) {
+                    Toast.makeText(NewsDetailVPActivity.this, R.string.toast_collection_success, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(NewsDetailVPActivity.this, R.string.toast_collection_cancel, Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
+
+        saveRl = (RelativeLayout) view.findViewById(R.id.detail_vp_save_rl);
+        faultRl = (RelativeLayout) view.findViewById(R.id.detail_vp_fault_rl);
 
         pw.setContentView(view);
         pw.setFocusable(true);
         pw.setOutsideTouchable(true);
         pw.showAtLocation(relativeLayout, Gravity.NO_GRAVITY, width, statusBarHeight);
+        pw.isShowing();
+
     }
 }

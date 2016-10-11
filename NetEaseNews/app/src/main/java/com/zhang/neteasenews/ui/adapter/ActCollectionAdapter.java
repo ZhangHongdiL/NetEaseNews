@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.model.entity.CollectionEntity;
+import com.zhang.neteasenews.utils.ScreenSizeUtils;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class ActCollectionAdapter extends BaseAdapter {
 
     private Context context;
     private List<CollectionEntity> datas;
+    private int height;
 
     public ActCollectionAdapter(Context context) {
         this.context = context;
@@ -52,6 +54,12 @@ public class ActCollectionAdapter extends BaseAdapter {
         CollcetionHolder collcetionHolder = null;
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_act_collection, parent, false);
+            // 设置行布局的高度
+            height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
+            ViewGroup.LayoutParams params = convertView.getLayoutParams();
+            params.height = height / 3;
+            convertView.setLayoutParams(params);
+
             collcetionHolder = new CollcetionHolder(convertView);
             convertView.setTag(collcetionHolder);
         } else {
@@ -59,7 +67,7 @@ public class ActCollectionAdapter extends BaseAdapter {
         }
         CollectionEntity entity = (CollectionEntity) getItem(position);
         collcetionHolder.titleTv.setText(entity.getTitle());
-        collcetionHolder.sumTv.setText(entity.getImgSum());
+        collcetionHolder.sumTv.setText(entity.getImgSum() + "张");
         Glide.with(context).load(entity.getImgurl()).error(R.mipmap.netease_big).into(collcetionHolder.img);
         return convertView;
     }
