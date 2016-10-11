@@ -57,7 +57,7 @@ public class ActCollectionAdapter extends BaseAdapter {
             // 设置行布局的高度
             height = ScreenSizeUtils.getScreenSize(context, ScreenSizeUtils.ScreenState.HEIGHT);
             ViewGroup.LayoutParams params = convertView.getLayoutParams();
-            params.height = height / 3;
+            params.height = height / 2;
             convertView.setLayoutParams(params);
 
             collcetionHolder = new CollcetionHolder(convertView);

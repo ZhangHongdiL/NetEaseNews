@@ -60,10 +60,10 @@ public class CollectionActivity extends AbsBaseActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                skipId = datas.get(position).getPhotoId();
+                skipId = datas.get(position).getSkipId();
                 Intent intent = new Intent(CollectionActivity.this, NewsDetailVPActivity.class);
                 intent.putExtra("skipId", skipId);
-                Log.d("aaa", skipId);
+//                Log.d("aaa", skipId);
                 startActivity(intent);
             }
         });

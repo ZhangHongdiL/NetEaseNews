@@ -21,17 +21,17 @@ public class CollectionEntity {
     private String content;
     private int reply;
     private int imgSum;
-    private String photoId;
+    private String skipId;
 
     public CollectionEntity() {
 
     }
 
-    public CollectionEntity(String title, String imgurl, int imgSum , String photoId) {
+    public CollectionEntity(String title, String imgurl, int imgSum , String skipId) {
         this.title = title;
         this.imgurl = imgurl;
         this.imgSum = imgSum;
-        this.photoId = photoId;
+        this.skipId = skipId;
     }
 
     public int getId() {
@@ -90,11 +90,11 @@ public class CollectionEntity {
         this.imgSum = imgSum;
     }
 
-    public String getPhotoId() {
-        return photoId;
+    public String getSkipId() {
+        return skipId;
     }
 
-    public void setPhotoId(String photoId) {
-        this.photoId = photoId;
+    public void setSkipId(String skipId) {
+        this.skipId = skipId;
     }
 }
