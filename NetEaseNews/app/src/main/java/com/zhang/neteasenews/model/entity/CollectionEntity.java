@@ -21,15 +21,17 @@ public class CollectionEntity {
     private String content;
     private int reply;
     private int imgSum;
+    private String photoId;
 
     public CollectionEntity() {
 
     }
 
-    public CollectionEntity(String title, String imgurl, int imgSum) {
+    public CollectionEntity(String title, String imgurl, int imgSum , String photoId) {
         this.title = title;
         this.imgurl = imgurl;
         this.imgSum = imgSum;
+        this.photoId = photoId;
     }
 
     public int getId() {
@@ -86,5 +88,13 @@ public class CollectionEntity {
 
     public void setImgSum(int imgSum) {
         this.imgSum = imgSum;
+    }
+
+    public String getPhotoId() {
+        return photoId;
+    }
+
+    public void setPhotoId(String photoId) {
+        this.photoId = photoId;
     }
 }

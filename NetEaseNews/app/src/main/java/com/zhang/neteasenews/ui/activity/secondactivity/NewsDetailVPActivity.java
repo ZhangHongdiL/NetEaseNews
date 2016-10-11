@@ -196,7 +196,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
         collectionRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CollectionEntity ce = new CollectionEntity(title, imgUrl, imgSum);
+                CollectionEntity ce = new CollectionEntity(title, imgUrl, imgSum, skipId);
 
                 if (state == false) {
                     pw.dismiss();
