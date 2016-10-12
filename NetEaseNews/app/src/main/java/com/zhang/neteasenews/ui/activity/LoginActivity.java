@@ -1,6 +1,5 @@
 package com.zhang.neteasenews.ui.activity;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
