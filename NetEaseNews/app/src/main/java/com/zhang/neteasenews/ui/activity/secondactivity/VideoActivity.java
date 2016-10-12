@@ -14,6 +14,9 @@ import android.widget.VideoView;
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.activity.AbsBaseActivity;
 
+/**
+ * 播放视频的Activity
+ */
 public class VideoActivity extends AbsBaseActivity {
 
     private VideoView videoView;

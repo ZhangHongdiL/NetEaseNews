@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/9/16.
+ * 新闻界面popupwindow的适配器
  */
 public class NewsPwAdapter extends RecyclerView.Adapter<NewsPwAdapter.NewsPwHolder> {
 

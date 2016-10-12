@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by dllo on 16/10/9.
+ * 详情二级界面的适配器
  */
 public class DetailVpAdapter extends PagerAdapter {
 

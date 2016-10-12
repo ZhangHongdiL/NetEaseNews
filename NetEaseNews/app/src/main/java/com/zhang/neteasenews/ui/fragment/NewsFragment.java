@@ -127,12 +127,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
         view = LayoutInflater.from(context).inflate(R.layout.fragment_news_popupwindow, null);
         recyclerView = (RecyclerView) view.findViewById(R.id.popupwindow_rv);
         pwIv = (ImageView) view.findViewById(R.id.fragment_news_pw_iv);
-        pwIv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
         pw.setContentView(view);
         pw.setFocusable(true);
         pw.setOutsideTouchable(true);
@@ -166,10 +161,6 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
                 pw.dismiss();
             }
         });
-//        int po = viewPager.getCurrentItem();
-//        tabLayout.setTabTextColors(Color.parseColor("#a9b7b7"), Color.parseColor("#eb4f38"));
-//        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#eb4f38"));
-//        newsPwAdapter.setCurrent(po);
     }
 
     private void setData() {
@@ -177,7 +168,7 @@ public class NewsFragment extends AbsBaseFragment implements View.OnClickListene
          * get到的是array数组!!!!!
          */
         for (int i = 0; i < fragments.size(); i++) {
-            tabLayout.getTabAt(i).setText((getResources().getStringArray(R.array.titles))[i] + "");
+            tabLayout.getTabAt(i).setText((getResources().getStringArray(R.array.titles))[i]);
         }
     }
 

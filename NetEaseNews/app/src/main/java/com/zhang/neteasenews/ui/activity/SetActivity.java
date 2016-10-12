@@ -5,6 +5,9 @@ import android.widget.ImageView;
 
 import com.zhang.neteasenews.R;
 
+/**
+ * 设置界面的Activity
+ */
 public class SetActivity extends AbsBaseActivity implements View.OnClickListener {
 
     private ImageView backIv;

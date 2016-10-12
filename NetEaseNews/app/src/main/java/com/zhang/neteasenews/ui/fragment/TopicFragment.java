@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import com.zhang.neteasenews.R;
 import com.zhang.neteasenews.ui.activity.LoginActivity;
+import com.zhang.neteasenews.ui.activity.secondactivity.SearchHotActivity;
 import com.zhang.neteasenews.ui.adapter.TopicTabLayoutAdapter;
 import com.zhang.neteasenews.ui.fragment.topicsubfragment.AskFragment;
 import com.zhang.neteasenews.ui.fragment.topicsubfragment.AttentionFragment;
@@ -72,15 +73,16 @@ public class TopicFragment extends AbsBaseFragment implements View.OnClickListen
         topicTl.setTabTextColors(Color.GRAY, Color.WHITE);
         topicVp.setAdapter(topicTabLayoutAdapter);
         topicTl.setupWithViewPager(topicVp);
-        topicTl.getTabAt(0).setText("问吧");
-        topicTl.getTabAt(1).setText("话题");
-        topicTl.getTabAt(2).setText("关注");
+        for (int i = 0; i < fragments.size(); i++) {
+            topicTl.getTabAt(i).setText(getResources().getStringArray(R.array.topic_titles)[i]);
+        }
 
         setListener();
     }
 
     private void setListener() {
         topicPerson.setOnClickListener(this);
+        topicSearch.setOnClickListener(this);
     }
 
     @Override
@@ -88,6 +90,9 @@ public class TopicFragment extends AbsBaseFragment implements View.OnClickListen
         switch (v.getId()) {
             case R.id.fragment_topic_person:
                 goTo(LoginActivity.class);
+                break;
+            case R.id.fragment_topic_search:
+                goTo(SearchHotActivity.class);
                 break;
         }
     }

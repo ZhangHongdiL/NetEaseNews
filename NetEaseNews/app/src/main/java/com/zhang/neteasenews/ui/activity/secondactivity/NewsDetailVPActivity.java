@@ -32,6 +32,9 @@ import java.util.List;
 
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
+/**
+ * 新闻详情的二级界面的Activity
+ */
 public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClickListener {
 
     private ViewPager detailVp;
@@ -58,6 +61,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
     private Boolean state = false; // 存储pw的状态
     private Boolean toast = false; // 存储toast的状态
     private String id;
+    private int type; // 存储行布局类型
 
     /**
      * 数据库实体类的参数
@@ -200,7 +204,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
         collectionRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CollectionEntity ce = new CollectionEntity(title, imgUrl, imgSum, id);
+                CollectionEntity ce = new CollectionEntity(title, imgUrl, imgSum, id, type);
 
                 if (state == false) {
                     pw.dismiss();
@@ -233,7 +237,7 @@ public class NewsDetailVPActivity extends AbsBaseActivity implements View.OnClic
                 // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
                 oks.setTitle(vpDetailEntity.getSetname());
                 // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
-                oks.setTitleUrl("http://sharesdk.cn");
+//                oks.setTitleUrl("http://sharesdk.cn");
                 // text是分享文本，所有平台都需要这个字段
                 oks.setText(datas.get(0).getImgtitle() + datas.get(0).getNote());
                 //分享网络图片，新浪微博分享网络图片需要通过审核后申请高级写入接口，否则请注释掉测试新浪微博

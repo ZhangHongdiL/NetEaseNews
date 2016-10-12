@@ -129,8 +129,16 @@ public class ThemeAdapter extends BaseAdapter {
                 twoViewHolder.twoTitleTv.setText("#" + subjectListBean.getName() + "#");
                 twoViewHolder.upTv.setText("\"" + subjectListBean.getTalkContent().get(0).getContent() + "\"");
                 twoViewHolder.downTv.setText("\"" + subjectListBean.getTalkContent().get(1).getContent() + "\"");
-                Glide.with(context).load(subjectListBean.getTalkContent().get(0).getUserHeadPicUrl().toString()).error(R.mipmap.netease_small).into(twoViewHolder.upCiv);
-                Glide.with(context).load(subjectListBean.getTalkContent().get(1).getUserHeadPicUrl().toString()).error(R.mipmap.netease_small).into(twoViewHolder.downCiv);
+                if (!subjectListBean.getTalkContent().get(0).getUserHeadPicUrl().isEmpty()) {
+                    Glide.with(context).load(subjectListBean.getTalkContent().get(0).getUserHeadPicUrl().toString()).error(R.mipmap.netease_small).into(twoViewHolder.upCiv);
+                } else {
+                    twoViewHolder.upCiv.setImageResource(R.mipmap.netease_small);
+                }
+                if (!subjectListBean.getTalkContent().get(1).getUserHeadPicUrl().isEmpty()) {
+                    Glide.with(context).load(subjectListBean.getTalkContent().get(1).getUserHeadPicUrl().toString()).error(R.mipmap.netease_small).into(twoViewHolder.downCiv);
+                } else {
+                    twoViewHolder.downCiv.setImageResource(R.mipmap.netease_small);
+                }
                 twoViewHolder.twoSourceTv.setText(subjectListBean.getClassification());
                 twoViewHolder.twoAttentionTv.setText(subjectListBean.getConcernCount() + "关注");
                 twoViewHolder.twoAskTv.setText(subjectListBean.getTalkCount() + "讨论");

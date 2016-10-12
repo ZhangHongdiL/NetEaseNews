@@ -61,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:background="@null"
+                    android:inputType="textPassword"
                     android:drawableLeft="@mipmap/login_password_et"
                     android:hint="@string/login_password"
                     android:textColorHint="@color/gray_color" />
@@ -76,7 +77,7 @@
         </LinearLayout>
     </LinearLayout>
     <TextView
-        android:id="@+id/login_enter_btn"
+        android:id="@+id/login_enter_tv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

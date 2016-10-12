@@ -1,6 +1,5 @@
 package com.zhang.neteasenews.ui.activity.secondactivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,7 +48,6 @@ public class CollectionActivity extends AbsBaseActivity {
         adapter.setDatas(datas);
         listView.setAdapter(adapter);
 
-
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +61,6 @@ public class CollectionActivity extends AbsBaseActivity {
                 skipId = datas.get(position).getSkipId();
                 Intent intent = new Intent(CollectionActivity.this, NewsDetailVPActivity.class);
                 intent.putExtra("skipId", skipId);
-//                Log.d("aaa", skipId);
                 startActivity(intent);
             }
         });

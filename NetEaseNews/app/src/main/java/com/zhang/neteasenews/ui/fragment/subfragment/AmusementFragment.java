@@ -33,7 +33,7 @@ import java.util.List;
  */
 public class AmusementFragment extends AbsBaseFragment implements VolleyResult, OnRefreshListener {
 
-    private int i = 20;
+    private int i;
     private AmusementAdapter amusementAdapter;
     private List<AmusementEntity.T1348648517839Bean> datas;
     private List<AmusementEntity.T1348648517839Bean> list;
@@ -64,6 +64,7 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
 
     @Override
     protected void initDatas() {
+        i = 20;
         datas = new ArrayList<>();
         amusementAdapter = new AmusementAdapter(context);
         lv.setOnRefreshListener(this);
@@ -93,7 +94,7 @@ public class AmusementFragment extends AbsBaseFragment implements VolleyResult, 
                     intent.putExtra("url", datas.get(position).getUrl_3w());
                     startActivity(intent);
                 } else {
-                    Toast.makeText(context, "无详情", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.no_detail, Toast.LENGTH_SHORT).show();
                 }
 
             }

@@ -22,16 +22,27 @@ public class CollectionEntity {
     private int reply;
     private int imgSum;
     private String skipId;
+    private int type;
+    private String url;
 
     public CollectionEntity() {
 
     }
 
-    public CollectionEntity(String title, String imgurl, int imgSum , String skipId) {
+    public CollectionEntity(String title, String imgurl, int imgSum, String skipId, int type) {
         this.title = title;
         this.imgurl = imgurl;
         this.imgSum = imgSum;
         this.skipId = skipId;
+        this.type = type;
+    }
+
+    public CollectionEntity(String title, String content, int reply, int type, String url) {
+        this.title = title;
+        this.content = content;
+        this.reply = reply;
+        this.type = type;
+        this.url = url;
     }
 
     public int getId() {
@@ -96,5 +107,21 @@ public class CollectionEntity {
 
     public void setSkipId(String skipId) {
         this.skipId = skipId;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

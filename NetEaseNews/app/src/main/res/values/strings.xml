@@ -11,8 +11,20 @@
         <item>视频</item>
     </string-array>
 
+    <!--话题界面的标题-->
+    <string-array name="topic_titles">
+        <item>问吧</item>
+        <item>话题</item>
+        <item>关注</item>
+    </string-array>
+
     <!--抽取的文字-->
     <string name="join">参加</string>
+    <string name="login_over">完成</string>
+    <string name="login_error">错误</string>
+    <string name="login_cancel">取消</string>
+    <string name="out_app">再按一次退出程序</string>
+    <string name="no_detail">无详情</string>
 
     <!--一级界面的Button文字-->
     <string name="news_character">新闻</string>

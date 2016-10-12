@@ -42,7 +42,7 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
     private LinearLayout rootView;
     private RelativeLayout relativeLayout;
     private View view;
-    private Boolean state = false;
+    private Boolean state;
 
     @Override
     protected int setLayout() {
@@ -78,14 +78,11 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
             }
         });
 
-        //WebSettings set = detailWv.getSettings();
-       // set.setJavaScriptEnabled(true);
-        //set.setJavaScriptCanOpenWindowsAutomatically(true);
-
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
-//        Log.d("vvvv", url);
         detailWv.loadUrl(url);
+
+        state = false;
     }
 
     private void setPopupWindow() {
