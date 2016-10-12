@@ -25,6 +25,7 @@
     <string name="login_cancel">取消</string>
     <string name="out_app">再按一次退出程序</string>
     <string name="no_detail">无详情</string>
+    <string name="turn_enter">跳转</string>
 
     <!--一级界面的Button文字-->
     <string name="news_character">新闻</string>

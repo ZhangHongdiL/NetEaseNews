@@ -26,6 +26,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.MainActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +41,7 @@
         <activity android:name=".ui.activity.secondactivity.VideoActivity" />
         <activity android:name=".ui.activity.secondactivity.NewsDetailActivity" />
         <activity android:name=".ui.activity.secondactivity.NewsDetailVPActivity" />
-        <activity android:name=".ui.activity.secondactivity.SearchHotActivity"></activity>
+        <activity android:name=".ui.activity.secondactivity.SearchHotActivity"/>
         <activity android:name=".ui.activity.secondactivity.CollectionActivity"/>
 
         <activity
