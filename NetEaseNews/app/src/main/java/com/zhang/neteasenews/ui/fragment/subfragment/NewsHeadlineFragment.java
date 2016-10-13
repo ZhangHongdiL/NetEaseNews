@@ -200,6 +200,7 @@ public class NewsHeadlineFragment extends AbsBaseFragment implements VolleyResul
     public void onPause() {
         super.onPause();
         isRotate = false;
+        handler.removeCallbacks(rotateRunnable);
     }
 //=====================================================================================
 

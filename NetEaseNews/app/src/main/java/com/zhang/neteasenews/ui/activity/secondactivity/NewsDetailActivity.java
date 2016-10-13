@@ -80,8 +80,27 @@ public class NewsDetailActivity extends AbsBaseActivity implements View.OnClickL
 
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
-        detailWv.loadUrl(url);
 
+        WebSettings set = detailWv.getSettings();
+        // 让WebView能够执行JavaScript
+        set.setJavaScriptEnabled(true);
+//        // 让JavaScript能够自动打开windows
+        set.setJavaScriptCanOpenWindowsAutomatically(true);
+//        // 设置缓存
+        set.setAppCacheEnabled(true);
+//        // 支持缩放(适配到当前屏幕)
+        set.setSupportZoom(true);
+//        // 将图片调整到合适的大小
+        set.setUseWideViewPort(true);
+//        // 支持内容重新布局, 一共四种方式
+//        // 默认的是NARROW_COLUMNS
+        set.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+//        // 设置可以被显示的屏幕控制
+        set.setDisplayZoomControls(true);
+//        // 设置默认字体大小
+        set.setDefaultFontSize(20);
+
+        detailWv.loadUrl(url);
         state = false;
     }
 

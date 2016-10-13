@@ -61,7 +61,7 @@ public class NewsPwAdapter extends RecyclerView.Adapter<NewsPwAdapter.NewsPwHold
     }
 
     @Override
-    public void onBindViewHolder(final NewsPwHolder holder, int position) {
+    public void onBindViewHolder(final NewsPwHolder holder, final int position) {
         if (holder != null) {
             holder.pwTv.setText(datas.get(position));
         }
@@ -69,14 +69,16 @@ public class NewsPwAdapter extends RecyclerView.Adapter<NewsPwAdapter.NewsPwHold
             @Override
             public void onClick(View v) {
                 position2 = holder.getLayoutPosition();
-                String str = datas.get(position2);
-                popupRecyclerItemClick.onRvItemClickListener(position2, str);
+                String str = datas.get(position);
+                popupRecyclerItemClick.onRvItemClickListener(position, str);
             }
         });
         if (position == current) {
             holder.pwTv.setBackgroundColor(Color.RED);
+            holder.pwTv.setTextColor(Color.WHITE);
         } else {
             holder.pwTv.setBackgroundColor(Color.WHITE);
+            holder.pwTv.setTextColor(Color.BLACK);
         }
 
         holder.pwTv.setOnLongClickListener(new View.OnLongClickListener() {
